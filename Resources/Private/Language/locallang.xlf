@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2024-04-01T14:19:26Z" product-name="hgon_species">
+		<header/>
+		<body>
+			<trans-unit id="tx_hgonspecies_domain_model_species">
+				<source>Species</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.name_science">
+				<source>Name Science</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.name_discoverer">
+				<source>Name Discoverer</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.year">
+				<source>Year</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.characteristic">
+				<source>Characteristic</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.habitat">
+				<source>Habitat</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.dissemination">
+				<source>Dissemination</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.grid_frequency">
+				<source>Grid Frequency</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.last_updated_date">
+				<source>Last Updated Date</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.red_list_hessia">
+				<source>Red List Hessia</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.red_list_germany">
+				<source>Red List Germany</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.phenology">
+				<source>Phenology</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.mtb64">
+				<source>Mtb64</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.proof">
+				<source>Proof</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.dissemination_img">
+				<source>Dissemination Img</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.sidebar_img">
+				<source>Sidebar Img</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.files">
+				<source>Files</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.family">
+				<source>Family</source>
+			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.extended_family">
+				<source>Extended Family</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

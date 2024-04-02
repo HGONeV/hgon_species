@@ -1,0 +1,56 @@
+config.tx_extbase.persistence.classes {
+    HGON\HgonSpecies\Domain\Model\Species {
+        subclasses {
+            0 = HGON\HgonSpecies\Domain\Model\SpeciesDefault
+            1 = HGON\HgonSpecies\Domain\Model\SpeciesDragonfly
+        }
+    }
+
+    HGON\HgonSpecies\Domain\Model\SpeciesDefault {
+        mapping {
+            recordType = default
+            tableName = tx_hgonspecies_domain_model_species
+        }
+    }
+
+    HGON\HgonSpecies\Domain\Model\SpeciesDragonfly {
+        mapping {
+            recordType = dragonfly
+            tableName = tx_hgonspecies_domain_model_species
+        }
+    }
+
+
+}
+
+
+
+plugin.tx_hgonspecies {
+    view {
+        templateRootPaths.0 = EXT:{extension.extensionKey}/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_hgonspecies.view.templateRootPath}
+        partialRootPaths.0 = EXT:hgon_species/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_hgonspecies.view.partialRootPath}
+        layoutRootPaths.0 = EXT:hgon_species/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_hgonspecies.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_hgonspecies.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        #ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        #requireCHashArgumentForActionArguments = 1
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+
+}
+
+plugin.tx_hgonspecies_list.settings < plugin.tx_hgonspecies.settings
+
+

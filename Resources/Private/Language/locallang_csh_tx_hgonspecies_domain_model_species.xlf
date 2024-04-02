@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2024-04-01T14:19:26Z" product-name="hgon_species">
+		<header/>
+		<body>
+			<trans-unit id="name.description">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="name_science.description">
+				<source>nameScience</source>
+			</trans-unit>
+			<trans-unit id="name_discoverer.description">
+				<source>nameDiscoverer</source>
+			</trans-unit>
+			<trans-unit id="year.description">
+				<source>year</source>
+			</trans-unit>
+			<trans-unit id="characteristic.description">
+				<source>characteristic</source>
+			</trans-unit>
+			<trans-unit id="habitat.description">
+				<source>habitat</source>
+			</trans-unit>
+			<trans-unit id="dissemination.description">
+				<source>dissemination</source>
+			</trans-unit>
+			<trans-unit id="grid_frequency.description">
+				<source>gridFrequency</source>
+			</trans-unit>
+			<trans-unit id="last_updated_date.description">
+				<source>Feld &amp;quot;Stand&amp;quot; (vermutlich letzte Aktualisierung?)</source>
+			</trans-unit>
+			<trans-unit id="red_list_hessia.description">
+				<source>redListHessia</source>
+			</trans-unit>
+			<trans-unit id="red_list_germany.description">
+				<source>redListGermany</source>
+			</trans-unit>
+			<trans-unit id="phenology.description">
+				<source>phenology</source>
+			</trans-unit>
+			<trans-unit id="mtb64.description">
+				<source>mtb64</source>
+			</trans-unit>
+			<trans-unit id="proof.description">
+				<source>Feld &amp;quot;Nachw&amp;quot;</source>
+			</trans-unit>
+			<trans-unit id="image.description">
+				<source>image</source>
+			</trans-unit>
+			<trans-unit id="dissemination_img.description">
+				<source>disseminationImg</source>
+			</trans-unit>
+			<trans-unit id="sidebar_img.description">
+				<source>sidebarImg</source>
+			</trans-unit>
+			<trans-unit id="files.description">
+				<source>files</source>
+			</trans-unit>
+			<trans-unit id="family.description">
+				<source>family</source>
+			</trans-unit>
+			<trans-unit id="extended_family.description">
+				<source>extendedFamily</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

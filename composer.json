@@ -1,0 +1,28 @@
+{
+    "name": "hgon/hgon-species",
+    "type": "typo3-cms-extension",
+    "description": "Shows species lists",
+    "authors": [
+        {
+            "name": "Maximilian F\u00e4\u00dfler",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^8.7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "HGON\\HgonSpecies\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HGON\\HgonSpecies\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "hgon_species": "self.version",
+        "typo3-ter/hgon-species": "self.version"
+    }
+}
