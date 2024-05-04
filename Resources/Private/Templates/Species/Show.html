@@ -1,16 +1,14 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-
+<f:comment>
     Show
 
     {species.name}
     {species.nameScience}
     {species.nameDiscoverer}
-    {species.year}
     {species.characteristic}
     {species.habitat}
     {species.dissemination}
     {species.gridFrequency}
-    {species.lastUpdatedDate}
     {species.redListHessia}
     {species.redListGermany}
     {species.phenology}
@@ -20,5 +18,243 @@
     {species.sidebarImg}
     {species.family}
     {species.extendedFamily}
+</f:comment>
+
+
+<div class="grid">
+    <h1 class="headline mb-0">
+        Cordulia aenea (Linnaeus, 1758) – Falkenlibelle
+    </h1>
+    <p>Unterordnung Anisoptera (Großlibellen)<br>
+    Familie Corduliidae (Falkenlibellen)</p>
+</div>
+<div class="flex-container space-between gutter">
+    <div class="flex-item c-4">
+        <div class="species--slider mb-1">
+            <div id="species--slider-main" class="splide">
+                <div class="splide__track">
+                  <ul class="splide__list">
+                    <li class="splide__slide">
+                      <img src="fileadmin/media/image-placeholder.jpg" />
+                    </li>
+                    <li class="splide__slide">
+                      <img src="fileadmin/media/image-placeholder.jpg" />
+                    </li>
+                    <li class="splide__slide">
+                      <img src="fileadmin/media/image-placeholder.jpg" />
+                    </li>
+                    <li class="splide__slide">
+                        <img src="fileadmin/media/image-placeholder.jpg" />
+                      </li>
+                    <li class="splide__slide">
+                        <img src="fileadmin/media/image-placeholder.jpg" />
+                      </li>
+                  </ul>
+                </div>
+              </div>
+    
+            <div id="species--slider-thumbnail" class="splide">
+                <div class="splide__track">
+                      <ul class="splide__list">
+                          <li class="splide__slide">
+                              <img src="fileadmin/media/image-placeholder.jpg">
+                          </li>
+                          <li class="splide__slide">
+                              <img src="fileadmin/media/image-placeholder.jpg">
+                          </li>
+                          <li class="splide__slide">
+                              <img src="fileadmin/media/image-placeholder.jpg">
+                          </li>
+                          <li class="splide__slide">
+                            <img src="fileadmin/media/image-placeholder.jpg">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="fileadmin/media/image-placeholder.jpg">
+                        </li>
+                      </ul>
+                </div>
+            </div>
+            <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function(event) { 
+                    var main = new Splide('#species--slider-main', {
+                        type      : 'fade',
+                        rewind    : true,
+                        pagination: false,
+                        arrows    : false,
+                    });
+                    
+                    var thumbnails = new Splide('#species--slider-thumbnail', {
+                        fixedWidth  : 100,
+                        fixedHeight : 60,
+                        gap         : 5,
+                        rewind      : true,
+                        pagination  : false,
+                        cover       : true,
+                        isNavigation: true,
+                        breakpoints : {
+                            600: {
+                            fixedWidth : 60,
+                            fixedHeight: 44,
+                            },
+                        },
+                    });
+
+                    main.sync( thumbnails );
+                    main.mount();
+                    thumbnails.mount();
+                });
+            </script>
+        </div>
+        <div class="grid no-padding grid__padding_between">
+            <div class="grid__col c-6 grid__col--medium-half">
+                <a href="#" class="link link--icon js-open-mdl" data-mdl="image1"><img alt="Phaen_Cordulia_aenea.jpg" src="fileadmin/media/image-placeholder.jpg"></a>
+                <div id="image1" class="mdl mdl-auto-height js-mdl">
+                    <button class="btn btn--square btn--transparent mdl__close js-close-mdl"><svg class="is-centered" width="12" height="12"><use xlink:href="#ui-close"></use></svg></button>
+                    <div class="mdl__content">
+                        <img alt="Phaen_Cordulia_aenea.jpg" src="fileadmin/media/image-placeholder.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="grid__col c-6 grid__col--medium-half">
+                <a href="#" class="link link--icon js-open-mdl" data-mdl="image3"><img alt="Phaen_Cordulia_aenea.jpg" src="fileadmin/media/image-placeholder.jpg"></a>
+                <div id="image3" class="mdl mdl-auto-height js-mdl">
+                    <button class="btn btn--square btn--transparent mdl__close js-close-mdl"><svg class="is-centered" width="12" height="12"><use xlink:href="#ui-close"></use></svg></button>
+                    <div class="mdl__content">
+                        <img alt="Phaen_Cordulia_aenea.jpg" src="fileadmin/media/image-placeholder.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-item c-5">
+        <h2>Merkmale</h2>
+        <p>Thorax und Abdomen zunächst dunkel metallisch grün, im Alter bronzefarben, Augen grün.
+            Abdomen des Männchens im Übergang S7/S8 am breitesten, obere Appendizes parallel und gerade,
+            untere am Ende auffällig gegabelt. Abdomen des Weibchens sehr kräftig, nahezu zylindrisch,
+            Legescheide mittelgroß und nach hinten gerichtet.
+
+        </p>
+        <h2>Lebensraum</h2>
+        <p>Stillgewässer unterschiedlichster Art (Abgrabungsgewässer, Altarme, Angelseen, Teiche und
+            Weiher). Regelmäßig entwickelt sie sich auch in oft dicht verwachsenen, permanent
+            wasserführenden Naturschutzgewässern. An größeren Gewässern werden oft mehrere Dutzend Tiere
+            angetroffen. Dabei zeigen die Männchen ein ausgeprägtes Territorialverhalten und
+            patrouillieren vor allem in den besonnten Uferabschnitten unermüdlich hin und her.
+
+        </p>
+        <h2>Verbreitung</h2>
+        <p>In ganz Hessen verbreitet, wobei die in der Verbreitungskarte ersichtlichen Nachweislücken in jüngerer Zeit
+            erfassungsbedingt sein dürften.
+        </p>
+        <div class="flex-container no-padding">
+            <div class="flex-item c-6 no-padding flex-item--medium-half">
+                <p>Rasterfrequenz: 45,0</p>
+            </div>
+            <div class="flex-item c-6 no-padding flex-item--medium-half">
+                <p>Stand: 31.12.2022</p>
+            </div>
+        </div>
+        <h2>Phänologie</h2>
+        <p>Zusammen mit Brachytron unsere früheste Großlibelle. Die Emergenzperiode beginnt in den
+            meisten Jahren in der dritte Aprildekade. Hauptflugzeit Anfang Mai bis Anfang/Mitte Juli.
+            Augustbeobachtungen sind selten.
+
+        </p>
+        <div class="flex-container no-padding">
+            <div class="flex-item c-6 no-padding flex-item--medium-half">
+                <p>EB: 12.04.2014</p>
+            </div>
+            <div class="flex-item c-6 no-padding flex-item--medium-half">
+                <p>LB: 27.08.2008</p>
+            </div>
+        </div>
+    </div>
+    <div class="flex-item c-3">
+        <div class="species-profiles-list mb-1">Artensteckbriefe
+            <ul>
+                <li class="species-family active"><a
+                        href="/libellen-in-hessen/artensteckbriefe/calopterygidae/">Calopterygidae</a>
+                    <ul class="species-subfamily">
+                        <li><a href="#">Calopteryx splendens</a></li>
+                        <li><a href="#">Calopteryx virgo</a></li>
+                    </ul>
+                </li>
+
+                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/lestidae/">Lestidae</a>
+                    <ul class="species-subfamily">
+                        <li><a href="#">Calopteryx splendens</a></li>
+                        <li><a href="#">Calopteryx virgo</a></li>
+                    </ul>
+                </li>
+
+                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/platycnemididae/">Platycnemididae</a>
+                    <ul class="species-subfamily">
+                        <li><a href="#">Calopteryx splendens</a></li>
+                        <li><a href="#">Calopteryx virgo</a></li>
+                    </ul>
+                </li>
+
+                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/coenagrionidae/">Coenagrionidae</a>
+                    <ul class="species-subfamily">
+                        <li><a href="#">Calopteryx splendens</a></li>
+                        <li><a href="#">Calopteryx virgo</a></li>
+                    </ul>
+                </li>
+
+                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/aeshnidae/">Aeshnidae</a>
+                    <ul class="species-subfamily">
+                        <li><a href="#">Calopteryx splendens</a></li>
+                        <li><a href="#">Calopteryx virgo</a></li>
+                    </ul>
+                </li>
+
+                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/gomphidae/">Gomphidae</a>
+                    <ul class="species-subfamily">
+                        <li><a href="#">Calopteryx splendens</a></li>
+                        <li><a href="#">Calopteryx virgo</a></li>
+                    </ul>
+                </li>
+
+                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/cordulegastridae/">Cordulegastridae</a>
+                    <ul class="species-subfamily">
+                        <li><a href="#">Calopteryx splendens</a></li>
+                        <li><a href="#">Calopteryx virgo</a></li>
+                    </ul>
+                </li>
+
+                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/corduliidae/">Corduliidae</a>
+                    <ul class="species-subfamily">
+                        <li><a href="#">Calopteryx splendens</a></li>
+                        <li><a href="#">Calopteryx virgo</a></li>
+                    </ul>
+                </li>
+
+                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/libellulidae/">Libellulidae</a>
+                    <ul class="species-subfamily">
+                        <li><a href="#">Calopteryx splendens</a></li>
+                        <li><a href="#">Calopteryx virgo</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function(event) { 
+                    jQuery('.species-family').click(function(e) {
+                        e.preventDefault();
+                        jQuery('.species-family').removeClass('active');
+                        jQuery(this).addClass('active');
+                    });
+                });
+            </script>
+        </div>
+        <a href="#" class="link link--icon js-open-mdl" data-mdl="image2"><img alt="Phaen_Cordulia_aenea.jpg" src="fileadmin/media/image-placeholder.jpg" width="300" height="200"></a>
+        <div id="image2" class="mdl mdl-auto-height js-mdl">
+            <button class="btn btn--square btn--transparent mdl__close js-close-mdl"><svg class="is-centered" width="12" height="12"><use xlink:href="#ui-close"></use></svg></button>
+            <div class="mdl__content">
+                <img alt="Phaen_Cordulia_aenea.jpg" src="fileadmin/media/image-placeholder.jpg">
+            </div>
+        </div>
+    </div>
+</div>
 
 </html>

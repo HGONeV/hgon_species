@@ -11,6 +11,13 @@ call_user_func(
             'HGON Artenliste'
         );
 
+        
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+            'HGON.HgonSpecies',
+            'Show',
+            'HGON Arten Detail'
+        );
+
 
         //=================================================================
         // Add Flexform

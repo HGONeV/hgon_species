@@ -15,7 +15,7 @@ namespace HGON\HgonSpecies\Domain\Model;
 /**
  * SpeciesDefault
  */
-class SpeciesDefault extends \Hgon\HgonSpecies\Domain\Model\Species
+class SpeciesDefault extends Species
 {
 
 }
