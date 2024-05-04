@@ -1,12 +1,49 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
     <tr>
-        <td><f:link.action action="show" controller="Species" arguments="{species : species}" pageUid="79">
-            {species.name}
+        <td><f:link.action action="show" controller="Species" arguments="{species : species}">
+            {species.nameScience}
         </f:link.action></td>
-        <td>Gebänderte Prachtlibelle</td>
-        <td>Calopterygidae</td>
-        <td>1217</td>
-        <td>5308</td>
-        <td>weit verbreitet und häufig, zunehmend</td>
+
+        <td>
+            {species.name}
+        </td>
+
+        <td>
+            {species.family}
+        </td>
+
+        <td>
+            <f:if condition="{species.mtb64}">
+                <f:then>
+                    {species.mtb64}
+                </f:then>
+                <f:else>
+                    -
+                </f:else>
+            </f:if>
+        </td>
+
+        <td>
+            <f:if condition="{species.proof}">
+                <f:then>
+                    {species.proof}
+                </f:then>
+                <f:else>
+                    -
+                </f:else>
+            </f:if>
+        </td>
+
+        <td>
+            <f:if condition="{species.remark}">
+                <f:then>
+                    {species.remark}
+                </f:then>
+                <f:else>
+                    -
+                </f:else>
+            </f:if>
+        </td>
+
     </tr>
 </html>

@@ -63,6 +63,7 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function showAction(\Hgon\HgonSpecies\Domain\Model\Species $species)
     {
+
         $this->view->assign('species', $species);
     }
 

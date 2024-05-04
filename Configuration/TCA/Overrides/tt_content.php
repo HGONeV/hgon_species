@@ -8,14 +8,14 @@ call_user_func(
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
             'HGON.HgonSpecies',
             'List',
-            'HGON Artenliste'
+            'HGON Species: Artenliste'
         );
 
         
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
             'HGON.HgonSpecies',
             'Show',
-            'HGON Arten Detail'
+            'HGON Species: Arten Detail'
         );
 
 

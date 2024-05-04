@@ -17,14 +17,14 @@ return [
             'endtime' => 'endtime',
         ],
         'type' => 'record_type',
-        'searchFields' => 'name,name_science,name_discoverer,year,characteristic,habitat,dissemination,grid_frequency,last_updated_date,red_list_hessia,red_list_germany,phenology,mtb64,proof,image,dissemination_img,sidebar_img,files,family,extended_family',
+        'searchFields' => 'name,name_science,name_discoverer,year,remark,characteristic,habitat,dissemination,grid_frequency,last_updated_date,red_list_hessia,red_list_germany,phenology,mtb64,proof,image,dissemination_img,sidebar_img,files,family,extended_family',
         'iconfile' => 'EXT:hgon_species/Resources/Public/Icons/tx_hgonspecies_domain_model_species.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, name_science, name_discoverer, year, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family, extended_family',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, name_science, name_discoverer, year, remark, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family, extended_family',
     ],
     'types' => [
-        '1' => ['showitem' => 'record_type, name, name_science, name_discoverer, year, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family, extended_family, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'record_type, name, name_science, name_discoverer, year, remark, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family, extended_family, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
 
@@ -144,7 +144,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim,required'
             ],
         ],
         'name_discoverer' => [
@@ -166,6 +166,23 @@ return [
                 'size' => 7,
                 'eval' => 'date',
                 'default' => null,
+            ],
+        ],
+        'remark' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.remark',
+            'config' => [
+                'type' => 'text',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
+                    ],
+                ],
+                'cols' => 40,
+                'rows' => 15,
+                'eval' => 'trim',
             ],
         ],
         'characteristic' => [

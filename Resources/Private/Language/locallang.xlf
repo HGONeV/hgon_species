@@ -18,6 +18,9 @@
 			<trans-unit id="tx_hgonspecies_domain_model_species.year">
 				<source>Year</source>
 			</trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.remark">
+                <source>Remark</source>
+            </trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.characteristic">
 				<source>Characteristic</source>
 			</trans-unit>

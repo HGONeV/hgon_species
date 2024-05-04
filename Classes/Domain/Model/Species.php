@@ -47,6 +47,13 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $year = null;
 
     /**
+     * remark
+     *
+     * @var string
+     */
+    protected $remark = '';
+
+    /**
      * characteristic
      *
      * @var string
@@ -266,6 +273,27 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setYear(\DateTime $year)
     {
         $this->year = $year;
+    }
+
+    /**
+     * Returns the remark
+     *
+     * @return string $remark
+     */
+    public function getRemark()
+    {
+        return $this->remark;
+    }
+
+    /**
+     * Sets the remark
+     *
+     * @param string $remark
+     * @return void
+     */
+    public function setRemark($remark)
+    {
+        $this->remark = $remark;
     }
 
     /**

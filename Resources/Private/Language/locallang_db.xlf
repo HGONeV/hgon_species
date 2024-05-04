@@ -7,64 +7,67 @@
 				<source>Species</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.name">
-				<source>Name</source>
+				<source>Name (Artname (deutsch))</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.name_science">
-				<source>Name Science</source>
+				<source>Name Science (Artname (wiss.))</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.name_discoverer">
 				<source>Name Discoverer</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.year">
-				<source>Year</source>
+				<source>Year (wiss jahr)</source>
 			</trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.remark">
+                <source>Remark (Bemerkung)</source>
+            </trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.characteristic">
-				<source>Characteristic</source>
+				<source>Characteristic (Markmale)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.habitat">
-				<source>Habitat</source>
+				<source>Habitat (Lebensraum)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.dissemination">
-				<source>Dissemination</source>
+				<source>Dissemination (Verbreitung)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.grid_frequency">
-				<source>Grid Frequency</source>
+				<source>Grid Frequency (Rasterfrequenz)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.last_updated_date">
-				<source>Last Updated Date</source>
+				<source>Last Updated Date (Stand)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.red_list_hessia">
-				<source>Red List Hessia</source>
+				<source>Red List Hessia (Rote Liste Hessen)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.red_list_germany">
-				<source>Red List Germany</source>
+				<source>Red List Germany (Rote Liste Deutschland)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.phenology">
-				<source>Phenology</source>
+				<source>Phenology (Phänologie)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.mtb64">
-				<source>Mtb64</source>
+				<source>Mtb64 (Zahl d. MTB/64)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.proof">
-				<source>Proof</source>
+				<source>Proof (Nachw)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.image">
 				<source>Image</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.dissemination_img">
-				<source>Dissemination Img</source>
+				<source>Dissemination Img (Verbreitung Grafik)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.sidebar_img">
-				<source>Sidebar Img</source>
+				<source>Sidebar Img (Sidebar Grafik)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.files">
 				<source>Files</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.family">
-				<source>Family</source>
+				<source>Family (Familie)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.extended_family">
-				<source>Extended Family</source>
+				<source>Extended Family (Erweiterte Familie)</source>
 			</trans-unit>
 
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType">
@@ -74,7 +77,7 @@
                 <source>Default</source>
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType.dragonfly">
-                <source>Dragonfly</source>
+                <source>Dragonfly (Libelle)</source>
             </trans-unit>
 		</body>
 	</file>
