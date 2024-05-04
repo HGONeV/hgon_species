@@ -17,14 +17,33 @@ return [
             'endtime' => 'endtime',
         ],
         'type' => 'record_type',
-        'searchFields' => 'name,name_science,name_discoverer,year,remark,characteristic,habitat,dissemination,grid_frequency,last_updated_date,red_list_hessia,red_list_germany,phenology,mtb64,proof,image,dissemination_img,sidebar_img,files,family,extended_family',
+        'searchFields' => 'name,name_science,name_discoverer,year,remark,characteristic,habitat,dissemination,grid_frequency,last_updated_date,red_list_hessia,red_list_germany,phenology,mtb64,proof,image,dissemination_img,sidebar_img,files,family',
         'iconfile' => 'EXT:hgon_species/Resources/Public/Icons/tx_hgonspecies_domain_model_species.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, name_science, name_discoverer, year, remark, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family, extended_family',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, name_science, name_discoverer, year, remark, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family',
     ],
     'types' => [
-        '1' => ['showitem' => 'record_type, name, name_science, name_discoverer, year, remark, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family, extended_family, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => [
+            'showitem' => '
+            
+                record_type, name, name_science, name_discoverer, year, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,  
+            
+                --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
+                remark, characteristic, habitat, dissemination, phenology, 
+                
+                --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_family,
+                family,
+                
+                --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_files,
+                image, dissemination_img, sidebar_img, files,
+                
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, 
+                sys_language_uid, l10n_parent, l10n_diffsource, 
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, 
+                hidden, starttime, endtime
+            
+            '],
     ],
     'columns' => [
 
@@ -482,18 +501,20 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectTree',
                 'foreign_table' => 'sys_category',
-                'minitems' => 0,
-                'maxitems' => 9999,
-                'multiple' => 1,
+                'minitems' => 1,
+                'maxitems' => 1,
+                'multiple' => false,
                 'treeConfig' => [
                     'parentField' =>'parent',
                     'appearance' => [
-                        'expandAll' => false,
+                        'expandAll' => true,
                         'showHeader' => true,
                     ],
                 ],
             ],
         ],
+        /*
+         * // comes automatically from "family" parent
         'extended_family' => [
             'exclude' => true,
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.extended_family',
@@ -513,6 +534,7 @@ return [
                 ],
             ],
         ],
+        */
     
     ],
 ];

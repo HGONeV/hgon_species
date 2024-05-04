@@ -79,6 +79,19 @@
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType.dragonfly">
                 <source>Dragonfly (Libelle)</source>
             </trans-unit>
+
+
+            <!-- TCA -->
+            <trans-unit id="tx_hgonspecies_domain_model_species.tab_text">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.tab_files">
+                <source>Files</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.tab_family">
+                <source>Family</source>
+            </trans-unit>
+
 		</body>
 	</file>
 </xliff>

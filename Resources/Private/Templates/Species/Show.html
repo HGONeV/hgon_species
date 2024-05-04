@@ -23,10 +23,13 @@
 
 <div class="grid">
     <h1 class="headline mb-0">
-        Cordulia aenea (Linnaeus, 1758) – Falkenlibelle
+        {species.nameScience} ({species.nameDiscoverer}, {species.year}) – {species.name}
     </h1>
-    <p>Unterordnung Anisoptera (Großlibellen)<br>
-    Familie Corduliidae (Falkenlibellen)</p>
+
+    <p>
+        Unterordnung {species.family.title}<br>
+        Familie {species.family.parent.title}
+    </p>
 </div>
 <div class="flex-container space-between gutter">
     <div class="flex-item c-4">
