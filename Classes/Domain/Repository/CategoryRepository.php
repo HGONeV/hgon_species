@@ -47,6 +47,24 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
      */
+    public function findExtendedFamilies($category = 0)
+    {
+        $query = $this->createQuery();
+
+        // get extended families
+        $query->matching($query->equals('parent', $category));
+
+        return $query->execute();
+    }
+
+
+    /**
+     * Returns all categories of a given parent category
+     *
+     * @param int $category
+     * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
+     */
     public function findSubFamiliesOfExtendedFamilies($category = 0)
     {
         $query = $this->createQuery();
@@ -64,6 +82,5 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $query->matching($query->in('parent', $extendedFamilyUidList));
 
         return $query->execute();
-        //===
     }
 }

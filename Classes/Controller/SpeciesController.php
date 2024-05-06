@@ -1,6 +1,7 @@
 <?php
 namespace HGON\HgonSpecies\Controller;
 
+use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /***
@@ -61,6 +62,7 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         $speciesList = $this->speciesRepository->findAll();
 
         $this->view->assign('speciesList', $speciesList);
+        $this->view->assign('speciesCategories', $this->categoryRepository->findSubFamiliesOfExtendedFamilies($this->settings['parentCategoryUid']));
     }
 
     /**
@@ -68,17 +70,16 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @param \HGON\HgonSpecies\Domain\Model\Species $species
      * @return void
+     * @throws InvalidQueryException
      */
     public function showAction(\Hgon\HgonSpecies\Domain\Model\Species $species)
     {
-
-        $speciesCategories = $this->categoryRepository->findSubFamiliesOfExtendedFamilies($this->settings['parentCategoryUid'], [$species->getFamily()]);
 
         $this->view->assign('species', $species);
 
         // sidebar
         $this->view->assign('speciesList', $this->speciesRepository->findAll());
-        $this->view->assign('speciesCategories', $speciesCategories);
+        $this->view->assign('speciesCategories', $this->categoryRepository->findSubFamiliesOfExtendedFamilies($this->settings['parentCategoryUid']));
     }
 
 }

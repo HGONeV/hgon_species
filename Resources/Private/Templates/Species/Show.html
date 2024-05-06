@@ -175,7 +175,10 @@
             <ul>
                 <f:for each="{speciesCategories}" as="category">
                     <li class="species-family active">
-                        <a href="/libellen-in-hessen/artensteckbriefe/calopterygidae/">{category.title}</a>
+                        <f:comment><!-- anchor link to list "Artensteckbriefe" --></f:comment>
+                        <f:link.action action="profile" controller="Species" section="anchor-category-{category.uid}">
+                            {category.title}
+                        </f:link.action>
                         <ul class="species-subfamily">
                             <f:for each="{speciesList}" as="speciesItem">
                                 <f:if condition="{speciesItem.family.uid} == {category.uid}">

@@ -1,6 +1,7 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
 
+<f:comment>
     Artensteckbriefe: Listen Test
 
     <f:if condition="{speciesList}">
@@ -12,116 +13,43 @@
             </div>
         </div>
     </f:if>
+</f:comment>
 
     <h2>Liste der Arten nach Kategorie</h2>
     <f:if condition="{speciesList}">
         <div id="tx-hgonspecies-list">
-            <h3>Kagegorie 1</h3>
-            <div class="flex-container gutter valign-stretch no-padding">
-                <div class="flex-item c-4">
-                    <div class="frame frame-default frame-type-textpic frame-layout-14">
-                        <article class="card card--shadow">
-                            <picture class="card__image">
-                                <source media="(min-width: 64.063em)" srcset="fileadmin/media/image-placeholder.jpg">
-                                <img class="image-embed-item" src="fileadmin/media/image-placeholder.jpg" width="395" height="300" alt="" title="Kormoran">
-                            </picture>
-                            <div class="card__inner">
-                                <div class="card__content">
-                                    <p>
-                                        Cordulia aenea (Linnaeus, 1758) – Falkenlibelle                                </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
 
-                <div class="flex-item c-4">
-                    <div class="frame frame-default frame-type-textpic frame-layout-14">
-                        <article class="card card--shadow">
-                            <picture class="card__image">
-                                <source media="(min-width: 64.063em)" srcset="fileadmin/media/image-placeholder.jpg">
-                                <img class="image-embed-item" src="fileadmin/media/image-placeholder.jpg" width="395" height="300" alt="" title="Kormoran">
-                            </picture>
-                            <div class="card__inner">
-                                <div class="card__content">
-                                    <p>
-                                        Cordulia aenea (Linnaeus, 1758) – Falkenlibelle                                </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
+            <f:for each="{speciesCategories}" as="category">
 
-                <div class="flex-item c-4">
-                    <div class="frame frame-default frame-type-textpic frame-layout-14">
-                        <article class="card card--shadow">
-                            <picture class="card__image">
-                                <source media="(min-width: 64.063em)" srcset="fileadmin/media/image-placeholder.jpg">
-                                <img class="image-embed-item" src="fileadmin/media/image-placeholder.jpg" width="395" height="300" alt="" title="Kormoran">
-                            </picture>
-                            <div class="card__inner">
-                                <div class="card__content">
-                                    <p>
-                                        Cordulia aenea (Linnaeus, 1758) – Falkenlibelle                                </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="flex-item c-4">
-                    <div class="frame frame-default frame-type-textpic frame-layout-14">
-                        <article class="card card--shadow">
-                            <picture class="card__image">
-                                <source media="(min-width: 64.063em)" srcset="fileadmin/media/image-placeholder.jpg">
-                                <img class="image-embed-item" src="fileadmin/media/image-placeholder.jpg" width="395" height="300" alt="" title="Kormoran">
-                            </picture>
-                            <div class="card__inner">
-                                <div class="card__content">
-                                    <p>
-                                        Cordulia aenea (Linnaeus, 1758) – Falkenlibelle                                </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
+                <h3 id="anchor-category-{category.uid}">{category.title}</h3>
 
-            <h3>Kagegorie 2</h3>
-            <div class="flex-container gutter valign-stretch no-padding">
-                <div class="flex-item c-4">
-                    <div class="frame frame-default frame-type-textpic frame-layout-14">
-                        <article class="card card--shadow">
-                            <picture class="card__image">
-                                <source media="(min-width: 64.063em)" srcset="fileadmin/media/image-placeholder.jpg">
-                                <img class="image-embed-item" src="fileadmin/media/image-placeholder.jpg" width="395" height="300" alt="" title="Kormoran">
-                            </picture>
-                            <div class="card__inner">
-                                <div class="card__content">
-                                    <p>
-                                        Cordulia aenea (Linnaeus, 1758) – Falkenlibelle                                </p>
+                <f:for each="{speciesList}" as="speciesItem">
+                    <f:if condition="{speciesItem.family.uid} == {category.uid}">
+                        <div class="flex-container gutter valign-stretch no-padding">
+                            <div class="flex-item c-4">
+                                <div class="frame frame-default frame-type-textpic frame-layout-14">
+                                    <article class="card card--shadow">
+                                        <picture class="card__image">
+                                            <source media="(min-width: 64.063em)" srcset="fileadmin/media/image-placeholder.jpg">
+                                            <img class="image-embed-item" src="fileadmin/media/image-placeholder.jpg" width="395" height="300" alt="" title="Kormoran">
+                                        </picture>
+                                        <div class="card__inner">
+                                            <div class="card__content">
+                                                <p>
+                                                    {speciesItem.nameScience}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
                                 </div>
                             </div>
-                        </article>
-                    </div>
-                </div>
+                        </div>
+                    </f:if>
+                </f:for>
 
-                <div class="flex-item c-4">
-                    <div class="frame frame-default frame-type-textpic frame-layout-14">
-                        <article class="card card--shadow">
-                            <picture class="card__image">
-                                <source media="(min-width: 64.063em)" srcset="fileadmin/media/image-placeholder.jpg">
-                                <img class="image-embed-item" src="fileadmin/media/image-placeholder.jpg" width="395" height="300" alt="" title="Kormoran">
-                            </picture>
-                            <div class="card__inner">
-                                <div class="card__content">
-                                    <p>
-                                        Cordulia aenea (Linnaeus, 1758) – Falkenlibelle                                </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
+            </f:for>
+
+
         </div>
     </f:if>
 
