@@ -21,6 +21,22 @@ config.tx_extbase.persistence.classes {
     }
 
 
+    #===============================================
+
+    HGON\HgonSpecies\Domain\Model\Category {
+        mapping {
+            tableName = sys_category
+        }
+    }
+
+    TYPO3\CMS\Extbase\Domain\Model\Category {
+        subclasses {
+            Tx_HgonSpecies_Category = HGON\HgonSpecies\Domain\Model\Category
+
+        }
+    }
+
+
 }
 
 
@@ -47,6 +63,10 @@ plugin.tx_hgonspecies {
     }
     mvc {
         #callDefaultActionIfActionCantBeResolved = 1
+    }
+
+    settings {
+        parentCategoryUid = {$plugin.tx_hgonspecies.settings.parentCategoryUid}
     }
 
 }

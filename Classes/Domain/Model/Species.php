@@ -158,14 +158,14 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * family
      *
-     * @var \TYPO3\CMS\Extbase\Domain\Model\Category
+     * @var \HGON\HgonSpecies\Domain\Model\Category
      */
     protected $family = null;
 
     /**
      * extendedFamily
      *
-     * @var \TYPO3\CMS\Extbase\Domain\Model\Category
+     * @var \HGON\HgonSpecies\Domain\Model\Category
      */
     protected $extendedFamily = null;
 
@@ -615,7 +615,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the family
      *
-     * @return \TYPO3\CMS\Extbase\Domain\Model\Category $family
+     * @return \HGON\HgonSpecies\Domain\Model\Category $family
      */
     public function getFamily()
     {
@@ -625,10 +625,10 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the family
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\Category $family
+     * @param \HGON\HgonSpecies\Domain\Model\Category $family
      * @return void
      */
-    public function setFamily(\TYPO3\CMS\Extbase\Domain\Model\Category $family)
+    public function setFamily(\HGON\HgonSpecies\Domain\Model\Category $family)
     {
         $this->family = $family;
     }
@@ -636,7 +636,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the extendedFamily
      *
-     * @return \TYPO3\CMS\Extbase\Domain\Model\Category $extendedFamily
+     * @return \HGON\HgonSpecies\Domain\Model\Category $extendedFamily
      */
     public function getExtendedFamily()
     {
@@ -646,10 +646,10 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the extendedFamily
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\Category $extendedFamily
+     * @param \HGON\HgonSpecies\Domain\Model\Category $extendedFamily
      * @return void
      */
-    public function setExtendedFamily(\TYPO3\CMS\Extbase\Domain\Model\Category $extendedFamily)
+    public function setExtendedFamily(\HGON\HgonSpecies\Domain\Model\Category $extendedFamily)
     {
         $this->extendedFamily = $extendedFamily;
     }

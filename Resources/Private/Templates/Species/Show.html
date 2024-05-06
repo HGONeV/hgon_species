@@ -167,72 +167,37 @@
             </div>
         </div>
     </div>
+
+
     <div class="flex-item c-3">
-        <div class="species-profiles-list mb-1">Artensteckbriefe
+        <div class="species-profiles-list mb-1">
+            Artensteckbriefe
             <ul>
-                <li class="species-family active"><a
-                        href="/libellen-in-hessen/artensteckbriefe/calopterygidae/">Calopterygidae</a>
-                    <ul class="species-subfamily">
-                        <li><a href="#">Calopteryx splendens</a></li>
-                        <li><a href="#">Calopteryx virgo</a></li>
-                    </ul>
-                </li>
+                <f:for each="{speciesCategories}" as="category">
+                    <li class="species-family active">
+                        <a href="/libellen-in-hessen/artensteckbriefe/calopterygidae/">{category.title}</a>
+                        <ul class="species-subfamily">
+                            <f:for each="{speciesList}" as="speciesItem">
+                                <f:if condition="{speciesItem.family.uid} == {category.uid}">
+                                    <li>
+                                        <f:if condition="{speciesItem.uid} == {species.uid}">
+                                            <f:then>
+                                                <f:comment><!-- current shown species --></f:comment>
+                                                <strong>{speciesItem.name}</strong>
+                                            </f:then>
+                                            <f:else>
+                                                <f:link.action action="show" controller="Species" arguments="{species : speciesItem}">
+                                                    {speciesItem.name}
+                                                </f:link.action>
+                                            </f:else>
+                                        </f:if>
+                                    </li>
+                                </f:if>
+                            </f:for>
+                        </ul>
+                    </li>
+                </f:for>
 
-                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/lestidae/">Lestidae</a>
-                    <ul class="species-subfamily">
-                        <li><a href="#">Calopteryx splendens</a></li>
-                        <li><a href="#">Calopteryx virgo</a></li>
-                    </ul>
-                </li>
-
-                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/platycnemididae/">Platycnemididae</a>
-                    <ul class="species-subfamily">
-                        <li><a href="#">Calopteryx splendens</a></li>
-                        <li><a href="#">Calopteryx virgo</a></li>
-                    </ul>
-                </li>
-
-                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/coenagrionidae/">Coenagrionidae</a>
-                    <ul class="species-subfamily">
-                        <li><a href="#">Calopteryx splendens</a></li>
-                        <li><a href="#">Calopteryx virgo</a></li>
-                    </ul>
-                </li>
-
-                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/aeshnidae/">Aeshnidae</a>
-                    <ul class="species-subfamily">
-                        <li><a href="#">Calopteryx splendens</a></li>
-                        <li><a href="#">Calopteryx virgo</a></li>
-                    </ul>
-                </li>
-
-                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/gomphidae/">Gomphidae</a>
-                    <ul class="species-subfamily">
-                        <li><a href="#">Calopteryx splendens</a></li>
-                        <li><a href="#">Calopteryx virgo</a></li>
-                    </ul>
-                </li>
-
-                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/cordulegastridae/">Cordulegastridae</a>
-                    <ul class="species-subfamily">
-                        <li><a href="#">Calopteryx splendens</a></li>
-                        <li><a href="#">Calopteryx virgo</a></li>
-                    </ul>
-                </li>
-
-                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/corduliidae/">Corduliidae</a>
-                    <ul class="species-subfamily">
-                        <li><a href="#">Calopteryx splendens</a></li>
-                        <li><a href="#">Calopteryx virgo</a></li>
-                    </ul>
-                </li>
-
-                <li class="species-family"><a href="/libellen-in-hessen/artensteckbriefe/libellulidae/">Libellulidae</a>
-                    <ul class="species-subfamily">
-                        <li><a href="#">Calopteryx splendens</a></li>
-                        <li><a href="#">Calopteryx virgo</a></li>
-                    </ul>
-                </li>
             </ul>
 
             <script type="text/javascript">

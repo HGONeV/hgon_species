@@ -28,6 +28,14 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     protected $speciesRepository = null;
 
     /**
+     * categoryRepository
+     *
+     * @var \HGON\HgonSpecies\Domain\Repository\CategoryRepository
+     * @inject
+     */
+    protected $categoryRepository = null;
+
+    /**
      * action list
      *
      * "Artenliste"
@@ -64,9 +72,13 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     public function showAction(\Hgon\HgonSpecies\Domain\Model\Species $species)
     {
 
-        // @toDo: Get SysCat Families sidebar with species
+        $speciesCategories = $this->categoryRepository->findSubFamiliesOfExtendedFamilies($this->settings['parentCategoryUid'], [$species->getFamily()]);
 
         $this->view->assign('species', $species);
+
+        // sidebar
+        $this->view->assign('speciesList', $this->speciesRepository->findAll());
+        $this->view->assign('speciesCategories', $speciesCategories);
     }
 
 }
