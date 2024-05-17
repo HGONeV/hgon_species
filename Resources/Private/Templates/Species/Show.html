@@ -1,24 +1,4 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:comment>
-    Show
-
-    {species.name}
-    {species.nameScience}
-    {species.nameDiscoverer}
-    {species.characteristic}
-    {species.habitat}
-    {species.dissemination}
-    {species.gridFrequency}
-    {species.redListHessia}
-    {species.redListGermany}
-    {species.phenology}
-    {species.mtb64}
-    {species.proof}
-    {species.disseminationImg}
-    {species.sidebarImg}
-    {species.family}
-    {species.extendedFamily}
-</f:comment>
 
 
 <div class="grid">
@@ -36,44 +16,24 @@
         <div class="species--slider mb-1">
             <div id="species--slider-main" class="splide">
                 <div class="splide__track">
-                  <ul class="splide__list">
-                    <li class="splide__slide">
-                      <img src="fileadmin/media/image-placeholder.jpg" />
-                    </li>
-                    <li class="splide__slide">
-                      <img src="fileadmin/media/image-placeholder.jpg" />
-                    </li>
-                    <li class="splide__slide">
-                      <img src="fileadmin/media/image-placeholder.jpg" />
-                    </li>
-                    <li class="splide__slide">
-                        <img src="fileadmin/media/image-placeholder.jpg" />
-                      </li>
-                    <li class="splide__slide">
-                        <img src="fileadmin/media/image-placeholder.jpg" />
-                      </li>
-                  </ul>
+                      <ul class="splide__list">
+                          <f:for each="{species.image}" as="image">
+                              <li class="splide__slide">
+                                  <f:image image="{image}" />
+                              </li>
+                          </f:for>
+                      </ul>
                 </div>
-              </div>
+            </div>
     
             <div id="species--slider-thumbnail" class="splide">
                 <div class="splide__track">
                       <ul class="splide__list">
-                          <li class="splide__slide">
-                              <img src="fileadmin/media/image-placeholder.jpg">
-                          </li>
-                          <li class="splide__slide">
-                              <img src="fileadmin/media/image-placeholder.jpg">
-                          </li>
-                          <li class="splide__slide">
-                              <img src="fileadmin/media/image-placeholder.jpg">
-                          </li>
-                          <li class="splide__slide">
-                            <img src="fileadmin/media/image-placeholder.jpg">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="fileadmin/media/image-placeholder.jpg">
-                        </li>
+                          <f:for each="{species.image}" as="image">
+                              <li class="splide__slide">
+                                  <f:image image="{image}" />
+                              </li>
+                          </f:for>
                       </ul>
                 </div>
             </div>
@@ -109,30 +69,26 @@
             </script>
         </div>
         <div class="grid no-padding grid__padding_between">
-            <div class="grid__col c-6 grid__col--medium-half">
-                <a href="#" class="link link--icon js-open-mdl" data-mdl="image1"><img alt="Phaen_Cordulia_aenea.jpg" src="fileadmin/media/image-placeholder.jpg"></a>
-                <div id="image1" class="mdl mdl-auto-height js-mdl">
-                    <button class="btn btn--square btn--transparent mdl__close js-close-mdl"><svg class="is-centered" width="12" height="12"><use xlink:href="#ui-close"></use></svg></button>
-                    <div class="mdl__content">
-                        <img alt="Phaen_Cordulia_aenea.jpg" src="fileadmin/media/image-placeholder.jpg">
+
+            <f:for each="{species.disseminationImg}" as="image" iteration="iter">
+                <div class="grid__col c-6 grid__col--medium-half">
+                    <a href="#" class="link link--icon js-open-mdl" data-mdl="image{iter.cycle}"><img src="{f:uri.image( image: '{image}' )}"></a>
+                    <div id="image{iter.cycle}" class="mdl mdl-auto-height js-mdl">
+                        <button class="btn btn--square btn--transparent mdl__close js-close-mdl"><svg class="is-centered" width="12" height="12"><use xlink:href="#ui-close"></use></svg></button>
+                        <div class="mdl__content">
+                            <f:image image="{image}" />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="grid__col c-6 grid__col--medium-half">
-                <a href="#" class="link link--icon js-open-mdl" data-mdl="image3"><img alt="Phaen_Cordulia_aenea.jpg" src="fileadmin/media/image-placeholder.jpg"></a>
-                <div id="image3" class="mdl mdl-auto-height js-mdl">
-                    <button class="btn btn--square btn--transparent mdl__close js-close-mdl"><svg class="is-centered" width="12" height="12"><use xlink:href="#ui-close"></use></svg></button>
-                    <div class="mdl__content">
-                        <img alt="Phaen_Cordulia_aenea.jpg" src="fileadmin/media/image-placeholder.jpg">
-                    </div>
-                </div>
-            </div>
+            </f:for>
         </div>
     </div>
     <div class="flex-item c-5">
         <h2>Merkmale</h2>
         <p>
+            <f:format.htmlspecialchars>
             {species.characteristic}
+            </f:format.htmlspecialchars>
         </p>
         <h2>Lebensraum</h2>
         <p>
@@ -170,13 +126,14 @@
 
 
     <div class="flex-item c-3">
-        <div class="species-profiles-list mb-1">
+        <div class="species-categories-list mb-1">
             Artensteckbriefe
             <ul>
                 <f:for each="{speciesCategories}" as="category">
-                    <li class="species-family active">
+
+                    <li class="species-family {f:if(condition: '{species.family.uid} == {category.uid}', then: 'active')}">
                         <f:comment><!-- anchor link to list "Artensteckbriefe" --></f:comment>
-                        <f:link.action action="profile" controller="Species" section="anchor-category-{category.uid}">
+                        <f:link.action action="listByCategory" controller="Species" section="anchor-category-{category.uid}">
                             {category.title}
                         </f:link.action>
                         <ul class="species-subfamily">
@@ -200,27 +157,29 @@
                         </ul>
                     </li>
                 </f:for>
-
             </ul>
-
-            <script type="text/javascript">
-                document.addEventListener("DOMContentLoaded", function(event) { 
-                    jQuery('.species-family').click(function(e) {
-                        e.preventDefault();
-                        jQuery('.species-family').removeClass('active');
-                        jQuery(this).addClass('active');
-                    });
-                });
-            </script>
         </div>
-        <a href="#" class="link link--icon js-open-mdl" data-mdl="image2"><img alt="Phaen_Cordulia_aenea.jpg" src="fileadmin/media/image-placeholder.jpg" width="300" height="200"></a>
-        <div id="image2" class="mdl mdl-auto-height js-mdl">
+
+        <a href="#" class="link link--icon js-open-mdl" data-mdl="image_sidebar"><img src="{f:uri.image( image: '{species.sidebarImg}' )}" width="300" height="200"></a>
+        <div id="image_sidebar" class="mdl mdl-auto-height js-mdl">
             <button class="btn btn--square btn--transparent mdl__close js-close-mdl"><svg class="is-centered" width="12" height="12"><use xlink:href="#ui-close"></use></svg></button>
             <div class="mdl__content">
-                <img alt="Phaen_Cordulia_aenea.jpg" src="fileadmin/media/image-placeholder.jpg">
+                <f:image image="{species.sidebarImg}" />
             </div>
         </div>
     </div>
 </div>
 
+
+<f:comment><!-- Verschoben, weil Fluid keine variablen mehr ausgeben konnte beim sidebar Bild. Irgendwas stimmt nicht mit dem Code. --></f:comment>
+<f:comment><!-- Links in sidebar reagieren zudem merkwürdigerweise nicht auf klick! --></f:comment>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+        jQuery('.species-family').click(function(e) {
+            e.preventDefault();
+            jQuery('.species-family').removeClass('active');
+            jQuery(this).addClass('active');
+        });
+    });
+</script>
 </html>

@@ -52,7 +52,7 @@
 				<source>Proof (Nachw)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.image">
-				<source>Image</source>
+				<source>Image (Allg. Bilder; Slider)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.dissemination_img">
 				<source>Dissemination Img (Verbreitung Grafik)</source>
@@ -61,7 +61,7 @@
 				<source>Sidebar Img (Sidebar Grafik)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.files">
-				<source>Files</source>
+				<source>Files (Fileuploads)</source>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.family">
 				<source>Family (Familie)</source>

@@ -172,19 +172,16 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim,required'
             ],
         ],
         'year' => [
             'exclude' => true,
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.year',
             'config' => [
-                'dbType' => 'date',
                 'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'size' => 7,
-                'eval' => 'date',
-                'default' => null,
+                'size' => 10,
+                'eval' => 'trim,required'
             ],
         ],
         'remark' => [
@@ -351,7 +348,7 @@ return [
                             --palette--;;filePalette'
                         ]
                     ],
-                    'maxitems' => 10
+                    'maxitems' => 20
                 ],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
@@ -398,7 +395,7 @@ return [
                             --palette--;;filePalette'
                         ]
                     ],
-                    'maxitems' => 1
+                    'maxitems' => 2
                 ],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),

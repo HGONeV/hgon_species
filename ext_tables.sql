@@ -10,7 +10,7 @@ CREATE TABLE tx_hgonspecies_domain_model_species (
 	name varchar(255) DEFAULT '' NOT NULL,
 	name_science varchar(255) DEFAULT '' NOT NULL,
 	name_discoverer varchar(255) DEFAULT '' NOT NULL,
-	year date DEFAULT NULL,
+	year varchar(255) DEFAULT '' NOT NULL,
     remark text,
 	characteristic text,
 	habitat text,

@@ -51,13 +51,13 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     }
 
     /**
-     * action list
+     * action listByCategory
      *
      * "Artensteckbriefe"
      *
      * @return void
      */
-    public function profileAction()
+    public function listByCategoryAction()
     {
         $speciesList = $this->speciesRepository->findAll();
 
@@ -74,6 +74,8 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function showAction(\Hgon\HgonSpecies\Domain\Model\Species $species)
     {
+
+        // @toDo: Aktuelle Kategorie (Familie) ermitteln und im View Sidebar nur das aktuelle aufklappen
 
         $this->view->assign('species', $species);
 

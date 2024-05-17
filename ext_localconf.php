@@ -9,11 +9,11 @@ call_user_func(
             'HGON.HgonSpecies',
             'List',
             [
-                'Species' => 'list, profile, show'
+                'Species' => 'list, listByCategory, show'
             ],
             // non-cacheable actions
             [
-                'Species' => 'list, profile, show'
+                'Species' => 'list, listByCategory, show'
             ]
         );
 

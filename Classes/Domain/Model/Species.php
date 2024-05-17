@@ -42,7 +42,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * year
      *
-     * @var \DateTime
+     * @var string
      */
     protected $year = null;
 
@@ -134,7 +134,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * disseminationImg
      *
-     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      * @cascade remove
      */
     protected $disseminationImg = null;
@@ -189,6 +189,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected function initStorageObjects()
     {
         $this->image = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->disseminationImg = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
     /**
@@ -257,7 +258,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the year
      *
-     * @return \DateTime $year
+     * @return string $year
      */
     public function getYear()
     {
@@ -267,10 +268,10 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the year
      *
-     * @param \DateTime $year
+     * @param string $year
      * @return void
      */
-    public function setYear(\DateTime $year)
+    public function setYear($year)
     {
         $this->year = $year;
     }
@@ -550,9 +551,31 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * Adds a FileReference
+     *
+     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $disseminationImg
+     * @return void
+     */
+    public function addDisseminationImg(\TYPO3\CMS\Extbase\Domain\Model\FileReference $disseminationImg)
+    {
+        $this->image->attach($disseminationImg);
+    }
+
+    /**
+     * Removes a FileReference
+     *
+     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $disseminationImgToRemove The FileReference to be removed
+     * @return void
+     */
+    public function removeDisseminationImg(\TYPO3\CMS\Extbase\Domain\Model\FileReference $disseminationImgToRemove)
+    {
+        $this->image->detach($disseminationImgToRemove);
+    }
+
+    /**
      * Returns the disseminationImg
      *
-     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $disseminationImg
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $disseminationImg
      */
     public function getDisseminationImg()
     {
@@ -562,10 +585,10 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the disseminationImg
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $disseminationImg
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $disseminationImg
      * @return void
      */
-    public function setDisseminationImg(\TYPO3\CMS\Extbase\Domain\Model\FileReference $disseminationImg)
+    public function setDisseminationImg(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $disseminationImg)
     {
         $this->disseminationImg = $disseminationImg;
     }
