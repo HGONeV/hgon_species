@@ -15,7 +15,7 @@ namespace HGON\HgonSpecies\Domain\Model;
 /**
  * SpeciesDragonfly
  */
-class SpeciesDragonfly extends \Hgon\HgonSpecies\Domain\Model\Species
+class SpeciesDragonfly extends Species
 {
 
 }
