@@ -27,10 +27,10 @@ return [
         '1' => [
             'showitem' => '
             
-                record_type, name, name_science, name_discoverer, year, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,  
+                record_type, name, name_science, name_discoverer, year, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof, remark,
             
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
-                remark, characteristic, habitat, dissemination, phenology, 
+                characteristic, habitat, dissemination, phenology, 
                 
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_family,
                 family,
@@ -189,13 +189,6 @@ return [
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.remark',
             'config' => [
                 'type' => 'text',
-                'enableRichtext' => true,
-                'richtextConfiguration' => 'default',
-                'fieldControl' => [
-                    'fullScreenRichtext' => [
-                        'disabled' => false,
-                    ],
-                ],
                 'cols' => 40,
                 'rows' => 15,
                 'eval' => 'trim',
@@ -224,6 +217,13 @@ return [
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.habitat',
             'config' => [
                 'type' => 'text',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
+                    ],
+                ],
                 'cols' => 40,
                 'rows' => 15,
                 'eval' => 'trim'
@@ -234,6 +234,13 @@ return [
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.dissemination',
             'config' => [
                 'type' => 'text',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
+                    ],
+                ],
                 'cols' => 40,
                 'rows' => 15,
                 'eval' => 'trim'
@@ -283,6 +290,13 @@ return [
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.phenology',
             'config' => [
                 'type' => 'text',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
+                    ],
+                ],
                 'cols' => 40,
                 'rows' => 15,
                 'eval' => 'trim'

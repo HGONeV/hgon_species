@@ -75,8 +75,6 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     public function showAction(\Hgon\HgonSpecies\Domain\Model\Species $species)
     {
 
-        // @toDo: Aktuelle Kategorie (Familie) ermitteln und im View Sidebar nur das aktuelle aufklappen
-
         $this->view->assign('species', $species);
 
         // sidebar

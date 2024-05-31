@@ -15,6 +15,12 @@ plugin.tx_hgonspecies {
 
     settings {
         # cat=plugin.tx_hgonspecies_list//a; type=string; label=Parent Category UID
-        parentCategoryUid = 10
+        parentCategoryUid =
+        # cat=plugin.tx_hgonspecies_list//a; type=int; label=PID of standard list
+        listPid =
+        # cat=plugin.tx_hgonspecies_list//a; type=int; label=PID of alternative list
+        listCatPid =
+        # cat=plugin.tx_hgonspecies_list//a; type=int; label=PID of detail page
+        showPid =
     }
 }

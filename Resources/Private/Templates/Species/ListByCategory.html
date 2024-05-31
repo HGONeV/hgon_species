@@ -21,6 +21,8 @@
 
             <f:for each="{speciesCategories}" as="category">
 
+                Test lala
+
                 <h3 id="anchor-category-{category.uid}">{category.title}</h3>
 
                 <f:for each="{speciesList}" as="speciesItem">
@@ -30,13 +32,20 @@
                                 <div class="frame frame-default frame-type-textpic frame-layout-14">
                                     <article class="card card--shadow">
                                         <picture class="card__image">
-                                            <source media="(min-width: 64.063em)" srcset="fileadmin/media/image-placeholder.jpg">
-                                            <img class="image-embed-item" src="fileadmin/media/image-placeholder.jpg" width="395" height="300" alt="" title="Kormoran">
+                                            <f:for each="{speciesItem.image}" as="image" iteration="iter">
+                                                <f:if condition="{iter.isFirst}">
+                                                    <li class="splide__slide">
+                                                        <f:image image="{image}" />
+                                                    </li>
+                                                </f:if>
+                                            </f:for>
                                         </picture>
                                         <div class="card__inner">
                                             <div class="card__content">
                                                 <p>
-                                                    {speciesItem.nameScience}
+                                                    <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : speciesItem}">
+                                                        {speciesItem.nameScience}
+                                                    </f:link.action>
                                                 </p>
                                             </div>
                                         </div>

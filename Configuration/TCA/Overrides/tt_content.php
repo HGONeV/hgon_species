@@ -11,6 +11,11 @@ call_user_func(
             'HGON Species: Artenliste'
         );
 
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+            'HGON.HgonSpecies',
+            'ListByCategory',
+            'HGON Species: Artenliste nach Kategorie'
+        );
         
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
             'HGON.HgonSpecies',

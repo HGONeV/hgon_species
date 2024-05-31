@@ -9,11 +9,35 @@ call_user_func(
             'HGON.HgonSpecies',
             'List',
             [
-                'Species' => 'list, listByCategory, show'
+                'Species' => 'list'
             ],
             // non-cacheable actions
             [
-                'Species' => 'list, listByCategory, show'
+                'Species' => 'list'
+            ]
+        );
+
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'HGON.HgonSpecies',
+            'ListByCategory',
+            [
+                'Species' => 'listByCategory'
+            ],
+            // non-cacheable actions
+            [
+                'Species' => 'listByCategory'
+            ]
+        );
+
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'HGON.HgonSpecies',
+            'Show',
+            [
+                'Species' => 'show'
+            ],
+            // non-cacheable actions
+            [
+                'Species' => 'show'
             ]
         );
 
