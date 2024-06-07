@@ -1,0 +1,22 @@
+config.tx_extbase.persistence {
+
+    classes {
+
+        // make sure ref_index is updated
+        updateReferenceIndex = 1
+
+        HGON\HgonSpecies\Domain\Model\Category {
+            mapping {
+                tableName = sys_category
+            }
+        }
+
+        TYPO3\CMS\Extbase\Domain\Model\Category {
+            subclasses {
+                Tx_HgonSpecies_Category = HGON\HgonSpecies\Domain\Model\Category
+            }
+        }
+
+    }
+
+}
