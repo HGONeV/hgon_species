@@ -19,6 +19,8 @@ CREATE TABLE tx_hgonspecies_domain_model_species (
 	last_updated_date date DEFAULT NULL,
 	red_list_hessia varchar(255) DEFAULT '' NOT NULL,
 	red_list_germany varchar(255) DEFAULT '' NOT NULL,
+    first_spotted varchar(255) DEFAULT '' NOT NULL,
+    last_spotted varchar(255) DEFAULT '' NOT NULL,
 	phenology text,
 	mtb64 int(11) DEFAULT '0' NOT NULL,
 	proof int(11) DEFAULT '0' NOT NULL,

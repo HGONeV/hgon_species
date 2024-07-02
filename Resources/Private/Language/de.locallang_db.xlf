@@ -1,104 +1,135 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2024-04-01T14:19:26Z" product-name="hgon_species">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2024-04-01T14:19:26Z" product-name="hgon_species">
 		<header/>
 		<body>
 			<trans-unit id="tx_hgonspecies_domain_model_species">
 				<source>HGON Species</source>
+                <target>HGON Species</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.name">
 				<source>Name (Artname (deutsch))</source>
+                <target>Artname (deutsch)</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.name_science">
 				<source>Name Science (Artname (wiss.))</source>
+                <target>Artname (wiss.)</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.name_discoverer">
 				<source>Name Discoverer</source>
+                <target>Name d. Entdeckers</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.year">
-				<source>Year</source>
+				<source>Year (Jahr entdeckung)</source>
+                <target>Entdeckungsjahr</target>
 			</trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.remark">
                 <source>Remark (Bemerkung)</source>
+                <target>Bemerkung</target>
             </trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.characteristic">
 				<source>Characteristic (Markmale)</source>
+                <target>Markmale</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.habitat">
 				<source>Habitat (Lebensraum)</source>
+                <target>Lebensraum</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.dissemination">
 				<source>Dissemination (Verbreitung)</source>
+                <target>Verbreitung</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.grid_frequency">
 				<source>Grid Frequency (Rasterfrequenz)</source>
+                <target>Rasterfrequenz (RF)</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.last_updated_date">
 				<source>Last Updated Date (Stand)</source>
+                <target>Zuletzt aktualisiert</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.red_list_hessia">
 				<source>Red List Hessia (Rote Liste Hessen)</source>
+                <target>Rote Liste Hessen (RLHe)</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.red_list_germany">
 				<source>Red List Germany (Rote Liste Deutschland)</source>
+                <target>Rote Liste Deutschland (RLD)</target>
 			</trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.first_spotted">
                 <source>First spotted (EB)</source>
+                <target>Erste Beobachtung (EB)</target>
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.last_spotted">
                 <source>Last spotted (LB)</source>
+                <target>Letzte Beobachtung (LB)</target>
             </trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.phenology">
 				<source>Phenology (Phänologie)</source>
+                <target>Phänologie</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.mtb64">
 				<source>Mtb64 (Zahl d. MTB/64)</source>
+                <target>Zahl d. MTB/64 (tk25-64tel)</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.proof">
 				<source>Proof (Nachw)</source>
+                <target>Nachweis</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.image">
 				<source>Image (Allg. Bilder; Slider)</source>
+                <target>Allg. Bilder; Slider)</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.dissemination_img">
 				<source>Dissemination Img (Verbreitung Grafik)</source>
+                <target>Bild: Verbreitung</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.sidebar_img">
-				<source>Sidebar Img (Sidebar Grafik)</source>
+				<source>Sidebar Img</source>
+                <target>Bild: Sidebar</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.files">
 				<source>Files (Fileuploads)</source>
+                <target>Fileuploads</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.family">
 				<source>Family (Familie)</source>
+                <target>Familie</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.extended_family">
-				<source>Extended Family (Erweiterte Familie)</source>
+				<source>Extended Family (Gattung)</source>
+                <target>Gattung</target>
 			</trans-unit>
 
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType">
                 <source>Record Type</source>
+                <target>Record Type (Artentyp)</target>
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType.choose">
                 <source>Choose</source>
+                <target>Bitte wählen</target>
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType.default">
                 <source>Default</source>
+                <target>Standard</target>
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType.dragonfly">
                 <source>Dragonfly (Libelle)</source>
+                <target>Libelle</target>
             </trans-unit>
 
 
             <!-- TCA -->
             <trans-unit id="tx_hgonspecies_domain_model_species.tab_text">
                 <source>Description</source>
+                <target>Beschreibung</target>
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.tab_files">
                 <source>Files</source>
+                <target>Files</target>
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.tab_family">
                 <source>Family</source>
+                <target>Familie / Gattung</target>
             </trans-unit>
 
 		</body>

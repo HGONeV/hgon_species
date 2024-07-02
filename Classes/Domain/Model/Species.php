@@ -103,6 +103,21 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $redListGermany = '';
 
     /**
+     * firstSpotted
+     *
+     * @var string
+     */
+    protected $firstSpotted = '';
+
+    /**
+     * lastSpotted
+     *
+     * @var string
+     */
+    protected $lastSpotted = '';
+
+
+    /**
      * phenology
      *
      * @var string
@@ -442,6 +457,40 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setRedListGermany($redListGermany)
     {
         $this->redListGermany = $redListGermany;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstSpotted(): string
+    {
+        return $this->firstSpotted;
+    }
+
+    /**
+     * @param string $firstSpotted
+     * @return void
+     */
+    public function setFirstSpotted(string $firstSpotted): void
+    {
+        $this->firstSpotted = $firstSpotted;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastSpotted(): string
+    {
+        return $this->lastSpotted;
+    }
+
+    /**
+     * @param string $lastSpotted
+     * @return void
+     */
+    public function setLastSpotted(string $lastSpotted): void
+    {
+        $this->lastSpotted = $lastSpotted;
     }
 
     /**

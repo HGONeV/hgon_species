@@ -12,8 +12,8 @@
     </h1>
 
     <p class="mb-0">
-        Unterordnung {species.family.title}<br>
-        Familie {species.family.parent.title}
+        Unterordnung "{species.family.title}"<br>
+        Familie "{species.family.parent.title}"
     </p>
 </div>
 <div class="flex-container space-between gutter">
@@ -133,10 +133,10 @@
         </p>
         <div class="flex-container no-padding">
             <div class="flex-item c-6 no-padding flex-item--medium-half">
-                <p>EB: 12.04.2014</p>
+                <p>EB: {species.first_spotted}</p>
             </div>
             <div class="flex-item c-6 no-padding flex-item--medium-half">
-                <p>LB: 27.08.2008</p>
+                <p>LB: {first_spotted.last_spotted}</p>
             </div>
         </div>
     </div>

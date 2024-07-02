@@ -24,13 +24,17 @@ return [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, name_science, name_discoverer, year, remark, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family',
     ],
     'types' => [
-        '1' => [
+        '0' => [
+            'showitem' => '
+                record_type
+        '],
+        'default' => [
             'showitem' => '
             
-                record_type, name, name_science, name_discoverer, year, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof, remark,
+                record_type, name, name_science, name_discoverer, year, first_spotted, first_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
             
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
-                characteristic, habitat, dissemination, phenology, 
+                characteristic, habitat, dissemination, phenology, remark, 
                 
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_family,
                 family,
@@ -41,9 +45,29 @@ return [
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, 
                 sys_language_uid, l10n_parent, l10n_diffsource, 
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, 
-                hidden, starttime, endtime
+                hidden
             
-            '],
+        '],
+        'dragonfly' => [
+            'showitem' => '
+            
+                record_type, name, name_science, first_spotted, first_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
+            
+                --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
+                characteristic, habitat, dissemination, phenology, remark, 
+                
+                --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_family,
+                family,
+                
+                --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_files,
+                image, dissemination_img, sidebar_img, files,
+                
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, 
+                sys_language_uid, l10n_parent, l10n_diffsource, 
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, 
+                hidden
+            
+        '],
     ],
     'columns' => [
 
@@ -51,12 +75,15 @@ return [
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.recordType',
             'config' => [
                 'type' => 'select',
-                'renderType' => 'selectSingle',
+                'renderType' => 'selectMultipleSideBySide',
                 'items' => [
+                    ['LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.recordType.choose', 0],
                     ['LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.recordType.default', 'default'],
                     ['LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.recordType.dragonfly', 'dragonfly'],
                 ],
-                'default' => 'default'
+                'minitems' => 1,
+                'maxitems' => 1,
+                'default' => '0'
             ],
         ],
         'sys_language_uid' => [
@@ -174,6 +201,7 @@ return [
                 'size' => 30,
                 'eval' => 'trim,required'
             ],
+            //'displayCond' => 'FIELD:record_type:!=:dragonfly'
         ],
         'year' => [
             'exclude' => true,
@@ -283,6 +311,28 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
+            ],
+        ],
+        'first_spotted' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.first_spotted',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputDateTime',
+                'size' => 13,
+                'eval' => 'datetime',
+                'default' => 0,
+            ],
+        ],
+        'last_spotted' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.last_spotted',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputDateTime',
+                'size' => 13,
+                'eval' => 'datetime',
+                'default' => 0,
             ],
         ],
         'phenology' => [
