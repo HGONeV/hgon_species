@@ -133,10 +133,10 @@
         </p>
         <div class="flex-container no-padding">
             <div class="flex-item c-6 no-padding flex-item--medium-half">
-                <p>EB: {species.first_spotted}</p>
+                <p>EB: <f:format.date format="d.m.Y">{species.firstSpotted}</f:format.date></p>
             </div>
             <div class="flex-item c-6 no-padding flex-item--medium-half">
-                <p>LB: {first_spotted.last_spotted}</p>
+                <p>LB: <f:format.date format="d.m.Y">{species.lastSpotted}</f:format.date></p>
             </div>
         </div>
     </div>

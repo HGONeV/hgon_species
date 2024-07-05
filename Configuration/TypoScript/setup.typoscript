@@ -74,6 +74,7 @@ plugin.tx_hgonspecies {
 
 }
 
-plugin.tx_hgonspecies_list.settings < plugin.tx_hgonspecies.settings
+plugin.tx_hgonspecies_list < plugin.tx_hgonspecies
+plugin.tx_hgonspecies_show < plugin.tx_hgonspecies
 
 

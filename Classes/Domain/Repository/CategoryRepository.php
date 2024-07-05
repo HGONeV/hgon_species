@@ -65,7 +65,7 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
      */
-    public function findSubFamiliesOfExtendedFamilies($category = 0)
+    public function findSubFamiliesOfExtendedFamilies(int $category = 0)
     {
         $query = $this->createQuery();
 
