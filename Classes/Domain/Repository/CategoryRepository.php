@@ -14,6 +14,8 @@ namespace HGON\HgonSpecies\Domain\Repository;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+
 /**
  * Class CategoryRepository
  *
@@ -53,6 +55,10 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         // get extended families
         $query->matching($query->equals('parent', $category));
+
+        $query->setOrderings(
+            ['sorting' => QueryInterface::ORDER_ASCENDING]
+        );
 
         return $query->execute();
     }
