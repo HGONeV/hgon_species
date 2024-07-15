@@ -17,6 +17,7 @@ call_user_func(
             ]
         );
 
+        /*
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'HGON.HgonSpecies',
             'ListByCategory',
@@ -28,6 +29,7 @@ call_user_func(
                 'Species' => 'listByCategory'
             ]
         );
+        */
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'HGON.HgonSpecies',

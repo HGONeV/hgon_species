@@ -19,7 +19,7 @@ plugin.tx_hgonspecies {
         # cat=plugin.tx_hgonspecies_list//a; type=int; label=PID of standard list
         listPid =
         # cat=plugin.tx_hgonspecies_list//a; type=int; label=PID of alternative list
-        listCatPid =
+        #listCatPid =
         # cat=plugin.tx_hgonspecies_list//a; type=int; label=PID of detail page
         showPid =
     }

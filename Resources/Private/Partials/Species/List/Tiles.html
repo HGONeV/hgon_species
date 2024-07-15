@@ -1,0 +1,48 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+
+<f:if condition="{speciesList}">
+    <div id="tx-hgonspecies-list">
+
+        <f:for each="{speciesCategories}" as="category">
+
+            <h3 id="anchor-category-{category.uid}">{category.title}</h3>
+
+            <f:for each="{speciesList}" as="speciesItem">
+                <f:if condition="{speciesItem.family.parent.uid} == {category.uid}">
+                    <div class="flex-container gutter valign-stretch no-padding">
+                        <div class="flex-item c-4">
+                            <div class="frame frame-default frame-type-textpic frame-layout-14">
+                                <article class="card card--shadow">
+                                    <picture class="card__image">
+                                        <f:for each="{speciesItem.image}" as="image" iteration="iter">
+                                            <f:if condition="{iter.isFirst}">
+                                                <li class="splide__slide">
+                                                    <f:image image="{image}" />
+                                                </li>
+                                            </f:if>
+                                        </f:for>
+                                    </picture>
+                                    <div class="card__inner">
+                                        <div class="card__content">
+                                            <p>
+                                                <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : speciesItem}">
+                                                    {speciesItem.nameScience}
+                                                </f:link.action>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </f:if>
+            </f:for>
+
+        </f:for>
+
+
+    </div>
+</f:if>
+
+</html>

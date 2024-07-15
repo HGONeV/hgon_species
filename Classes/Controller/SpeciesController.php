@@ -45,15 +45,19 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function listAction()
     {
-        $speciesList = $this->speciesRepository->findAll();
+        $speciesList = $this->speciesRepository->findAllOrderByName();
 
         $this->view->assign('speciesList', $speciesList);
+        //$this->view->assign('speciesCategories', $this->categoryRepository->findSubFamiliesOfExtendedFamilies($this->settings['parentCategoryUid']));
+        $this->view->assign('speciesCategories', $this->categoryRepository->findExtendedFamilies($this->settings['parentCategoryUid']));
     }
 
     /**
      * action listByCategory
      *
      * "Artensteckbriefe"
+     *
+     * @deprecated Solved by tabs in listAction
      *
      * @return void
      */

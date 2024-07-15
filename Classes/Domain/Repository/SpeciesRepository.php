@@ -1,6 +1,9 @@
 <?php
 namespace HGON\HgonSpecies\Domain\Repository;
 
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+
 /***
  *
  * This file is part of the "HgonSpecies" Extension for TYPO3 CMS.
@@ -17,5 +20,22 @@ namespace HGON\HgonSpecies\Domain\Repository;
  */
 class SpeciesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+
+    /**
+     * Returns all objects of this repository.
+     *
+     * @return QueryResultInterface|array
+     * @api
+     */
+    public function findAllOrderByName()
+    {
+        $query = $this->createQuery();
+
+        $query->setOrderings(
+            ['name' => QueryInterface::ORDER_ASCENDING]
+        );
+
+        return $query->execute();
+    }
 
 }

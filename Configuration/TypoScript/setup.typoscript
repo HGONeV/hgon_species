@@ -68,7 +68,7 @@ plugin.tx_hgonspecies {
     settings {
         parentCategoryUid = {$plugin.tx_hgonspecies.settings.parentCategoryUid}
         listPid = {$plugin.tx_hgonspecies.settings.listPid}
-        listCatPid = {$plugin.tx_hgonspecies.settings.listCatPid}
+        #listCatPid = {$plugin.tx_hgonspecies.settings.listCatPid}
         showPid = {$plugin.tx_hgonspecies.settings.showPid}
     }
 

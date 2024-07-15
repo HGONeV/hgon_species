@@ -12,7 +12,7 @@
     </h1>
 
     <p class="mb-0">
-        Unterordnung "{species.family.title}"<br>
+        Gattung "{species.family.title}"<br>
         Familie "{species.family.parent.title}"
     </p>
 </div>
@@ -141,59 +141,12 @@
         </div>
     </div>
 
+    <f:render partial="Species/Show/Sidebar" arguments="{_all}" />
 
-    <div class="flex-item c-3">
-        <div class="species-categories-list mb-1">
-            <f:link.action action="listByCategory" controller="Species" pluginName="listByCategory" pageUid="{settings.listCatPid}">
-                Artensteckbriefe
-            </f:link.action>
-            <ul>
-                <f:for each="{speciesCategories}" as="category">
-
-                    <li class="species-family {f:if(condition: '{species.family.uid} == {category.uid}', then: 'active')}">
-                        <f:comment><!-- anchor link to list "Artensteckbriefe" --></f:comment>
-                        <f:link.action action="listByCategory" controller="Species" section="anchor-category-{category.uid}"  class="js__species-family">
-                            {category.title}
-                        </f:link.action>
-                        <ul class="species-subfamily">
-                            <f:for each="{speciesList}" as="speciesItem">
-                                <f:if condition="{speciesItem.family.uid} == {category.uid}">
-                                    <li>
-                                        <f:if condition="{speciesItem.uid} == {species.uid}">
-                                            <f:then>
-                                                <f:comment><!-- current shown species --></f:comment>
-                                                <strong>{speciesItem.name}</strong>
-                                            </f:then>
-                                            <f:else>
-                                                <f:link.action action="show" controller="Species" arguments="{species : speciesItem}">
-                                                    {speciesItem.name}
-                                                </f:link.action>
-                                            </f:else>
-                                        </f:if>
-                                    </li>
-                                </f:if>
-                            </f:for>
-                        </ul>
-                    </li>
-                </f:for>
-            </ul>
-        </div>
-
-        <f:if condition="{species.disseminationImg}">
-            <a href="#" class="link link--icon js-open-mdl" data-mdl="image_sidebar"><img src="{f:uri.image( image: '{species.sidebarImg}' )}" width="300" height="200"></a>
-            <div id="image_sidebar" class="mdl mdl-auto-height js-mdl">
-                <button class="btn btn--square btn--transparent mdl__close js-close-mdl"><svg class="is-centered" width="12" height="12"><use xlink:href="#ui-close"></use></svg></button>
-                <div class="mdl__content">
-                    <f:image image="{species.sidebarImg}" />
-                </div>
-            </div>
-        </f:if>
-    </div>
 </div>
 
 
 <f:comment><!-- Verschoben, weil Fluid keine variablen mehr ausgeben konnte beim sidebar Bild. Irgendwas stimmt nicht mit dem Code. --></f:comment>
-<f:comment><!-- Links in sidebar reagieren zudem merkwürdigerweise nicht auf klick!! --></f:comment>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function(event) {
         jQuery('.js__species-family').click(function(e) {

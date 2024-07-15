@@ -31,7 +31,7 @@ return [
         'default' => [
             'showitem' => '
             
-                record_type, name, name_science, name_discoverer, year, first_spotted, first_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
+                record_type, name, name_science, name_discoverer, year, first_spotted, last_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
             
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
                 characteristic, habitat, dissemination, phenology, remark, 
@@ -51,7 +51,7 @@ return [
         'dragonfly' => [
             'showitem' => '
             
-                record_type, name, name_science, first_spotted, first_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
+                record_type, name, name_science, first_spotted, last_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
             
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
                 characteristic, habitat, dissemination, phenology, remark, 

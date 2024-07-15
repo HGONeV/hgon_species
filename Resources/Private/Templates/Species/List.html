@@ -1,33 +1,41 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
+<div id="tx-hgonspecies">
+    <h1>Artenliste</h1>
 
-<h1>Artenliste</h1>
-<h2>Liste der Arten in Tabelle</h2>
-<f:if condition="{speciesList}">
-    <div id="tx-hgonspecies-list">
-        <div class="table-responsive">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td><strong>Artname<br> (wissenschaftlich)</strong></td>
-                        <td><strong>Artname<br> (deutsch)</strong></td>
-                        <td><strong>Familie</strong></td>
-                        <td><strong>Zahl d.<br> MTB/64</strong></td>
-                        <td><strong>Nachw.</strong></td>
-                        <td><strong>Bemerkungen</strong></td>
-                    </tr>
-                    <f:for each="{speciesList}" as="species" iteration="iter">
-                        <f:render partial="Species/ListItem" arguments="{_all}" />
-                    </f:for>
-                </tbody>
-            </table>
+    <section class="section / js-tabs-container" id="zeitspenden">
+        <div class="section__content / no-padding-top">
+            <div class="flex-container space-between gutter">
+                <div class="flex-item c-12">
+                    <nav class="nav nav--tab js-tab-nav / align-right">
+                        <ul>
+                            <li class="active">
+                                <a class="js-tab-link" href="#tab-01" data-index="0">
+                                    Übersicht
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="js-tab-link" href="#tab-02" data-index="1">
+                                    Liste
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="tabs js-tabs">
+                        <div class="tab__item js-tab-item">
+                            <f:render partial="Species/List/Tiles" arguments="{_all}" />
+                        </div>
+                        <div class="tab__item js-tab-item">
+                            <f:render partial="Species/List/Rows" arguments="{_all}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</f:if>
+    </section>
 
-
-
-
+</div>
 
 
 </html>
