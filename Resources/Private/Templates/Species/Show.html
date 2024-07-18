@@ -8,11 +8,12 @@
     <br>
 
     <h1 class="headline mb-0">
-        {species.nameScience} ({species.nameDiscoverer}, {species.year}) – {species.name}
+        <f:comment>{species.nameScience} ({species.nameDiscoverer}, {species.year}) – {species.name}</f:comment>
+        {species.nameScience} – {species.name}
     </h1>
 
     <p class="mb-0">
-        Gattung "{species.family.title}"<br>
+        <f:comment>Gattung "{species.family.title}"<br></f:comment>
         Familie "{species.family.parent.title}"
     </p>
 </div>
@@ -78,7 +79,7 @@
             </script>
         </div>
         <div class="grid no-padding grid__padding_between">
-
+            <h5>Verbreitung in Hessen</h5>
             <f:if condition="{species.disseminationImg}">
                 <f:for each="{species.disseminationImg}" as="image" iteration="iter">
                     <div class="grid__col c-6 grid__col--medium-half">
@@ -116,7 +117,7 @@
         <div class="flex-container no-padding">
             <div class="flex-item c-6 no-padding flex-item--medium-half">
                 <p>   	
-                    Rasterfrequenz: {species.gridFrequency}
+                    Rasterfrequenz (%): {species.gridFrequency}
                 </p>
             </div>
             <div class="flex-item c-6 no-padding flex-item--medium-half">
