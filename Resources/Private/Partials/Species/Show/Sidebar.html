@@ -38,13 +38,38 @@
     </div>
 
     <h5>Phänogramm</h5>
-    <f:if condition="{species.disseminationImg}">
-        <a href="#" class="link link--icon js-open-mdl" data-mdl="image_sidebar"><img src="{f:uri.image( image: '{species.sidebarImg}' )}" width="300" height="200"></a>
-        <div id="image_sidebar" class="mdl mdl-auto-height js-mdl">
-            <button class="btn btn--square btn--transparent mdl__close js-close-mdl"><svg class="is-centered" width="12" height="12"><use xlink:href="#ui-close"></use></svg></button>
-            <div class="mdl__content">
-                <f:image image="{species.sidebarImg}" />
+    <f:if condition="{species.sidebarImg}">
+        <section class="js-lightbox">
+            <div class="gallery">
+                <div class="gallery__image">
+                    <a class="js-open-lightbox" href="#" data-lightbox="lightbox-gallery" data-index="0">
+                        <svg class="gallery__image-icon icon icon--24"><use xlink:href="#ui-fullscreen"></use></svg>
+                        <figure>
+                            <f:image image="{species.sidebarImg}" alt="{species.sidebarImg.name}" width="300px" />
+                        </figure>
+                    </a>
+                </div>
             </div>
-        </div>
+            <div id="lightbox-gallery" class="lightbox" style="opacity: 0; visibility: hidden;">
+                <picture class="picture / lightbox__img" style="visibility: hidden; opacity: 0;">
+                    <f:image image="{species.sidebarImg}" alt="{species.sidebarImg.name}" />
+                </picture>
+
+                <div class="bar bar--bottom bar--fixed">
+                    <div class="bar__icons bar__icons--right">
+                        <a class="bar__icon js-close-lightbox" href=""><svg class="icon"><use xlink:href="#ui-close"></use></svg></a>
+                        <a class="bar__icon js-lightbox-prev" href=""><svg class="icon"><use xlink:href="#ui-prev"></use></svg></a>
+                        <a class="bar__icon js-lightbox-next" href=""><svg class="icon"><use xlink:href="#ui-next"></use></svg></a>
+                    </div>
+                    <div class="bar__icons bar__icons--left">
+                        <div class="bar__text align-center">
+                            <span class="js-lightbox-counter">
+                            <span class="current__img">1</span> / <span class="max__img">2</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </f:if>
 </div>

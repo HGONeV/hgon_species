@@ -1,149 +1,176 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
 
-<div class="grid">
-    <f:link.action action="list" controller="Species" pluginName="List" pageUid="{settings.listPid}">
-        Zurück zur Liste
-    </f:link.action>
-    <br>
+<div id="tx-hgonspecies">
+    <div class="grid">
+        <f:link.action action="list" controller="Species" pluginName="List" pageUid="{settings.listPid}">
+            Zurück zur Liste
+        </f:link.action>
+        <br>
 
-    <h1 class="headline mb-0">
-        <f:comment>{species.nameScience} ({species.nameDiscoverer}, {species.year}) – {species.name}</f:comment>
-        {species.nameScience} – {species.name}
-    </h1>
+        <h1 class="headline mb-0">
+            <f:comment>{species.nameScience} ({species.nameDiscoverer}, {species.year}) – {species.name}</f:comment>
+            {species.nameScience} – {species.name}
+        </h1>
 
-    <p class="mb-0">
-        <f:comment>Gattung "{species.family.title}"<br></f:comment>
-        Familie "{species.family.parent.title}"
-    </p>
-</div>
-<div class="flex-container space-between gutter">
-    <div class="flex-item c-4">
-        <div class="species--slider mb-1">
-            <div id="species--slider-main" class="splide">
-                <div class="splide__track">
-                      <ul class="splide__list">
-                          <f:if condition="{species.image}">
-                              <f:for each="{species.image}" as="image">
-                                  <li class="splide__slide">
-                                      <f:image image="{image}" />
-                                  </li>
-                              </f:for>
-                          </f:if>
-                      </ul>
+        <p class="mb-0">
+            <f:comment>Gattung "{species.family.title}"<br></f:comment>
+            Familie "{species.family.parent.title}"
+        </p>
+    </div>
+    <div class="flex-container space-between gutter">
+        <div class="flex-item c-4">
+            <div class="species--slider mb-1">
+                <div id="species--slider-main" class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <f:if condition="{species.image}">
+                                <f:for each="{species.image}" as="image">
+                                    <li class="splide__slide">
+                                        <f:image image="{image}" />
+                                    </li>
+                                </f:for>
+                            </f:if>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-    
-            <div id="species--slider-thumbnail" class="splide">
-                <div class="splide__track">
-                      <ul class="splide__list">
-                          <f:if condition="{species.image}">
-                              <f:for each="{species.image}" as="image">
-                                  <li class="splide__slide">
-                                      <f:image image="{image}" />
-                                  </li>
-                              </f:for>
-                          </f:if>
-                      </ul>
+        
+                <div id="species--slider-thumbnail" class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <f:if condition="{species.image}">
+                                <f:for each="{species.image}" as="image">
+                                    <li class="splide__slide">
+                                        <f:image image="{image}" />
+                                    </li>
+                                </f:for>
+                            </f:if>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <script type="text/javascript">
-                document.addEventListener("DOMContentLoaded", function(event) { 
-                    var main = new Splide('#species--slider-main', {
-                        type      : 'fade',
-                        rewind    : true,
-                        pagination: false,
-                        arrows    : false,
-                    });
-                    
-                    var thumbnails = new Splide('#species--slider-thumbnail', {
-                        fixedWidth  : 100,
-                        fixedHeight : 60,
-                        gap         : 5,
-                        rewind      : true,
-                        pagination  : false,
-                        cover       : true,
-                        isNavigation: true,
-                        breakpoints : {
-                            600: {
-                            fixedWidth : 60,
-                            fixedHeight: 44,
+                <script type="text/javascript">
+                    document.addEventListener("DOMContentLoaded", function(event) { 
+                        var main = new Splide('#species--slider-main', {
+                            type      : 'fade',
+                            rewind    : true,
+                            pagination: false,
+                            arrows    : false,
+                        });
+                        
+                        var thumbnails = new Splide('#species--slider-thumbnail', {
+                            fixedWidth  : 100,
+                            fixedHeight : 60,
+                            gap         : 5,
+                            rewind      : true,
+                            pagination  : false,
+                            cover       : true,
+                            isNavigation: true,
+                            breakpoints : {
+                                600: {
+                                fixedWidth : 60,
+                                fixedHeight: 44,
+                                },
                             },
-                        },
-                    });
+                        });
 
-                    main.sync( thumbnails );
-                    main.mount();
-                    thumbnails.mount();
-                });
-            </script>
-        </div>
-        <div class="grid no-padding grid__padding_between">
-            <h5>Verbreitung in Hessen</h5>
-            <f:if condition="{species.disseminationImg}">
-                <f:for each="{species.disseminationImg}" as="image" iteration="iter">
-                    <div class="grid__col c-6 grid__col--medium-half">
-                        <a href="#" class="link link--icon js-open-mdl" data-mdl="image{iter.cycle}"><img src="{f:uri.image( image: '{image}' )}"></a>
-                        <div id="image{iter.cycle}" class="mdl mdl-auto-height js-mdl">
-                            <button class="btn btn--square btn--transparent mdl__close js-close-mdl"><svg class="is-centered" width="12" height="12"><use xlink:href="#ui-close"></use></svg></button>
-                            <div class="mdl__content">
-                                <f:image image="{image}" />
+                        main.sync( thumbnails );
+                        main.mount();
+                        thumbnails.mount();
+                    });
+                </script>
+            </div>
+            <div class="grid no-padding grid__padding_between">
+                <h5>Verbreitung in Hessen</h5>
+                <f:if condition="{species.disseminationImg}">
+                    <section class="js-lightbox">
+                        <div class="gallery">
+                            <f:for each="{species.disseminationImg}" as="image">
+                                <div class="gallery__image">
+                                    <a class="js-open-lightbox" href="#" data-lightbox="lightbox-gallery" data-index="0">
+                                        <svg class="gallery__image-icon icon icon--24"><use xlink:href="#ui-fullscreen"></use></svg>
+                                        <figure>
+                                            <f:image image="{image}" alt="{image.name}" width="300px" />
+                                        </figure>
+                                    </a>
+                                </div>
+                            </f:for>
+                        </div>
+                        <div id="lightbox-gallery" class="lightbox" style="opacity: 0; visibility: hidden;">
+                            <f:for each="{species.disseminationImg}" as="image">
+                                <picture class="picture / lightbox__img" style="visibility: hidden; opacity: 0;">
+                                    <f:image image="{image}" alt="{image.name}" />
+                                </picture>
+                            </f:for>
+
+                            <div class="bar bar--bottom bar--fixed">
+                                <div class="bar__icons bar__icons--right">
+                                    <a class="bar__icon js-close-lightbox" href=""><svg class="icon"><use xlink:href="#ui-close"></use></svg></a>
+                                    <a class="bar__icon js-lightbox-prev" href=""><svg class="icon"><use xlink:href="#ui-prev"></use></svg></a>
+                                    <a class="bar__icon js-lightbox-next" href=""><svg class="icon"><use xlink:href="#ui-next"></use></svg></a>
+                                </div>
+                                <div class="bar__icons bar__icons--left">
+                                    <div class="bar__text align-center">
+                                        <span class="js-lightbox-counter">
+                                        <span class="current__img">1</span> / <span class="max__img">2</span>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </f:for>
-            </f:if>
-        </div>
-    </div>
-    <div class="flex-item c-5">
-        <h2>Merkmale</h2>
-        <p>
-            <f:format.raw>
-                {species.characteristic}
-            </f:format.raw>
-        </p>
-        <h2>Lebensraum</h2>
-        <p>
-            <f:format.raw>
-                {species.habitat}
-            </f:format.raw>
-        </p>
-        <h2>Verbreitung</h2>
-        <p>
-            <f:format.raw>
-                {species.dissemination}
-            </f:format.raw>
-        </p>
-        <div class="flex-container no-padding">
-            <div class="flex-item c-6 no-padding flex-item--medium-half">
-                <p>   	
-                    Rasterfrequenz (%): {species.gridFrequency}
-                </p>
-            </div>
-            <div class="flex-item c-6 no-padding flex-item--medium-half">
-                <p>
-                    Stand: <f:format.date format="d.m.Y">{species.lastUpdatedDate}</f:format.date>
-                </p>
+                    </section>
+                </f:if>
             </div>
         </div>
-        <h2>Phänologie</h2>
-        <p>
-            <f:format.raw>
-                {species.phenology}
-            </f:format.raw>
-        </p>
-        <div class="flex-container no-padding">
-            <div class="flex-item c-6 no-padding flex-item--medium-half">
-                <p>EB: <f:format.date format="d.m.Y">{species.firstSpotted}</f:format.date></p>
+        <div class="flex-item c-5">
+            <h2>Merkmale</h2>
+            <p>
+                <f:format.raw>
+                    {species.characteristic}
+                </f:format.raw>
+            </p>
+            <h2>Lebensraum</h2>
+            <p>
+                <f:format.raw>
+                    {species.habitat}
+                </f:format.raw>
+            </p>
+            <h2>Verbreitung</h2>
+            <p>
+                <f:format.raw>
+                    {species.dissemination}
+                </f:format.raw>
+            </p>
+            <div class="flex-container no-padding">
+                <div class="flex-item c-6 no-padding flex-item--medium-half">
+                    <p>   	
+                        Rasterfrequenz (%): {species.gridFrequency}
+                    </p>
+                </div>
+                <div class="flex-item c-6 no-padding flex-item--medium-half">
+                    <p>
+                        Stand: <f:format.date format="d.m.Y">{species.lastUpdatedDate}</f:format.date>
+                    </p>
+                </div>
             </div>
-            <div class="flex-item c-6 no-padding flex-item--medium-half">
-                <p>LB: <f:format.date format="d.m.Y">{species.lastSpotted}</f:format.date></p>
+            <h2>Phänologie</h2>
+            <p>
+                <f:format.raw>
+                    {species.phenology}
+                </f:format.raw>
+            </p>
+            <div class="flex-container no-padding">
+                <div class="flex-item c-6 no-padding flex-item--medium-half">
+                    <p>EB: <f:format.date format="d.m.Y">{species.firstSpotted}</f:format.date></p>
+                </div>
+                <div class="flex-item c-6 no-padding flex-item--medium-half">
+                    <p>LB: <f:format.date format="d.m.Y">{species.lastSpotted}</f:format.date></p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <f:render partial="Species/Show/Sidebar" arguments="{_all}" />
+        <f:render partial="Species/Show/Sidebar" arguments="{_all}" />
 
+    </div>
 </div>
 
 

@@ -5,31 +5,27 @@
 
     <section class="section / js-tabs-container" id="zeitspenden">
         <div class="section__content / no-padding-top">
-            <div class="flex-container space-between gutter">
-                <div class="flex-item c-12">
-                    <nav class="nav nav--tab js-tab-nav / align-right">
-                        <ul>
-                            <li class="active">
-                                <a class="js-tab-link" href="#tab-01" data-index="0">
-                                    Übersicht
-                                </a>
-                            </li>
-                            <li class="">
-                                <a class="js-tab-link" href="#tab-02" data-index="1">
-                                    Liste
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+            <nav class="nav nav--tab js-tab-nav / align-right">
+                <ul>
+                    <li class="active">
+                        <a class="js-tab-link" href="#tab-01" data-index="0">
+                            Übersicht
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="js-tab-link" href="#tab-02" data-index="1">
+                            Liste
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-                    <div class="tabs js-tabs">
-                        <div class="tab__item js-tab-item">
-                            <f:render partial="Species/List/Tiles" arguments="{_all}" />
-                        </div>
-                        <div class="tab__item js-tab-item">
-                            <f:render partial="Species/List/Rows" arguments="{_all}" />
-                        </div>
-                    </div>
+            <div class="tabs js-tabs">
+                <div class="tab__item js-tab-item">
+                    <f:render partial="Species/List/Tiles" arguments="{_all}" />
+                </div>
+                <div class="tab__item js-tab-item">
+                    <f:render partial="Species/List/Rows" arguments="{_all}" />
                 </div>
             </div>
         </div>
