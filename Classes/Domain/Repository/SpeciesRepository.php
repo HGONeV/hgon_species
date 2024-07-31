@@ -32,7 +32,7 @@ class SpeciesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $query = $this->createQuery();
 
         $query->setOrderings(
-            ['name' => QueryInterface::ORDER_ASCENDING]
+            ['nameScience' => QueryInterface::ORDER_ASCENDING]
         );
 
         return $query->execute();
