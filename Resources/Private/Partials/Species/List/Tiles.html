@@ -8,9 +8,9 @@
 
             <h3 id="anchor-category-{category.uid}">{category.title}</h3>
 
-            <f:for each="{speciesList}" as="speciesItem">
-                <f:if condition="{speciesItem.family.parent.uid} == {category.uid}">
-                    <div class="flex-container gutter valign-stretch no-padding">
+            <div class="flex-container gutter valign-stretch no-padding">
+                <f:for each="{speciesList}" as="speciesItem">
+                    <f:if condition="{speciesItem.family.parent.uid} == {category.uid}">
                         <div class="flex-item c-4">
                             <div class="frame frame-default frame-type-textpic frame-layout-14">
                                 <article class="card card--shadow">
@@ -35,10 +35,9 @@
                                 </article>
                             </div>
                         </div>
-                    </div>
-                </f:if>
-            </f:for>
-
+                    </f:if>
+                </f:for>
+            </div>
         </f:for>
 
 
