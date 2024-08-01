@@ -2,7 +2,7 @@
 
 
 <f:if condition="{speciesList}">
-    <div id="tx-hgonspecies-list">
+    <div id="tx-hgonspecies-overview">
 
         <f:for each="{speciesCategories}" as="category">
 
@@ -17,9 +17,7 @@
                                     <picture class="card__image">
                                         <f:for each="{speciesItem.image}" as="image" iteration="iter">
                                             <f:if condition="{iter.isFirst}">
-                                                <li class="splide__slide">
-                                                    <f:image image="{image}" />
-                                                </li>
+                                                <f:image image="{image}" />
                                             </f:if>
                                         </f:for>
                                     </picture>

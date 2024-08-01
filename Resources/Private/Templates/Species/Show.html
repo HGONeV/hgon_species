@@ -21,63 +21,66 @@
     <div class="flex-container space-between gutter">
         <div class="flex-item c-4">
             <div class="species--slider mb-1">
-                <div id="species--slider-main" class="splide">
-                    <div class="splide__track">
-                        <ul class="splide__list">
+                <div id="sliderSpecies" class="teaserslider-container nav-inline margin-below-sm product-slider">
+                    <div class="slider-stage js__fix-button-trigger">
+                        <div class="slider-items">
                             <f:if condition="{species.image}">
-                                <f:for each="{species.image}" as="image">
-                                    <li class="splide__slide">
-                                        <f:image image="{image}" />
+                                <f:for each="{species.image}" as="image" iteration="i">
+                                    <div class="slider-item col-12">
+                                        <section class="js-lightbox">
+                                            <div class="gallery">
+                                                <div class="gallery__image">
+                                                    <a class="js-open-lightbox" href="#" data-lightbox="lightbox-thumbnail-{i.index}" data-index="0">
+                                                        <svg class="gallery__image-icon icon icon--24"><use xlink:href="#ui-fullscreen"></use></svg>
+                                                        <figure>
+                                                            <f:image image="{image}" />
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div id="lightbox-thumbnail-{i.index}" class="lightbox" style="opacity: 0; visibility: hidden;">
+                                                <picture class="picture / lightbox__img" style="visibility: hidden; opacity: 0;">
+                                                    <f:image image="{image}" />
+                                                </picture>
+                                
+                                                <div class="bar bar--bottom bar--fixed">
+                                                    <div class="bar__icons bar__icons--right">
+                                                        <a class="bar__icon js-close-lightbox" href=""><svg class="icon"><use xlink:href="#ui-close"></use></svg></a>
+                                                        <a class="bar__icon js-lightbox-prev" href=""><svg class="icon"><use xlink:href="#ui-prev"></use></svg></a>
+                                                        <a class="bar__icon js-lightbox-next" href=""><svg class="icon"><use xlink:href="#ui-next"></use></svg></a>
+                                                    </div>
+                                                    <div class="bar__icons bar__icons--left">
+                                                        <div class="bar__text align-center">
+                                                            <span class="js-lightbox-counter">
+                                                            <span class="current__img">1</span> / <span class="max__img">2</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </f:for>
+                            </f:if>
+                        </div>
+                    </div>
+                    <div class="nav-container display-lg-block">
+                        <ul class="slider-navigation teaser-navigation">
+                            <f:if condition="{species.image}">
+                                <f:for each="{species.image}" as="image" iteration="i">
+                                    <li>
+                                        <f:image image="{image}" additionalAttributes="{data-index: i.index}" width="100"/>
                                     </li>
                                 </f:for>
                             </f:if>
                         </ul>
                     </div>
                 </div>
-        
-                <div id="species--slider-thumbnail" class="splide">
-                    <div class="splide__track">
-                        <ul class="splide__list">
-                            <f:if condition="{species.image}">
-                                <f:for each="{species.image}" as="image">
-                                    <li class="splide__slide">
-                                        <f:image image="{image}" />
-                                    </li>
-                                </f:for>
-                            </f:if>
-                        </ul>
-                    </div>
-                </div>
-                <script type="text/javascript">
-                    document.addEventListener("DOMContentLoaded", function(event) { 
-                        var main = new Splide('#species--slider-main', {
-                            type      : 'fade',
-                            rewind    : true,
-                            pagination: false,
-                            arrows    : false,
-                        });
-                        
-                        var thumbnails = new Splide('#species--slider-thumbnail', {
-                            fixedWidth  : 100,
-                            fixedHeight : 60,
-                            gap         : 5,
-                            rewind      : true,
-                            pagination  : false,
-                            cover       : true,
-                            isNavigation: true,
-                            breakpoints : {
-                                600: {
-                                fixedWidth : 60,
-                                fixedHeight: 44,
-                                },
-                            },
-                        });
-
-                        main.sync( thumbnails );
-                        main.mount();
-                        thumbnails.mount();
-                    });
-                </script>
+                <script>document.addEventListener('readystatechange', function () {
+                    if (event.target.readyState == 'complete') {
+                        let sliderSpecies = new HGONSlider('#sliderSpecies');
+                    }
+                });</script>
             </div>
             <div class="grid no-padding grid__padding_between">
                 <h5>Verbreitung in Hessen</h5>
@@ -86,8 +89,11 @@
                         <div class="gallery">
                             <f:for each="{species.disseminationImg}" as="image">
                                 <div class="gallery__image">
-                                    <a class="js-open-lightbox" href="#" data-lightbox="lightbox-gallery" data-index="0">
-                                        <svg class="gallery__image-icon icon icon--24"><use xlink:href="#ui-fullscreen"></use></svg>
+                                    <a class="js-open-lightbox" href="#" data-lightbox="lightbox-items"
+                                        data-index="0">
+                                        <svg class="gallery__image-icon icon icon--24">
+                                            <use xlink:href="#ui-fullscreen"></use>
+                                        </svg>
                                         <figure>
                                             <f:image image="{image}" alt="{image.name}" width="300px" />
                                         </figure>
@@ -95,7 +101,7 @@
                                 </div>
                             </f:for>
                         </div>
-                        <div id="lightbox-gallery" class="lightbox" style="opacity: 0; visibility: hidden;">
+                        <div id="lightbox-items" class="lightbox" style="opacity: 0; visibility: hidden;">
                             <f:for each="{species.disseminationImg}" as="image">
                                 <picture class="picture / lightbox__img" style="visibility: hidden; opacity: 0;">
                                     <f:image image="{image}" alt="{image.name}" />
@@ -104,14 +110,20 @@
 
                             <div class="bar bar--bottom bar--fixed">
                                 <div class="bar__icons bar__icons--right">
-                                    <a class="bar__icon js-close-lightbox" href=""><svg class="icon"><use xlink:href="#ui-close"></use></svg></a>
-                                    <a class="bar__icon js-lightbox-prev" href=""><svg class="icon"><use xlink:href="#ui-prev"></use></svg></a>
-                                    <a class="bar__icon js-lightbox-next" href=""><svg class="icon"><use xlink:href="#ui-next"></use></svg></a>
+                                    <a class="bar__icon js-close-lightbox" href=""><svg class="icon">
+                                            <use xlink:href="#ui-close"></use>
+                                        </svg></a>
+                                    <a class="bar__icon js-lightbox-prev" href=""><svg class="icon">
+                                            <use xlink:href="#ui-prev"></use>
+                                        </svg></a>
+                                    <a class="bar__icon js-lightbox-next" href=""><svg class="icon">
+                                            <use xlink:href="#ui-next"></use>
+                                        </svg></a>
                                 </div>
                                 <div class="bar__icons bar__icons--left">
                                     <div class="bar__text align-center">
                                         <span class="js-lightbox-counter">
-                                        <span class="current__img">1</span> / <span class="max__img">2</span>
+                                            <span class="current__img">1</span> / <span class="max__img">2</span>
                                         </span>
                                     </div>
                                 </div>
@@ -123,26 +135,20 @@
         </div>
         <div class="flex-item c-5">
             <h2>Merkmale</h2>
-            <p>
-                <f:format.raw>
-                    {species.characteristic}
-                </f:format.raw>
-            </p>
+            <f:format.raw>
+                {species.characteristic}
+            </f:format.raw>
             <h2>Lebensraum</h2>
-            <p>
-                <f:format.raw>
-                    {species.habitat}
-                </f:format.raw>
-            </p>
+            <f:format.raw>
+                {species.habitat}
+            </f:format.raw>
             <h2>Verbreitung</h2>
-            <p>
-                <f:format.raw>
-                    {species.dissemination}
-                </f:format.raw>
-            </p>
+            <f:format.raw>
+                {species.dissemination}
+            </f:format.raw>
             <div class="flex-container no-padding">
                 <div class="flex-item c-6 no-padding flex-item--medium-half">
-                    <p>   	
+                    <p>
                         Rasterfrequenz (%): {species.gridFrequency}
                     </p>
                 </div>
@@ -153,17 +159,17 @@
                 </div>
             </div>
             <h2>Phänologie</h2>
-            <p>
-                <f:format.raw>
-                    {species.phenology}
-                </f:format.raw>
-            </p>
+            <f:format.raw>
+                {species.phenology}
+            </f:format.raw>
             <div class="flex-container no-padding">
                 <div class="flex-item c-6 no-padding flex-item--medium-half">
-                    <p>EB: <f:format.date format="d.m.Y">{species.firstSpotted}</f:format.date></p>
+                    <p>EB: <f:format.date format="d.m.Y">{species.firstSpotted}</f:format.date>
+                    </p>
                 </div>
                 <div class="flex-item c-6 no-padding flex-item--medium-half">
-                    <p>LB: <f:format.date format="d.m.Y">{species.lastSpotted}</f:format.date></p>
+                    <p>LB: <f:format.date format="d.m.Y">{species.lastSpotted}</f:format.date>
+                    </p>
                 </div>
             </div>
         </div>
@@ -174,14 +180,17 @@
 </div>
 
 
-<f:comment><!-- Verschoben, weil Fluid keine variablen mehr ausgeben konnte beim sidebar Bild. Irgendwas stimmt nicht mit dem Code. --></f:comment>
+<f:comment>
+    <!-- Verschoben, weil Fluid keine variablen mehr ausgeben konnte beim sidebar Bild. Irgendwas stimmt nicht mit dem Code. -->
+</f:comment>
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function(event) {
-        jQuery('.js__species-family').click(function(e) {
+    document.addEventListener("DOMContentLoaded", function (event) {
+        jQuery('.js__species-family').click(function (e) {
             e.preventDefault();
             jQuery('.species-family').removeClass('active');
             jQuery(this).parent().addClass('active');
         });
     });
 </script>
+
 </html>
