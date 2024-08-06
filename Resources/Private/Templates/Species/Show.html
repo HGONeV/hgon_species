@@ -87,10 +87,10 @@
                 <f:if condition="{species.disseminationImg}">
                     <section class="js-lightbox">
                         <div class="gallery">
-                            <f:for each="{species.disseminationImg}" as="image">
+                            <f:for each="{species.disseminationImg}" as="image" iteration="i">
                                 <div class="gallery__image">
                                     <a class="js-open-lightbox" href="#" data-lightbox="lightbox-items"
-                                        data-index="0">
+                                        data-index="{i.index}">
                                         <svg class="gallery__image-icon icon icon--24">
                                             <use xlink:href="#ui-fullscreen"></use>
                                         </svg>
