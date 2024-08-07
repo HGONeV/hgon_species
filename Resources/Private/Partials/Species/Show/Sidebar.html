@@ -10,9 +10,14 @@
 
                 <li class="species-family {f:if(condition: '{species.family.uid} == {category.uid}', then: 'active')}">
                     <f:comment><!-- anchor link to list "Artensteckbriefe" --></f:comment>
-                    <f:link.action action="listByCategory" controller="Species" section="anchor-category-{category.uid}"  class="js__species-family">
-                        {category.title}
-                    </f:link.action>
+                    <f:comment>
+                        <f:link.action action="listByCategory" controller="Species" section="anchor-category-{category.uid}"  class="js__species-family">
+                            {category.parent.title}
+                        </f:link.action>
+                    </f:comment>
+                    <a href="#" class="js__species-family">
+                        {category.parent.title}
+                    </a>
                     <ul class="species-subfamily">
                         <f:for each="{speciesList}" as="speciesItem">
                             <f:if condition="{speciesItem.family.uid} == {category.uid}">

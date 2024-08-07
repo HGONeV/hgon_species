@@ -14,15 +14,22 @@
                         <div class="flex-item c-4">
                             <div class="frame frame-default frame-type-textpic frame-layout-14">
                                 <article class="card card--shadow">
-                                    <picture class="card__image">
-                                        <f:for each="{speciesItem.image}" as="image" iteration="iter">
-                                            <f:if condition="{iter.isFirst}">
-                                                <f:image image="{image}" />
-                                            </f:if>
-                                        </f:for>
-                                    </picture>
+                                    <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : speciesItem}">
+                                        <picture class="card__image">
+                                            <f:for each="{speciesItem.image}" as="image" iteration="iter">
+                                                <f:if condition="{iter.isFirst}">
+                                                    <f:image image="{image}" />
+                                                </f:if>
+                                            </f:for>
+                                        </picture>
+                                    </f:link.action>
                                     <div class="card__inner">
                                         <div class="card__content">
+                                            <p>
+                                                <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : speciesItem}">
+                                                    <strong>{speciesItem.name}</strong>
+                                                </f:link.action>
+                                            </p>
                                             <p>
                                                 <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : speciesItem}">
                                                     {speciesItem.nameScience}

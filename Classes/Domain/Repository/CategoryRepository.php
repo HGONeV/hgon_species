@@ -87,6 +87,10 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         $query->matching($query->in('parent', $extendedFamilyUidList));
 
+        $query->setOrderings(
+            ['sorting' => QueryInterface::ORDER_ASCENDING]
+        );
+
         return $query->execute();
     }
 }

@@ -82,7 +82,7 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         $this->view->assign('species', $species);
 
         // sidebar
-        $this->view->assign('speciesList', $this->speciesRepository->findAll());
+        $this->view->assign('speciesList', $this->speciesRepository->findAllOrderByName());
         $this->view->assign('speciesCategories', $this->categoryRepository->findSubFamiliesOfExtendedFamilies(intval($this->settings['parentCategoryUid'])));
     }
 
