@@ -40,6 +40,14 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $nameDiscoverer = '';
 
     /**
+     * subtitle
+     *
+     * @var string
+     * @validate NotEmpty
+     */
+    protected $subtitle = '';
+
+    /**
      * year
      *
      * @var string
@@ -75,6 +83,11 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $dissemination = '';
 
     /**
+     * @var string
+     */
+    protected $didYouKnow = '';
+
+    /**
      * gridFrequency
      *
      * @var float
@@ -96,11 +109,25 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $redListHessia = '';
 
     /**
+     * stateOfPreservationHessia
+     *
+     * @var string
+     */
+    protected $stateOfPreservationHessia = '';
+
+    /**
      * redListGermany
      *
      * @var string
      */
     protected $redListGermany = '';
+
+    /**
+     * euVsrl
+     *
+     * @var string
+     */
+    protected $euVsrl = '';
 
     /**
      * firstSpotted
@@ -137,6 +164,21 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var int
      */
     protected $proof = 0;
+
+    /**
+     * @var string
+     */
+    protected $populationInHessia = '';
+
+    /**
+     * @var string
+     */
+    protected $populationDevelopment = '';
+
+    /**
+     * @var customLink
+     */
+    protected $customLink = '';
 
     /**
      * image
@@ -183,6 +225,13 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var \HGON\HgonSpecies\Domain\Model\Category
      */
     protected $extendedFamily = null;
+
+    /**
+     * attributes
+     *
+     * @var \HGON\HgonSpecies\Domain\Model\Attributes
+     */
+    protected $attributes = null;
 
     /**
      * __construct
@@ -268,6 +317,23 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setNameDiscoverer($nameDiscoverer)
     {
         $this->nameDiscoverer = $nameDiscoverer;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubtitle(): string
+    {
+        return $this->subtitle;
+    }
+
+    /**
+     * @param string $subtitle
+     * @return void
+     */
+    public function setSubtitle(string $subtitle): void
+    {
+        $this->subtitle = $subtitle;
     }
 
     /**
@@ -376,6 +442,23 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * @return string
+     */
+    public function getDidYouKnow(): string
+    {
+        return $this->didYouKnow;
+    }
+
+    /**
+     * @param string $didYouKnow
+     * @return void
+     */
+    public function setDidYouKnow(string $didYouKnow): void
+    {
+        $this->didYouKnow = $didYouKnow;
+    }
+
+    /**
      * Returns the gridFrequency
      *
      * @return float $gridFrequency
@@ -439,6 +522,23 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * @return string
+     */
+    public function getStateOfPreservationHessia(): string
+    {
+        return $this->stateOfPreservationHessia;
+    }
+
+    /**
+     * @param string $stateOfPreservationHessia
+     * @return void
+     */
+    public function setStateOfPreservationHessia(string $stateOfPreservationHessia): void
+    {
+        $this->stateOfPreservationHessia = $stateOfPreservationHessia;
+    }
+
+    /**
      * Returns the redListGermany
      *
      * @return string $redListGermany
@@ -457,6 +557,23 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setRedListGermany($redListGermany)
     {
         $this->redListGermany = $redListGermany;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEuVsrl(): string
+    {
+        return $this->euVsrl;
+    }
+
+    /**
+     * @param string $euVsrl
+     * @return void
+     */
+    public function setEuVsrl(string $euVsrl): void
+    {
+        $this->euVsrl = $euVsrl;
     }
 
     /**
@@ -554,6 +671,56 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setProof($proof)
     {
         $this->proof = $proof;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPopulationInHessia(): string
+    {
+        return $this->populationInHessia;
+    }
+
+    /**
+     * @param string $populationInHessia
+     * @return void
+     */
+    public function setPopulationInHessia(string $populationInHessia): void
+    {
+        $this->populationInHessia = $populationInHessia;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPopulationDevelopment(): string
+    {
+        return $this->populationDevelopment;
+    }
+
+    /**
+     * @param string $populationDevelopment
+     * @return void
+     */
+    public function setPopulationDevelopment(string $populationDevelopment): void
+    {
+        $this->populationDevelopment = $populationDevelopment;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCustomLink()
+    {
+        return $this->customLink;
+    }
+
+    /**
+     * @param string $customLink
+     */
+    public function setCustomLink($customLink): void
+    {
+        $this->customLink = $customLink;
     }
 
     /**
@@ -724,5 +891,26 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setExtendedFamily(\HGON\HgonSpecies\Domain\Model\Category $extendedFamily)
     {
         $this->extendedFamily = $extendedFamily;
+    }
+
+    /**
+     * Returns the attributes
+     *
+     * @return \HGON\HgonSpecies\Domain\Model\Attributes $attributes
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * Sets the attributes
+     *
+     * @param \HGON\HgonSpecies\Domain\Model\Attributes $attributes
+     * @return void
+     */
+    public function setAttributes(\HGON\HgonSpecies\Domain\Model\Attributes $attributes)
+    {
+        $this->attributes = $attributes;
     }
 }

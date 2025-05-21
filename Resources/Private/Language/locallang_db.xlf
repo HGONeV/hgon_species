@@ -75,6 +75,27 @@
 			<trans-unit id="tx_hgonspecies_domain_model_species.extended_family">
 				<source>Extended Family (Erweiterte Familie)</source>
 			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.subtitle">
+                <source>Subtitle</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.did_you_know">
+                <source>Did you know?</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.state_of_preservation_hessia">
+                <source>State of Preservation in Hesse</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.eu_vsrl">
+                <source>EU Birds Directive</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.population_in_hessia">
+                <source>Population in Hesse</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.population_development">
+                <source>Population Development</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.custom_link">
+                <source>Custom Link</source>
+            </trans-unit>
 
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType">
                 <source>Record Type</source>
@@ -88,6 +109,41 @@
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType.dragonfly">
                 <source>Dragonfly (Libelle)</source>
             </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.recordType.bird">
+                <source>Bird</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_hgonspecies_domain_model_species">
+                <source>HGON Species</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.length">
+                <source>Length</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.wingspan">
+                <source>Wingspan</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.weight">
+                <source>Weight</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.age_limit">
+                <source>Age Limit</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.food">
+                <source>Food</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.nest_size">
+                <source>Nest Size</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.breeding_season">
+                <source>Breeding Season</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.migratory_behavior">
+                <source>Migratory Behavior</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.winter_district">
+                <source>Wintering Area</source>
+            </trans-unit>
 
 
             <!-- TCA -->
@@ -99,6 +155,9 @@
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.tab_family">
                 <source>Family</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.attributes">
+                <source>Attributes</source>
             </trans-unit>
 
 		</body>

@@ -99,6 +99,34 @@
 				<source>Extended Family (Gattung)</source>
                 <target>Gattung</target>
 			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.subtitle">
+                <source>Subtitle</source>
+                <target>Untertitel</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.did_you_know">
+                <source>Did you know?</source>
+                <target>Wusstest du schon?</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.state_of_preservation_hessia">
+                <source>State of Preservation in Hesse</source>
+                <target>Zustand der Erhaltung in Hessen</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.eu_vsrl">
+                <source>EU Birds Directive</source>
+                <target>EU-Vogelschutzrichtlinie</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.population_in_hessia">
+                <source>Population in Hesse</source>
+                <target>Bestand in Hessen</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.population_development">
+                <source>Population Development</source>
+                <target>Bestandsentwicklung</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.custom_link">
+                <source>Custom Link</source>
+                <target>Weiterführender Link</target>
+            </trans-unit>
 
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType">
                 <source>Record Type</source>
@@ -113,8 +141,55 @@
                 <target>Standard</target>
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType.dragonfly">
-                <source>Dragonfly (Libelle)</source>
+                <source>Dragonfly</source>
                 <target>Libelle</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.recordType.bird">
+                <source>Bird</source>
+                <target>Vogel</target>
+            </trans-unit>
+
+
+
+            <trans-unit id="tx_hgonspecies_domain_model_attributes">
+                <source>HGON Species Attributes</source>
+                <target>HGON Species: Steckbrief</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.length">
+                <source>Length</source>
+                <target>Länge</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.wingspan">
+                <source>Wingspan</source>
+                <target>Flügelspannweite</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.weight">
+                <source>Weight</source>
+                <target>Gewicht</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.age_limit">
+                <source>Age Limit</source>
+                <target>Maximales Alter</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.food">
+                <source>Food</source>
+                <target>Nahrung</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.nest_size">
+                <source>Nest Size</source>
+                <target>Gelegegröße</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.breeding_season">
+                <source>Breeding Season</source>
+                <target>Brutzeit</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.migratory_behavior">
+                <source>Migratory Behavior</source>
+                <target>Zugverhalten</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.winter_district">
+                <source>Wintering Area</source>
+                <target>Überwinterungsgebiet</target>
             </trans-unit>
 
 
@@ -130,6 +205,10 @@
             <trans-unit id="tx_hgonspecies_domain_model_species.tab_family">
                 <source>Family</source>
                 <target>Familie / Gattung</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.tab_attributes">
+                <source>Attributes</source>
+                <target>Steckbrief</target>
             </trans-unit>
 
 		</body>
