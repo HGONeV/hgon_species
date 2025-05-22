@@ -15,7 +15,7 @@ namespace HGON\HgonSpecies\Domain\Model;
 /**
  * Attributes
  */
-class Attributes
+class Attributes extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
     /**

@@ -36,6 +36,9 @@
 			<trans-unit id="tx_hgonspecies_domain_model_species.last_updated_date">
 				<source>Last Updated Date (Stand)</source>
 			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.red_list_comment">
+                <source>Red List Comment</source>
+            </trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.red_list_hessia">
 				<source>Red List Hessia (Rote Liste Hessen)</source>
 			</trans-unit>

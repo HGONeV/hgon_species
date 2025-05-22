@@ -1,0 +1,160 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+    <div class="grid">
+
+        <f:link.action action="list" controller="Species" pluginName="List" pageUid="{settings.listPid}">
+            Zurück zur Liste
+        </f:link.action>
+        <br>
+
+        <h1 class="headline mb-0">
+            <strong>{species.name}</strong> - {species.nameScience}
+        </h1>
+
+        <p class="mb-0">
+            {species.subtitle}
+        </p>
+
+    </div>
+
+    <div class="flex-container space-between gutter">
+
+        <div class="flex-item c-4">
+            <f:render partial="Species/Show/Components/Col1" arguments="{_all}" />
+
+            <h5>Audio</h5>
+            <a href="{species.customLink}" target="_blank">
+                Gesang und Rufe (externer Link)
+            </a>
+
+        </div>
+
+        <div class="flex-item c-5">
+
+            <h5><strong>Bestand in Hessen</strong></h5>
+            <f:format.raw>
+                {species.populationInHessia}
+            </f:format.raw>
+            <h5><strong>Verbreitung in Hessen</strong></h5>
+            <f:format.raw>
+                {species.dissemination}
+            </f:format.raw>
+            <h5><strong>Bestandsentwicklung</strong></h5>
+            <f:format.raw>
+                {species.populationDevelopment}
+            </f:format.raw>
+            <h5><strong>Lebensraum in Hessen</strong></h5>
+            <f:format.raw>
+                {species.habitat}
+            </f:format.raw>
+
+
+            <h5><strong>Rote Liste</strong></h5>
+            <div class="flex-container no-padding">
+                <div class="flex-item c-12 no-padding flex-item--medium-half">
+                    <p>{species.redListComment}</p>
+                </div>
+                <div class="flex-item c-4 no-padding flex-item--medium-half">
+                    <p>
+                        Hessen: {species.redListHessia}
+                    </p>
+                </div>
+                <div class="flex-item c-4 no-padding flex-item--medium-half">
+                    <p>
+                        Deutschland: {species.redListGermany}
+                    </p>
+                </div>
+                <div class="flex-item c-4 no-padding flex-item--medium-half">
+                    <p>
+                        EU-VSRL: {species.euVsrl}
+                    </p>
+                </div>
+                <div class="flex-item c-12 no-padding flex-item--medium-half">
+                    <p>
+                        Hessen Erhaltungszustand:
+                        <f:if condition="{species.stateOfPreservationHessia} == 'g'">
+                            <span class="state favorable" style="background-color: lightgreen;">günstig</span>
+                        </f:if>
+                        <f:if condition="{species.stateOfPreservationHessia} == 'u'">
+                            <span class="state unfavorable" style="background-color: yellow;">ungünstig</span>
+                        </f:if>
+                        <f:if condition="{species.stateOfPreservationHessia} == 's'">
+                            <span class="state poor" style="background-color: lightcoral;">schlecht</span>
+                        </f:if>
+
+                    </p>
+                </div>
+            </div>
+
+            <h5><strong>Merkmale</strong></h5>
+            <f:format.raw>
+                {species.characteristic}
+            </f:format.raw>
+
+        </div>
+
+        <div class="flex-item c-3">
+            <h5><strong>Schon gewusst?</strong></h5>
+            <f:format.raw>
+                {species.habitat}
+            </f:format.raw>
+
+            <h5><strong>Steckbrief</strong></h5>
+            <f:if condition="{species.attributes}">
+                <p class="attribute-list">
+                    <strong>Länge:</strong> {species.attributes.length} cm</br>
+                    <strong>Spannweite:</strong> {species.attributes.wingspan} cm</br>
+                    <strong>Gewicht:</strong> {species.attributes.weight} g</br>
+                    <strong>Maximales Alter:</strong> {species.attributes.ageLimit}</br>
+                    <strong>Nahrung:</strong> {species.attributes.food}</br>
+                    <strong>Nestgröße:</strong> {species.attributes.nestSize}</br>
+                    <strong>Brutzeit:</strong> {species.attributes.breedingSeason}</br>
+                    <strong>Zugverhalten:</strong> {species.attributes.migratoryBehavior}</br>
+                    <strong>Überwinterungsgebiet:</strong> {species.attributes.winterDistrict}</br>
+                </p>
+            </f:if>
+
+            <h5><strong>Phänologie in Hessen</strong></h5>
+            <f:format.raw>
+                {species.phenology}
+            </f:format.raw>
+
+            <f:if condition="{species.sidebarImg}">
+                <section class="js-lightbox">
+                    <div class="gallery">
+                        <div class="gallery__image">
+                            <a class="js-open-lightbox" href="#" data-lightbox="lightbox-gallery" data-index="0">
+                                <svg class="gallery__image-icon icon icon--24"><use xlink:href="#ui-fullscreen"></use></svg>
+                                <figure>
+                                    <f:image image="{species.sidebarImg}" alt="{species.sidebarImg.name}" width="300px" />
+                                </figure>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="lightbox-gallery" class="lightbox" style="opacity: 0; visibility: hidden;">
+                        <picture class="picture / lightbox__img" style="visibility: hidden; opacity: 0;">
+                            <f:image image="{species.sidebarImg}" alt="{species.sidebarImg.name}" />
+                        </picture>
+
+                        <div class="bar bar--bottom bar--fixed">
+                            <div class="bar__icons bar__icons--right">
+                                <a class="bar__icon js-close-lightbox" href=""><svg class="icon"><use xlink:href="#ui-close"></use></svg></a>
+                                <a class="bar__icon js-lightbox-prev" href=""><svg class="icon"><use xlink:href="#ui-prev"></use></svg></a>
+                                <a class="bar__icon js-lightbox-next" href=""><svg class="icon"><use xlink:href="#ui-next"></use></svg></a>
+                            </div>
+                            <div class="bar__icons bar__icons--left">
+                                <div class="bar__text align-center">
+                                <span class="js-lightbox-counter">
+                                <span class="current__img">1</span> / <span class="max__img">2</span>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </f:if>
+
+        </div>
+    </div>
+
+</html>

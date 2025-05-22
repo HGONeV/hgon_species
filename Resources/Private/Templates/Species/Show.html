@@ -2,194 +2,22 @@
 
 
 <div id="tx-hgonspecies">
-    <div class="grid">
-        <f:link.action action="list" controller="Species" pluginName="List" pageUid="{settings.listPid}">
-            Zurück zur Liste
-        </f:link.action>
-        <br>
 
-        <h1 class="headline mb-0">
-            <f:comment>{species.nameScience} ({species.nameDiscoverer}, {species.year}) – {species.name}</f:comment>
-            {species.nameScience} – {species.name}
-        </h1>
 
-        <p class="mb-0">
-            <f:comment>Gattung "{species.family.title}"<br></f:comment>
-            Familie {species.family.parent.title}
-        </p>
-    </div>
-    <div class="flex-container space-between gutter">
-        <div class="flex-item c-4">
-            <div class="species--slider mb-1">
-                <div id="sliderSpecies" class="teaserslider-container nav-inline margin-below-sm product-slider">
-                    <div class="slider-stage js__fix-button-trigger">
-                        <div class="slider-items">
-                            <f:if condition="{species.image}">
-                                <f:for each="{species.image}" as="image" iteration="i">
-                                    <div class="slider-item col-12">
-                                        <section class="js-lightbox">
-                                            <div class="gallery">
-                                                <div class="gallery__image">
-                                                    <a class="js-open-lightbox" href="#" data-lightbox="lightbox-thumbnail-{i.index}" data-index="0">
-                                                        <svg class="gallery__image-icon icon icon--24"><use xlink:href="#ui-fullscreen"></use></svg>
-                                                        <figure>
-                                                            <f:image image="{image}" />
-                                                        </figure>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div id="lightbox-thumbnail-{i.index}" class="lightbox" style="opacity: 0; visibility: hidden;">
-                                                <picture class="picture / lightbox__img" style="visibility: hidden; opacity: 0;">
-                                                    <f:image image="{image}" />
-                                                </picture>
-                                
-                                                <div class="bar bar--bottom bar--fixed">
-                                                    <div class="bar__icons bar__icons--right">
-                                                        <a class="bar__icon js-close-lightbox" href=""><svg class="icon"><use xlink:href="#ui-close"></use></svg></a>
-                                                        <a class="bar__icon js-lightbox-prev" href=""><svg class="icon"><use xlink:href="#ui-prev"></use></svg></a>
-                                                        <a class="bar__icon js-lightbox-next" href=""><svg class="icon"><use xlink:href="#ui-next"></use></svg></a>
-                                                    </div>
-                                                    <div class="bar__icons bar__icons--left">
-                                                        <div class="bar__text align-center">
-                                                            <span class="js-lightbox-counter">
-                                                            <span class="current__img">1</span> / <span class="max__img">2</span>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    </div>
-                                </f:for>
-                            </f:if>
-                        </div>
-                    </div>
-                    <div class="nav-container display-lg-block">
-                        <ul class="slider-navigation teaser-navigation">
-                            <f:if condition="{species.image}">
-                                <f:for each="{species.image}" as="image" iteration="i">
-                                    <li>
-                                        <f:image image="{image}" additionalAttributes="{data-index: i.index}" width="100"/>
-                                    </li>
-                                </f:for>
-                            </f:if>
-                        </ul>
-                    </div>
-                </div>
-                <script>document.addEventListener('readystatechange', function () {
-                    if (event.target.readyState == 'complete') {
-                        let sliderSpecies = new HGONSlider('#sliderSpecies');
-                    }
-                });</script>
-            </div>
-            <div class="grid no-padding grid__padding_between">
-                <h5>Verbreitung in Hessen</h5>
-                <f:if condition="{species.disseminationImg}">
-                    <section class="js-lightbox">
-                        <div class="gallery">
-                            <f:for each="{species.disseminationImg}" as="image" iteration="i">
-                                <div class="gallery__image">
-                                    <a class="js-open-lightbox" href="#" data-lightbox="lightbox-items"
-                                        data-index="{i.index}">
-                                        <svg class="gallery__image-icon icon icon--24">
-                                            <use xlink:href="#ui-fullscreen"></use>
-                                        </svg>
-                                        <figure>
-                                            <f:image image="{image}" alt="{image.name}" width="300px" />
-                                        </figure>
-                                    </a>
-                                </div>
-                            </f:for>
-                        </div>
-                        <div id="lightbox-items" class="lightbox" style="opacity: 0; visibility: hidden;">
-                            <f:for each="{species.disseminationImg}" as="image">
-                                <picture class="picture / lightbox__img" style="visibility: hidden; opacity: 0;">
-                                    <f:image image="{image}" alt="{image.name}" />
-                                </picture>
-                            </f:for>
+        <f:if condition="{species.recordType} == 'bird'">
+            <f:render partial="Species/Show/Bird" arguments="{_all}" />
+        </f:if>
 
-                            <div class="bar bar--bottom bar--fixed">
-                                <div class="bar__icons bar__icons--right">
-                                    <a class="bar__icon js-close-lightbox" href=""><svg class="icon">
-                                            <use xlink:href="#ui-close"></use>
-                                        </svg></a>
-                                    <a class="bar__icon js-lightbox-prev" href=""><svg class="icon">
-                                            <use xlink:href="#ui-prev"></use>
-                                        </svg></a>
-                                    <a class="bar__icon js-lightbox-next" href=""><svg class="icon">
-                                            <use xlink:href="#ui-next"></use>
-                                        </svg></a>
-                                </div>
-                                <div class="bar__icons bar__icons--left">
-                                    <div class="bar__text align-center">
-                                        <span class="js-lightbox-counter">
-                                            <span class="current__img">1</span> / <span class="max__img">2</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </f:if>
-            </div>
-        </div>
-        <div class="flex-item c-5">
-            <h2>Merkmale</h2>
-            <f:format.raw>
-                {species.characteristic}
-            </f:format.raw>
-            <h2>Lebensraum</h2>
-            <f:format.raw>
-                {species.habitat}
-            </f:format.raw>
-            <h2>Verbreitung</h2>
-            <f:format.raw>
-                {species.dissemination}
-            </f:format.raw>
-            <div class="flex-container no-padding">
-                <div class="flex-item c-6 no-padding flex-item--medium-half">
-                    <p>
-                        Rasterfrequenz (%): {species.gridFrequency}
-                    </p>
-                </div>
-                <div class="flex-item c-6 no-padding flex-item--medium-half">
-                    <p>
-                        Stand: <f:format.date format="d.m.Y">{species.lastUpdatedDate}</f:format.date>
-                    </p>
-                </div>
-            </div>
-            <h2>Rote Liste</h2>
-            <div class="flex-container no-padding">
-                <div class="flex-item c-6 no-padding flex-item--medium-half">
-                    <p>
-                        Hessen: {species.redListHessia}
-                    </p>
-                </div>
-                <div class="flex-item c-6 no-padding flex-item--medium-half">
-                    <p>
-                        Deutschland: {species.redListGermany}
-                    </p>
-                </div>
-            </div>
-            <h2>Phänologie</h2>
-            <f:format.raw>
-                {species.phenology}
-            </f:format.raw>
-            <div class="flex-container no-padding">
-                <div class="flex-item c-6 no-padding flex-item--medium-half">
-                    <p>EB: <f:format.date format="d.m.Y">{species.firstSpotted}</f:format.date>
-                    </p>
-                </div>
-                <div class="flex-item c-6 no-padding flex-item--medium-half">
-                    <p>LB: <f:format.date format="d.m.Y">{species.lastSpotted}</f:format.date>
-                    </p>
-                </div>
-            </div>
-        </div>
+        <f:if condition="{species.recordType} == 'dragonfly'">
+            <f:render partial="Species/Show/Dragonfly" arguments="{_all}" />
+        </f:if>
 
-        <f:render partial="Species/Show/Sidebar" arguments="{_all}" />
+        <f:if condition="{species.recordType} == 'default'">
+            <f:comment><!-- There is no real default view yet --></f:comment>
+            <f:render partial="Species/Show/Dragonfly" arguments="{_all}" />
+        </f:if>
 
-    </div>
+
 </div>
 
 

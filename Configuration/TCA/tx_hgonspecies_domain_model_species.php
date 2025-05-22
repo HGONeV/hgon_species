@@ -17,11 +17,11 @@ return [
             'endtime' => 'endtime',
         ],
         'type' => 'record_type',
-        'searchFields' => 'name,name_science,name_discoverer,year,remark,characteristic,habitat,dissemination,grid_frequency,last_updated_date,red_list_hessia,red_list_germany,phenology,mtb64,proof,image,dissemination_img,sidebar_img,files,family,subtitle,did_you_know,state_of_preservation_hessia,eu_vsrl,population_in_hessia,population_development,custom_link',
+        'searchFields' => 'name,name_science,name_discoverer,year,remark,characteristic,habitat,dissemination,grid_frequency,last_updated_date,red_list_comment,red_list_hessia,red_list_germany,phenology,mtb64,proof,image,dissemination_img,sidebar_img,files,family,subtitle,did_you_know,state_of_preservation_hessia,eu_vsrl,population_in_hessia,population_development,custom_link',
         'iconfile' => 'EXT:hgon_species/Resources/Public/Icons/tx_hgonspecies_domain_model_species.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, name_science, name_discoverer, year, remark, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family, subtitle, did_you_know, state_of_preservation_hessia, eu_vsrl, population_in_hessia, population_development, custom_link',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, name_science, name_discoverer, year, remark, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_comment, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family, subtitle, did_you_know, state_of_preservation_hessia, eu_vsrl, population_in_hessia, population_development, custom_link',
     ],
     'types' => [
         '0' => [
@@ -71,10 +71,10 @@ return [
         'bird' => [
             'showitem' => '
             
-                record_type, name, name_science, subtitle, first_spotted, last_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, eu_vsrl, state_of_preservation_hessia, mtb64, proof, customLink,
+                record_type, name, name_science, subtitle, red_list_comment, red_list_hessia, red_list_germany, eu_vsrl, state_of_preservation_hessia, customLink,
             
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
-                characteristic, population_in_hessia, habitat, population_development, dissemination, phenology, remark, did_you_know, 
+                characteristic, population_in_hessia, habitat, population_development, dissemination, phenology, remark,
                 
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_attributes,
                 attributes,
@@ -83,7 +83,7 @@ return [
                 family,
                 
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_files,
-                image, dissemination_img, sidebar_img, files,
+                image, dissemination_img, sidebar_img,
                 
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, 
                 sys_language_uid, l10n_parent, l10n_diffsource, 
@@ -232,7 +232,7 @@ return [
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.subtitle',
             'config' => [
                 'type' => 'input',
-                'size' => 50,
+                'size' => 30,
                 'eval' => 'trim',
             ],
         ],
@@ -250,8 +250,15 @@ return [
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.remark',
             'config' => [
                 'type' => 'text',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
+                    ],
+                ],
                 'cols' => 40,
-                'rows' => 15,
+                'rows' => 5,
                 'eval' => 'trim',
             ],
         ],
@@ -268,7 +275,7 @@ return [
                     ],
                 ],
                 'cols' => 40,
-                'rows' => 15,
+                'rows' => 5,
                 'eval' => 'trim',
             ],
             
@@ -286,7 +293,7 @@ return [
                     ],
                 ],
                 'cols' => 40,
-                'rows' => 15,
+                'rows' => 5,
                 'eval' => 'trim'
             ]
         ],
@@ -303,20 +310,29 @@ return [
                     ],
                 ],
                 'cols' => 40,
-                'rows' => 15,
+                'rows' => 5,
                 'eval' => 'trim'
             ]
         ],
+        /*
         'did_you_know' => [
             'exclude' => true,
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.did_you_know',
             'config' => [
                 'type' => 'text',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
+                    ],
+                ],
                 'cols' => 40,
                 'rows' => 5,
                 'eval' => 'trim',
             ],
         ],
+        */
         'grid_frequency' => [
             'exclude' => true,
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.grid_frequency',
@@ -338,6 +354,15 @@ return [
                 'default' => null,
             ],
         ],
+        'red_list_comment' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.red_list_comment',
+            'config' => [
+                'type' => 'input',
+                'size' => 50,
+                'eval' => 'trim'
+            ],
+        ],
         'red_list_hessia' => [
             'exclude' => true,
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.red_list_hessia',
@@ -351,9 +376,17 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.state_of_preservation_hessia',
             'config' => [
-                'type' => 'input',
-                'size' => 50,
-                'eval' => 'trim',
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    ['LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.state_of_preservation_hessia.choose', 0],
+                    ['LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.state_of_preservation_hessia.favorable', 'g'],
+                    ['LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.state_of_preservation_hessia.unfavorable', 'u'],
+                    ['LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.state_of_preservation_hessia.poor', 's'],
+                ],
+                'minitems' => 1,
+                'maxitems' => 1,
+                'default' => '0'
             ],
         ],
         'red_list_germany' => [
@@ -370,7 +403,7 @@ return [
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.eu_vsrl',
             'config' => [
                 'type' => 'input',
-                'size' => 50,
+                'size' => 30,
                 'eval' => 'trim',
             ],
         ],
@@ -411,7 +444,7 @@ return [
                     ],
                 ],
                 'cols' => 40,
-                'rows' => 15,
+                'rows' => 5,
                 'eval' => 'trim'
             ]
         ],
@@ -437,8 +470,16 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.population_in_hessia',
             'config' => [
-                'type' => 'input',
-                'size' => 50,
+                'type' => 'text',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
+                    ],
+                ],
+                'cols' => 40,
+                'rows' => 5,
                 'eval' => 'trim',
             ],
         ],
@@ -447,8 +488,15 @@ return [
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.population_development',
             'config' => [
                 'type' => 'text',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
+                    ],
+                ],
                 'cols' => 40,
-                'rows' => 3,
+                'rows' => 5,
                 'eval' => 'trim',
             ],
         ],

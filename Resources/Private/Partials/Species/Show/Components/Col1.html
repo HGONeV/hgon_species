@@ -1,0 +1,116 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+    <div class="species--slider mb-1">
+        <div id="sliderSpecies" class="teaserslider-container nav-inline margin-below-sm product-slider">
+            <div class="slider-stage js__fix-button-trigger">
+                <div class="slider-items">
+                    <f:if condition="{species.image}">
+                        <f:for each="{species.image}" as="image" iteration="i">
+                            <div class="slider-item col-12">
+                                <section class="js-lightbox">
+                                    <div class="gallery">
+                                        <div class="gallery__image">
+                                            <a class="js-open-lightbox" href="#" data-lightbox="lightbox-thumbnail-{i.index}" data-index="0">
+                                                <svg class="gallery__image-icon icon icon--24"><use xlink:href="#ui-fullscreen"></use></svg>
+                                                <figure>
+                                                    <f:image image="{image}" />
+                                                </figure>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="lightbox-thumbnail-{i.index}" class="lightbox" style="opacity: 0; visibility: hidden;">
+                                        <picture class="picture / lightbox__img" style="visibility: hidden; opacity: 0;">
+                                            <f:image image="{image}" />
+                                        </picture>
+
+                                        <div class="bar bar--bottom bar--fixed">
+                                            <div class="bar__icons bar__icons--right">
+                                                <a class="bar__icon js-close-lightbox" href=""><svg class="icon"><use xlink:href="#ui-close"></use></svg></a>
+                                                <a class="bar__icon js-lightbox-prev" href=""><svg class="icon"><use xlink:href="#ui-prev"></use></svg></a>
+                                                <a class="bar__icon js-lightbox-next" href=""><svg class="icon"><use xlink:href="#ui-next"></use></svg></a>
+                                            </div>
+                                            <div class="bar__icons bar__icons--left">
+                                                <div class="bar__text align-center">
+                                                                <span class="js-lightbox-counter">
+                                                                <span class="current__img">1</span> / <span class="max__img">2</span>
+                                                                </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </f:for>
+                    </f:if>
+                </div>
+            </div>
+            <div class="nav-container display-lg-block">
+                <ul class="slider-navigation teaser-navigation">
+                    <f:if condition="{species.image}">
+                        <f:for each="{species.image}" as="image" iteration="i">
+                            <li>
+                                <f:image image="{image}" additionalAttributes="{data-index: i.index}" width="100"/>
+                            </li>
+                        </f:for>
+                    </f:if>
+                </ul>
+            </div>
+        </div>
+        <script>document.addEventListener('readystatechange', function () {
+            if (event.target.readyState == 'complete') {
+                let sliderSpecies = new HGONSlider('#sliderSpecies');
+            }
+        });</script>
+    </div>
+    <div class="grid no-padding grid__padding_between">
+        <h5>Verbreitung in Hessen</h5>
+        <f:if condition="{species.disseminationImg}">
+            <section class="js-lightbox">
+                <div class="gallery">
+                    <f:for each="{species.disseminationImg}" as="image" iteration="i">
+                        <div class="gallery__image">
+                            <a class="js-open-lightbox" href="#" data-lightbox="lightbox-items"
+                               data-index="{i.index}">
+                                <svg class="gallery__image-icon icon icon--24">
+                                    <use xlink:href="#ui-fullscreen"></use>
+                                </svg>
+                                <figure>
+                                    <f:image image="{image}" alt="{image.name}" width="300px" />
+                                </figure>
+                            </a>
+                        </div>
+                    </f:for>
+                </div>
+                <div id="lightbox-items" class="lightbox" style="opacity: 0; visibility: hidden;">
+                    <f:for each="{species.disseminationImg}" as="image">
+                        <picture class="picture / lightbox__img" style="visibility: hidden; opacity: 0;">
+                            <f:image image="{image}" alt="{image.name}" />
+                        </picture>
+                    </f:for>
+
+                    <div class="bar bar--bottom bar--fixed">
+                        <div class="bar__icons bar__icons--right">
+                            <a class="bar__icon js-close-lightbox" href=""><svg class="icon">
+                                <use xlink:href="#ui-close"></use>
+                            </svg></a>
+                            <a class="bar__icon js-lightbox-prev" href=""><svg class="icon">
+                                <use xlink:href="#ui-prev"></use>
+                            </svg></a>
+                            <a class="bar__icon js-lightbox-next" href=""><svg class="icon">
+                                <use xlink:href="#ui-next"></use>
+                            </svg></a>
+                        </div>
+                        <div class="bar__icons bar__icons--left">
+                            <div class="bar__text align-center">
+                                            <span class="js-lightbox-counter">
+                                                <span class="current__img">1</span> / <span class="max__img">2</span>
+                                            </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </f:if>
+    </div>
+
+</html>

@@ -73,6 +73,7 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * action show
      *
      * @param \HGON\HgonSpecies\Domain\Model\Species $species
+     * @ignorevalidation $species
      * @return void
      * @throws InvalidQueryException
      */

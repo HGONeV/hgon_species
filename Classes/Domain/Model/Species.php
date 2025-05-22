@@ -18,6 +18,11 @@ namespace HGON\HgonSpecies\Domain\Model;
 class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
+     * @var string
+     */
+    protected $recordType = '';
+
+    /**
      * name
      *
      * @var string
@@ -85,7 +90,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @var string
      */
-    protected $didYouKnow = '';
+    //protected $didYouKnow = '';
 
     /**
      * gridFrequency
@@ -101,6 +106,13 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $lastUpdatedDate = null;
 
+    /**
+     * redListComment
+     *
+     * @var string
+     */
+    protected $redListComment = '';
+    
     /**
      * redListHessia
      *
@@ -176,7 +188,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $populationDevelopment = '';
 
     /**
-     * @var customLink
+     * @var string
      */
     protected $customLink = '';
 
@@ -254,6 +266,23 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->image = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->disseminationImg = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+    }
+
+    /**
+     * @return string
+     */
+    public function getRecordType()
+    {
+        return $this->recordType;
+    }
+
+    /**
+     * @param string $recordType
+     * @return void
+     */
+    public function setRecordType(string $recordType): void
+    {
+        $this->recordType = $recordType;
     }
 
     /**
@@ -443,7 +472,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @return string
-     */
+
     public function getDidYouKnow(): string
     {
         return $this->didYouKnow;
@@ -452,11 +481,12 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @param string $didYouKnow
      * @return void
-     */
+
     public function setDidYouKnow(string $didYouKnow): void
     {
         $this->didYouKnow = $didYouKnow;
     }
+     */
 
     /**
      * Returns the gridFrequency
@@ -498,6 +528,27 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setLastUpdatedDate(\DateTime $lastUpdatedDate)
     {
         $this->lastUpdatedDate = $lastUpdatedDate;
+    }
+
+    /**
+     * Returns the redListComment
+     *
+     * @return string $redListComment
+     */
+    public function getRedListComment()
+    {
+        return $this->redListComment;
+    }
+
+    /**
+     * Sets the redListComment
+     *
+     * @param string $redListComment
+     * @return void
+     */
+    public function setRedListComment($redListComment)
+    {
+        $this->redListComment = $redListComment;
     }
 
     /**
