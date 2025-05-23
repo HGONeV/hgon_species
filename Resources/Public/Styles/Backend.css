@@ -1,0 +1,84 @@
+table.tx_rkwmailer td,
+table.tx_rkwmailer th { padding:5px; text-align:center; }
+table.tx_rkwmailer td { text-align:left;}
+table.tx_rkwmailer tr:hover a,
+table.tx_rkwmailer td:hover a { text-decoration:none;}
+table.tx_rkwmailer tr a {margin-right:2em;}
+table.tx_rkwmailer tr a:last-of-type { margin-right:0;}
+table.tx_rkwmailer tr a:hover {text-decoration:underline;}
+table.tx_rkwmailer td.center {text-align:center;}
+table.tx_rkwmailer td.center table { margin:auto; }
+.link {color:#e64415; font-weight:bold; }
+
+.status1 { color:darkblue; }
+.status2 { color:darkorange; }
+.status3,
+.status97,
+.status98,
+.status99,
+.error,
+.failed,
+.deferred,
+.bounced { color:red; }
+.status4,
+.okay { color:darkgreen; }
+
+
+form {
+    max-width: 600px;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-family: sans-serif;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="file"],
+form input[type="date"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+form input[type="submit"],
+form button {
+    background-color: #007acc;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover,
+form button:hover {
+    background-color: #005fa3;
+}
+
+form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+form .help-text {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: -0.8rem;
+    margin-bottom: 1rem;
+}

@@ -86,3 +86,8 @@ plugin.tx_hgonspecies_list < plugin.tx_hgonspecies
 plugin.tx_hgonspecies_show < plugin.tx_hgonspecies
 
 
+# needed for backend context (cronjobs)
+#module.tx_hgonspecies.settings < plugin.tx_hgonspecies.settings
+#module.tx_hgonspecies.persistence.storagePid < plugin.tx_hgonspecies.persistence.storagePid
+#module.tx_hgonspecies.view < plugin.tx_hgonspecies.view
+

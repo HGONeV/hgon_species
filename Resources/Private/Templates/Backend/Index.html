@@ -1,0 +1,110 @@
+<f:layout name="Backend" />
+
+<f:section name="content">
+
+    <div class="module-body t3js-module-body typo3-docbody">
+        <h1>CSV-Import</h1>
+
+        <f:render partial="FlashMessages" arguments="{_all}" />
+
+        <f:form action="import" name="importData" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="targetPid">Ziel-Seiten-ID (targetPid)</label>
+                <f:form.textfield
+                    id="targetPid"
+                    name="targetPid"
+                    class="form-control"
+                    type="number"
+                    placeholder="z.B. 475"
+                    additionalAttributes="{required: 'required'}"
+                />
+            </div>
+            <br/>
+            <f:form.select
+                name="speciesType"
+                options="{
+                    'bird': 'Vogel',
+                    'dragonfly': 'Libelle'
+                }"
+                optionValueField="key"
+                optionLabelField="value"
+                prependOptionValue=""
+                prependOptionLabel="Typ auswählen"
+                additionalAttributes="{required: 'required'}"
+            />
+            <br/>
+            <f:form.upload property="csvFile" additionalAttributes="{required: 'required', accept: '.csv, .xls, .xlsx'}" />
+            <br/>
+            <f:form.submit value="Import starten" />
+        </f:form>
+
+        <f:if condition="{result}">
+            <p>{result}</p>
+        </f:if>
+
+        <hr>
+
+
+        <h2>📥 Anleitung: Arten-Daten per CSV oder Excel importieren</h2>
+
+        <p>Mit diesem Modul kannst du Arten-Datensätze inklusive Detailinformationen automatisiert in die Datenbank importieren.</p>
+
+        <h3>✅ Unterstützte Dateiformate</h3>
+        <ul>
+            <li><strong>CSV-Dateien</strong> (<code>.csv</code>) – mit <strong>Semikolon (;)</strong> als Spaltentrenner</li>
+            <li><strong>Excel-Dateien</strong> (<code>.xls</code>, <code>.xlsx</code>) – nur <em>erstes Tabellenblatt</em> wird gelesen</li>
+        </ul>
+
+        <h3>🧾 Erwarteter Aufbau der Datei</h3>
+        <p>Die Datei muss eine <strong>Kopfzeile mit Feldnamen</strong> enthalten. Jede Zeile darunter entspricht einem Datensatz.</p>
+
+        <p><strong>Beispiel-Kopfzeile:</strong></p>
+        <pre><code>name;name_science;name_discoverer;year;remark;characteristic;habitat;dissemination;grid_frequency;last_updated_date;red_list_comment;red_list_hessia;red_list_germany;phenology;mtb64;proof;image;dissemination_img;sidebar_img;files;family;subtitle;did_you_know;state_of_preservation_hessia;eu_vsrl;population_in_hessia;population_development;custom_link;length;wingspan;weight;age_limit;food;nest_size;breeding_season;migratory_behavior;winter_district</code></pre>
+
+        <p><strong>Pflichtfelder:</strong></p>
+        <ul>
+            <li><code>name</code> (wissenschaftlicher oder Trivialname)</li>
+        </ul>
+
+        <h3>🔁 Welche Daten werden importiert?</h3>
+        <ul>
+            <li><strong>Arten-Informationen:</strong> Name, <code>Familie (ID)</code>, Habitat usw.</li>
+            <li><strong>Zusatzinfos:</strong> Nestgröße, Verbreitung, Status</li>
+            <li><strong>Attribute:</strong> automatisch über Relation (1:1) verknüpft:
+                <ul>
+                    <li>Länge, Flügelspannweite, Gewicht</li>
+                    <li>Maximales Alter, Nahrung</li>
+                    <li>Brutzeit, Zugverhalten, Winterquartier</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>🧷 Hinweise zum Format</h3>
+        <ul>
+            <li><strong>Datum:</strong> <code>YYYY-MM-DD</code> (z.B. <code>2024-06-01</code>)</li>
+            <li><strong>Links:</strong> <code>custom_link</code> als vollständige URL oder Typolink-Angabe</li>
+        </ul>
+
+        <h3>📤 Datei importieren</h3>
+        <ol>
+            <li>Wechsle im TYPO3-Backend zu <strong>Modul: „Arten-Import“</strong></li>
+            <li>Wähle deine Datei aus (<code>.csv</code>, <code>.xls</code>, <code>.xlsx</code>)</li>
+            <li>Klicke auf <strong>„Import starten“</strong></li>
+            <li>Warte auf Rückmeldung – importierte Datensätze werden gezählt</li>
+        </ol>
+
+        <h3>⚠️ Fehler vermeiden</h3>
+        <ul>
+            <li>Alle Spaltennamen müssen <strong>exakt</strong> den Feldnamen entsprechen</li>
+            <li>Verwende UTF-8-codierte Dateien</li>
+            <li>Bei Excel-Dateien wird nur das erste Tabellenblatt gelesen</li>
+        </ul>
+
+        <h3>❓ Hilfe</h3>
+        <p>Bei Fragen oder Problemen wende dich bitte an das Projektteam oder den TYPO3-Administrator.</p>
+
+    </div>
+
+
+</f:section>
