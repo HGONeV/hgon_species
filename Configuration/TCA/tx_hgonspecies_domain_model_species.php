@@ -17,11 +17,11 @@ return [
             'endtime' => 'endtime',
         ],
         'type' => 'record_type',
-        'searchFields' => 'name,name_science,name_discoverer,year,remark,characteristic,habitat,dissemination,grid_frequency,last_updated_date,red_list_comment,red_list_hessia,red_list_germany,phenology,mtb64,proof,image,dissemination_img,sidebar_img,files,family,subtitle,did_you_know,state_of_preservation_hessia,eu_vsrl,population_in_hessia,population_development,custom_link',
+        'searchFields' => 'name,name_science,name_discoverer,year,remark,characteristic,habitat,dissemination,grid_frequency,last_updated_date,red_list_comment,red_list_hessia,red_list_germany,phenology,mtb64,proof,image,dissemination_img,sidebar_img,files,family,subtitle,did_you_know,state_of_preservation_hessia,eu_vsrl,population_in_hessia,population_development,custom_link,import_id',
         'iconfile' => 'EXT:hgon_species/Resources/Public/Icons/tx_hgonspecies_domain_model_species.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, name_science, name_discoverer, year, remark, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_comment, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family, subtitle, did_you_know, state_of_preservation_hessia, eu_vsrl, population_in_hessia, population_development, custom_link',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, name_science, name_discoverer, year, remark, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_comment, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family, subtitle, did_you_know, state_of_preservation_hessia, eu_vsrl, population_in_hessia, population_development, custom_link, import_id',
     ],
     'types' => [
         '0' => [
@@ -31,7 +31,7 @@ return [
         'default' => [
             'showitem' => '
             
-                record_type, name, name_science, name_discoverer, year, first_spotted, last_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
+                record_type, import_id, name, name_science, name_discoverer, year, first_spotted, last_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
             
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
                 characteristic, habitat, dissemination, phenology, remark, 
@@ -51,7 +51,7 @@ return [
         'dragonfly' => [
             'showitem' => '
             
-                record_type, name, name_science, first_spotted, last_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
+                record_type, import_id, name, name_science, first_spotted, last_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
             
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
                 characteristic, habitat, dissemination, phenology, remark, 
@@ -71,7 +71,7 @@ return [
         'bird' => [
             'showitem' => '
             
-                record_type, name, name_science, subtitle, red_list_comment, red_list_hessia, red_list_germany, eu_vsrl, state_of_preservation_hessia, customLink,
+                record_type, import_id, name, name_science, subtitle, red_list_comment, red_list_hessia, red_list_germany, eu_vsrl, state_of_preservation_hessia, customLink,
             
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
                 characteristic, population_in_hessia, habitat, population_development, dissemination, phenology, remark,
@@ -199,6 +199,15 @@ return [
             ],
         ],
 
+        'import_id' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.import_id',
+            'config' => [
+                'type' => 'input',
+                'size' => 50,
+                'eval' => 'trim'
+            ],
+        ],
         'name' => [
             'exclude' => true,
             'label' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.name',

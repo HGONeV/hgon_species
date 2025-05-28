@@ -1,51 +1,97 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-    <tr>
-        <td>
-            <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : species}">
-                {species.nameScience}
-            </f:link.action>
-        </td>
 
-        <td>
-            {species.name}
-        </td>
 
-        <td>
-            {species.family.parent.title}
-        </td>
+    <f:if condition="{speciesRecordType} == 'dragonfly'">
+        <tr>
+            <td>
+                <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : species}">
+                    {species.nameScience}
+                </f:link.action>
+            </td>
 
-        <td>
-            <f:if condition="{species.mtb64}">
-                <f:then>
-                    {species.mtb64}
-                </f:then>
-                <f:else>
-                    -
-                </f:else>
-            </f:if>
-        </td>
+            <td>
+                {species.name}
+            </td>
 
-        <td>
-            <f:if condition="{species.proof}">
-                <f:then>
-                    {species.proof}
-                </f:then>
-                <f:else>
-                    -
-                </f:else>
-            </f:if>
-        </td>
+            <td>
+                {species.family.parent.title}
+            </td>
 
-        <td>
-            <f:if condition="{species.remark}">
-                <f:then>
-                    {species.remark}
-                </f:then>
-                <f:else>
-                    -
-                </f:else>
-            </f:if>
-        </td>
+            <td>
+                <f:if condition="{species.mtb64}">
+                    <f:then>
+                        {species.mtb64}
+                    </f:then>
+                    <f:else>
+                        -
+                    </f:else>
+                </f:if>
+            </td>
 
-    </tr>
+            <td>
+                <f:if condition="{species.proof}">
+                    <f:then>
+                        {species.proof}
+                    </f:then>
+                    <f:else>
+                        -
+                    </f:else>
+                </f:if>
+            </td>
+
+            <td>
+                <f:if condition="{species.remark}">
+                    <f:then>
+                        {species.remark}
+                    </f:then>
+                    <f:else>
+                        -
+                    </f:else>
+                </f:if>
+            </td>
+
+        </tr>
+    </f:if>
+
+
+    <f:if condition="{speciesRecordType} == 'bird'">
+        <tr>
+            <td>
+                <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : species}">
+                    {species.name}
+                </f:link.action>
+            </td>
+            <td>
+                <f:if condition="{species.remark}">
+                    <f:then>
+                        {species.remark}
+                    </f:then>
+                    <f:else>
+                        -
+                    </f:else>
+                </f:if>
+            </td>
+        </tr>
+    </f:if>
+
+
+    <f:if condition="{speciesRecordType} == 'default'">
+        <tr>
+            <td>
+                <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : species}">
+                    {species.name}
+                </f:link.action>
+            </td>
+            <td>
+                <f:if condition="{species.remark}">
+                    <f:then>
+                        {species.remark}
+                    </f:then>
+                    <f:else>
+                        -
+                    </f:else>
+                </f:if>
+            </td>
+        </tr>
+    </f:if>
 </html>

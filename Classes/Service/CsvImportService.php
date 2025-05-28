@@ -16,6 +16,8 @@ class CsvImportService
      */
     public function importFromCsv(array $csvFile, string $speciesType, int $targetPid): string
     {
+        $separator = ';';
+
         $extension = strtolower(pathinfo($csvFile['name'], PATHINFO_EXTENSION));
 
         $rows = [];
@@ -29,12 +31,14 @@ class CsvImportService
             if (!$handle) {
                 return 'Datei konnte nicht geöffnet werden.';
             }
-            $headerString = fgetcsv($handle, 1000, ';');
 
-            $headerArray = GeneralUtility::trimExplode(',', $headerString[0]);
+            $headerArray = fgetcsv($handle, 0, $separator, '"');
 
-            while (($data = fgetcsv($handle, 1000, ';')) !== false) {
-                $dataArray = GeneralUtility::trimExplode(',', $data[0]);
+            while (($dataArray = fgetcsv($handle, 0, $separator, '"')) !== false) {
+                // optional: alle Felder trimmen
+                $dataArray = array_map('trim', $dataArray);
+
+                // Kombinieren der Felder mit Header
                 $rows[] = array_combine($headerArray, $dataArray);
             }
             fclose($handle);
@@ -59,20 +63,40 @@ class CsvImportService
         $count = (int)$statement->fetchColumn();
 
         if (!$count) {
-            return 'Auf der angegebenen PID konnten keine Datensätze gefunden werden. Erstelle zuerst mindestens einen Datensatz an der gewünschten Stelle, damit der Import freigegeben werden kann.';
+            return 'Auf der angegebenen PID konnten keine Datensätze vom Typ "' . $speciesType . '" gefunden werden. Erstelle zuerst mindestens einen Datensatz an der gewünschten Stelle, damit der Import durchgeführt werden kann.';
         }
 
 
-        // @toDo: CUSTOM ID FOR FUTURE UPDATES
-
-
-
         $imported = 0;
+        $updated = 0;
 
         foreach ($rows as $record) {
-            if (!is_array($record) || !isset($record['name'])) {
+
+            // check mandatory fields
+            if (
+                !is_array($record)
+                || !isset($record['name'])
+                || !isset($record['name_science'])
+                || !isset($record['import_id'])
+                || !isset($record['family'])
+            ) {
                 continue;
             }
+
+
+            // check if entry already exists
+            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
+                ->getQueryBuilderForTable('tx_hgonspecies_domain_model_species');
+
+            $statement = $queryBuilder
+                ->select('attributes', 'import_id')
+                ->from('tx_hgonspecies_domain_model_species')
+                ->where(
+                    $queryBuilder->expr()->eq('import_id', $queryBuilder->createNamedParameter($record['import_id'], \PDO::PARAM_STR))
+                )
+                ->execute();
+
+            $recordFromDbExists = $statement->fetch(\PDO::FETCH_ASSOC);
 
             // ✳️ Schritt 1: Attributes-Datensatz anlegen
             $attributesFields = [
@@ -90,12 +114,25 @@ class CsvImportService
             $attributesConnection = GeneralUtility::makeInstance(ConnectionPool::class)
                 ->getConnectionForTable('tx_hgonspecies_domain_model_attributes');
 
-            $attributesConnection->insert(
-                'tx_hgonspecies_domain_model_attributes',
-                $attributesData
-            );
 
-            $attributesUid = $attributesConnection->lastInsertId('tx_hgonspecies_domain_model_attributes');
+
+            if ($recordFromDbExists) {
+                // *** UPDATE ***
+                $attributesConnection->update(
+                    'tx_hgonspecies_domain_model_attributes',
+                    $attributesData,
+                    [
+                        'uid' => $recordFromDbExists['attributes']
+                    ]
+                );
+            } else {
+                // *** INSERT ***
+                $attributesConnection->insert(
+                    'tx_hgonspecies_domain_model_attributes',
+                    $attributesData
+                );
+                $attributesUid = $attributesConnection->lastInsertId('tx_hgonspecies_domain_model_attributes');
+            }
 
             // ✳️ Schritt 2: Species-Datensatz anlegen mit relation zu attributes
             $speciesData = [
@@ -122,19 +159,49 @@ class CsvImportService
                 'population_in_hessia' => $record['population_in_hessia'] ?? '',
                 'population_development' => $record['population_development'] ?? '',
                 'custom_link' => $record['custom_link'] ?? '',
-                'attributes' => $attributesUid, // 💡 Die Relation (1:1)
+                'import_id' => $record['import_id'] ?? '',
+               // 'attributes' => $attributesUid, // 💡 Die Relation (1:1)
                 'pid' => $targetPid,
                 'record_type' => $speciesType
             ];
 
+            if (!$recordFromDbExists) {
+                $speciesData['attributes'] = $attributesUid;
+            }
+
+            $speciesConnection = GeneralUtility::makeInstance(ConnectionPool::class)
+                ->getConnectionForTable('tx_hgonspecies_domain_model_species');
+
+            if ($recordFromDbExists) {
+                // *** UPDATE ***
+                $speciesConnection->update(
+                    'tx_hgonspecies_domain_model_species',
+                    $speciesData,
+                    [
+                        'import_id' => $record['import_id']
+                    ]
+                );
+
+                $updated++;
+            } else {
+                // *** INSERT ***
+                $speciesConnection->insert(
+                    'tx_hgonspecies_domain_model_species',
+                    $speciesData
+                );
+
+                $imported++;
+            }
+
+            /*
             GeneralUtility::makeInstance(ConnectionPool::class)
                 ->getConnectionForTable('tx_hgonspecies_domain_model_species')
                 ->insert('tx_hgonspecies_domain_model_species', $speciesData);
+            */
 
-            $imported++;
         }
 
-        return "$imported Datensätze importiert.";
+        return "Es wurden $imported Datensätze importiert. Und $updated wurden aktualisiert.";
     }
 
 

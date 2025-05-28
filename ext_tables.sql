@@ -16,7 +16,6 @@ CREATE TABLE tx_hgonspecies_domain_model_species (
 	characteristic text,
 	habitat text,
 	dissemination text,
-    #   did_you_know text,
 	grid_frequency double(11,2) DEFAULT '0.00' NOT NULL,
 	last_updated_date date DEFAULT NULL,
     red_list_comment varchar(255) DEFAULT '' NOT NULL,
@@ -32,6 +31,7 @@ CREATE TABLE tx_hgonspecies_domain_model_species (
     population_in_hessia text,
     population_development text,
     custom_link varchar(255) DEFAULT '' NOT NULL,
+    import_id varchar(255) DEFAULT '' NOT NULL,
 
 	image int(11) unsigned DEFAULT '0' NOT NULL,
 	dissemination_img int(11) unsigned NOT NULL default '0',

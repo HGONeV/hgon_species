@@ -23,6 +23,11 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $recordType = '';
 
     /**
+     * @var string
+     */
+    protected $importId = '';
+
+    /**
      * name
      *
      * @var string
@@ -283,6 +288,27 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setRecordType(string $recordType): void
     {
         $this->recordType = $recordType;
+    }
+
+    /**
+     * Get importId
+     *
+     * @return string
+     */
+    public function getImportId(): string
+    {
+        return $this->importId;
+    }
+
+    /**
+     * Set importId
+     *
+     * @param string $importId
+     * @return void
+     */
+    public function setImportId(string $importId): void
+    {
+        $this->importId = $importId;
     }
 
     /**

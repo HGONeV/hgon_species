@@ -99,6 +99,9 @@
             <trans-unit id="tx_hgonspecies_domain_model_species.custom_link">
                 <source>Custom Link</source>
             </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.import_id">
+                <source>Import ID</source>
+            </trans-unit>
 
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType">
                 <source>Record Type</source>

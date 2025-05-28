@@ -82,3 +82,131 @@ form .help-text {
     margin-top: -0.8rem;
     margin-bottom: 1rem;
 }
+
+.typo3-messages .alert-alert-success {
+    background-color: #f0f4f8; /* hellgrau-blau */
+    border-left: 4px solid #4a90e2; /* klares, nicht grelles Blau */
+    padding: 12px 16px;
+    border-radius: 4px;
+    color: #333;
+    font-size: 14px;
+    margin: 10px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.typo3-messages .alert-alert-success .alert-message {
+    font-weight: 500;
+}
+
+.typo3-messages .alert-alert-success .media {
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* Import Anleitungen CSV dateien */
+.tabs {
+    max-width: 1000px;
+    /*margin: auto;*/
+}
+
+/* Verstecke die Radio-Buttons */
+.tabs input[type="radio"] {
+    display: none;
+}
+
+/* Container für Registerkarten */
+.tab-labels {
+    display: flex;
+    margin-bottom: -1px;
+}
+
+.tab-labels label {
+    padding: 12px 24px;
+    background: #e0e0e0;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.tab-labels label:hover {
+    background: #d5d5d5;
+}
+
+/* Aktiver Tab */
+.tabs input[type="radio"]:checked + label {
+    background: #fff;
+    border-bottom: 1px solid white;
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+    border: 1px solid #ccc;
+    border-radius: 0 10px 10px 10px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+/* Zeige aktiven Content */
+#tab1:checked ~ .contents #content1,
+#tab2:checked ~ .contents #content2 {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+code {
+    background-color: #f1f1f1;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+}
+
+
+a.download-link {
+    color: #0066cc;               /* klare, gut sichtbare Linkfarbe */
+    text-decoration: none;        /* keine Unterstreichung */
+    font-weight: bold;
+    position: relative;
+    padding-right: 20px;          /* Platz für Icon rechts */
+    cursor: pointer;
+}
+
+a.download-link::after {
+    content: "⬇";                 /* Unicode-Pfeil nach unten als Download-Symbol */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #004080;
+}
+
+a.download-link:hover {
+    color: #004080;
+    text-decoration: underline;
+}

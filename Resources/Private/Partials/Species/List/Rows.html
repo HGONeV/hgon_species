@@ -5,14 +5,9 @@
         <div class="table-responsive">
             <table class="table">
                 <tbody>
-                <tr>
-                    <td><strong>Artname<br> (wissenschaftlich)</strong></td>
-                    <td><strong>Artname<br> (deutsch)</strong></td>
-                    <td><strong>Familie</strong></td>
-                    <td><strong>Zahl d.<br> MTB/64</strong></td>
-                    <td><strong>Datens.</strong></td>
-                    <td><strong>Bemerkungen</strong></td>
-                </tr>
+
+                <f:render partial="Species/List/ListHeader" arguments="{_all}" />
+
                 <f:for each="{speciesList}" as="species" iteration="iter">
                     <f:render partial="Species/List/ListItem" arguments="{_all}" />
                 </f:for>
