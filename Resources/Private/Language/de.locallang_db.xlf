@@ -81,7 +81,7 @@
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.image">
 				<source>Image (Allg. Bilder; Slider)</source>
-                <target>Allg. Bilder; Slider)</target>
+                <target>Hauptbild/er ()Allg. Bilder; Slider)</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.dissemination_img">
 				<source>Dissemination Img (Verbreitung Grafik)</source>

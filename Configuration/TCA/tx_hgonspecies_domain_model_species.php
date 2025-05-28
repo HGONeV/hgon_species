@@ -71,7 +71,7 @@ return [
         'bird' => [
             'showitem' => '
             
-                record_type, import_id, name, name_science, subtitle, red_list_comment, red_list_hessia, red_list_germany, eu_vsrl, state_of_preservation_hessia, customLink,
+                record_type, import_id, name, name_science, subtitle, red_list_comment, red_list_hessia, red_list_germany, eu_vsrl, state_of_preservation_hessia, custom_link,
             
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
                 characteristic, population_in_hessia, habitat, population_development, dissemination, phenology, remark,

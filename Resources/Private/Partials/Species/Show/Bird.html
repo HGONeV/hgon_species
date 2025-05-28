@@ -8,7 +8,7 @@
         <br>
 
         <h1 class="headline mb-0">
-            <strong>{species.name}</strong> - {species.nameScience}
+            <strong>{species.name}</strong> - <small>{species.nameScience}</small>
         </h1>
 
         <p class="mb-0">
@@ -22,11 +22,17 @@
         <div class="flex-item c-4">
             <f:render partial="Species/Show/Components/Col1" arguments="{_all}" />
 
-            <h5>Audio</h5>
-            <a href="{species.customLink}" target="_blank">
-                Gesang und Rufe (externer Link)
-            </a>
-
+            <f:if condition="{species.customLink}">
+                <h5>Audio</h5>
+                <a href="{species.customLink}" target="_blank">
+                    Gesang und Rufe
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                </a>
+            </f:if>
         </div>
 
         <div class="flex-item c-5">
