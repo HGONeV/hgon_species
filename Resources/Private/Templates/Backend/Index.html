@@ -10,7 +10,7 @@
         <f:form action="import" name="importData" method="post" enctype="multipart/form-data">
 
             <div class="form-group">
-                <label for="targetPid">Ziel-Seiten-ID (targetPid)</label>
+                <label for="targetPid">Ziel-Seiten-ID (targetPid - der Ordner, in dem die Datensätze liegen sollen)</label>
                 <f:form.textfield
                     id="targetPid"
                     name="targetPid"
@@ -34,7 +34,10 @@
                 additionalAttributes="{required: 'required'}"
             />
             <br/>
-            <f:form.upload property="csvFile" additionalAttributes="{required: 'required', accept: '.csv, .xls, .xlsx'}" />
+            <f:form.upload property="csvFile" additionalAttributes="{required: 'required', accept: '.csv'}" />
+            <f:comment>
+                <f:form.upload property="csvFile" additionalAttributes="{required: 'required', accept: '.csv, .xls, .xlsx'}" />
+            </f:comment>
             <br/>
             <f:form.submit value="Import starten" />
         </f:form>
@@ -60,7 +63,9 @@
         <h3>✅ Unterstützte Dateiformate</h3>
         <ul>
             <li><strong>CSV-Dateien</strong> (<code>.csv</code>) – mit <strong>Semikolon (;)</strong> als Spaltentrenner</li>
-            <li><strong>Excel-Dateien</strong> (<code>.xls</code>, <code>.xlsx</code>) – nur <em>erstes Tabellenblatt</em> wird gelesen</li>
+            <f:comment>
+                <li><strong>Excel-Dateien</strong> (<code>.xls</code>, <code>.xlsx</code>) – nur <em>erstes Tabellenblatt</em> wird gelesen</li>
+            </f:comment>
         </ul>
 
         <p><strong>Pflichtfelder:</strong></p>

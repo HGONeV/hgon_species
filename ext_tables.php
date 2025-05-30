@@ -29,7 +29,7 @@ call_user_func(
                 ),
                 array(
                     'access' => 'user,group',
-                    'icon'   => 'EXT:' . $extKey . '/ext_icon.gif',
+                    'icon'   => 'EXT:' . $extKey . '/ext_icon_be.gif',
                     'labels' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf',
                 )
             );

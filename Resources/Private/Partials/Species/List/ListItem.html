@@ -64,7 +64,7 @@
             <td>
                 <f:if condition="{species.remark}">
                     <f:then>
-                        {species.remark}
+                        <f:format.raw>{species.remark}</f:format.raw>
                     </f:then>
                     <f:else>
                         -
@@ -85,7 +85,7 @@
             <td>
                 <f:if condition="{species.remark}">
                     <f:then>
-                        {species.remark}
+                        <f:format.raw>{species.remark}</f:format.raw>
                     </f:then>
                     <f:else>
                         -
