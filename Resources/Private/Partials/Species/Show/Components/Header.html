@@ -1,0 +1,15 @@
+
+    <f:link.action action="list" controller="Species" pluginName="List" pageUid="{settings.listPid}">
+        Zurück zur Liste
+    </f:link.action>
+    <br>
+
+    <h1 class="headline mb-0">
+        <f:comment>{species.nameScience} ({species.nameDiscoverer}, {species.year}) – {species.name}</f:comment>
+        {species.nameScience} – {species.name}
+    </h1>
+
+    <p class="mb-0">
+        <f:comment>Gattung "{species.family.title}"<br></f:comment>
+        Familie {species.family.parent.title}
+    </p>

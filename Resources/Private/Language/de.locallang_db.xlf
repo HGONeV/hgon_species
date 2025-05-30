@@ -24,8 +24,8 @@
                 <target>Entdeckungsjahr</target>
 			</trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.remark">
-                <source>Remark (Bemerkung)</source>
-                <target>Bemerkung</target>
+                <source>Remark</source>
+                <target>Bemerkung ("Schon gewusst?")</target>
             </trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.characteristic">
 				<source>Characteristic (Markmale)</source>
@@ -47,12 +47,16 @@
 				<source>Last Updated Date (Stand)</source>
                 <target>Zuletzt aktualisiert</target>
 			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.red_list_comment">
+                <source>Red List Comment</source>
+                <target>Rote Liste Kommentar</target>
+            </trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.red_list_hessia">
-				<source>Red List Hessia (Rote Liste Hessen)</source>
+				<source>Red List Hessia</source>
                 <target>Rote Liste Hessen (RLHe)</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.red_list_germany">
-				<source>Red List Germany (Rote Liste Deutschland)</source>
+				<source>Red List Germany</source>
                 <target>Rote Liste Deutschland (RLD)</target>
 			</trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.first_spotted">
@@ -77,7 +81,7 @@
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.image">
 				<source>Image (Allg. Bilder; Slider)</source>
-                <target>Allg. Bilder; Slider)</target>
+                <target>Hauptbild/er ()Allg. Bilder; Slider)</target>
 			</trans-unit>
 			<trans-unit id="tx_hgonspecies_domain_model_species.dissemination_img">
 				<source>Dissemination Img (Verbreitung Grafik)</source>
@@ -99,6 +103,54 @@
 				<source>Extended Family (Gattung)</source>
                 <target>Gattung</target>
 			</trans-unit>
+			<trans-unit id="tx_hgonspecies_domain_model_species.subtitle">
+                <source>Subtitle</source>
+                <target>Sub-Headline</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.did_you_know">
+                <source>Did you know?</source>
+                <target>Schon gewusst?</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.state_of_preservation_hessia">
+                <source>State of Preservation in Hesse</source>
+                <target>Hessen Erhaltungszustand</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.state_of_preservation_hessia.choose">
+                <source>Please choose</source>
+                <target>Bitte wählen</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.state_of_preservation_hessia.favorable">
+                <source>Favorable</source>
+                <target>günstig</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.state_of_preservation_hessia.unfavorable">
+                <source>Unfavorable</source>
+                <target>ungünstig</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.state_of_preservation_hessia.poor">
+                <source>Poor</source>
+                <target>schlecht</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.eu_vsrl">
+                <source>EU Birds Directive</source>
+                <target>EU-VSRL</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.population_in_hessia">
+                <source>Population in Hesse</source>
+                <target>Bestand in Hessen</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.population_development">
+                <source>Population Development</source>
+                <target>Bestandsentwicklung</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.custom_link">
+                <source>Custom Link</source>
+                <target>Weiterführender Link</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.import_id">
+                <source>Import ID</source>
+                <target>Import ID (notwendig für updates via CSV import)</target>
+            </trans-unit>
 
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType">
                 <source>Record Type</source>
@@ -113,8 +165,55 @@
                 <target>Standard</target>
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.recordType.dragonfly">
-                <source>Dragonfly (Libelle)</source>
+                <source>Dragonfly</source>
                 <target>Libelle</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.recordType.bird">
+                <source>Bird</source>
+                <target>Vogel</target>
+            </trans-unit>
+
+
+
+            <trans-unit id="tx_hgonspecies_domain_model_attributes">
+                <source>HGON Species Attributes</source>
+                <target>HGON Species: Steckbrief</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.length">
+                <source>Length</source>
+                <target>Länge (in cm)</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.wingspan">
+                <source>Wingspan</source>
+                <target>Flügelspannweite (in cm)</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.weight">
+                <source>Weight</source>
+                <target>Gewicht (in g)</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.age_limit">
+                <source>Age Limit</source>
+                <target>Höchstalter</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.food">
+                <source>Food</source>
+                <target>Nahrung</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.nest_size">
+                <source>Nest Size</source>
+                <target>Gelegegröße</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.breeding_season">
+                <source>Breeding Season</source>
+                <target>Brutzeit</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.migratory_behavior">
+                <source>Migratory Behavior</source>
+                <target>Zugverhalten</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_attributes.winter_district">
+                <source>Wintering Area</source>
+                <target>Überwinterungsgebiet</target>
             </trans-unit>
 
 
@@ -130,6 +229,10 @@
             <trans-unit id="tx_hgonspecies_domain_model_species.tab_family">
                 <source>Family</source>
                 <target>Familie / Gattung</target>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.tab_attributes">
+                <source>Attributes</source>
+                <target>Steckbrief</target>
             </trans-unit>
 
 		</body>

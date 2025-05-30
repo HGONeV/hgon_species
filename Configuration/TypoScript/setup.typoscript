@@ -3,6 +3,7 @@ config.tx_extbase.persistence.classes {
         subclasses {
             0 = HGON\HgonSpecies\Domain\Model\SpeciesDefault
             1 = HGON\HgonSpecies\Domain\Model\SpeciesDragonfly
+            2 = HGON\HgonSpecies\Domain\Model\SpeciesBird
         }
     }
 
@@ -16,6 +17,13 @@ config.tx_extbase.persistence.classes {
     HGON\HgonSpecies\Domain\Model\SpeciesDragonfly {
         mapping {
             recordType = dragonfly
+            tableName = tx_hgonspecies_domain_model_species
+        }
+    }
+
+    HGON\HgonSpecies\Domain\Model\SpeciesBird {
+        mapping {
+            recordType = bird
             tableName = tx_hgonspecies_domain_model_species
         }
     }
@@ -77,4 +85,9 @@ plugin.tx_hgonspecies {
 plugin.tx_hgonspecies_list < plugin.tx_hgonspecies
 plugin.tx_hgonspecies_show < plugin.tx_hgonspecies
 
+
+# needed for backend context (cronjobs)
+#module.tx_hgonspecies.settings < plugin.tx_hgonspecies.settings
+#module.tx_hgonspecies.persistence.storagePid < plugin.tx_hgonspecies.persistence.storagePid
+#module.tx_hgonspecies.view < plugin.tx_hgonspecies.view
 

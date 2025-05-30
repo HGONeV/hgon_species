@@ -1,0 +1,29 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+    <f:if condition="{speciesRecordType} == 'dragonfly'">
+        <tr>
+            <td><strong>Artname<br> (wissenschaftlich)</strong></td>
+            <td><strong>Artname<br> (deutsch)</strong></td>
+            <td><strong>Familie</strong></td>
+            <td><strong>Zahl d.<br> MTB/64</strong></td>
+            <td><strong>Datens.</strong></td>
+            <td><strong>Bemerkungen</strong></td>
+        </tr>
+    </f:if>
+
+
+    <f:if condition="{speciesRecordType} == 'bird'">
+        <tr>
+            <td><strong>Artname</strong></td>
+            <td><strong>Schon gewusst?</strong></td>
+        </tr>
+    </f:if>
+
+
+    <f:if condition="{speciesRecordType} == 'default'">
+        <tr>
+            <td><strong>Artname</strong></td>
+            <td><strong>Schon gewusst?</strong></td>
+        </tr>
+    </f:if>
+</html>
