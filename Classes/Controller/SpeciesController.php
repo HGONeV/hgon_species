@@ -58,15 +58,6 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             $speciesList = $this->speciesRepository->findAllOrderByName();
         }
 
-
-        // species type
-        /*
-        foreach ($speciesList as $species) {
-            $this->view->assign('speciesRecordType', $species->getRecordType());
-            break;
-        }
-        */
-
         $this->view->assign('speciesRecordType', $speciesRecordType);
         $this->view->assign('speciesList', $speciesList);
         //$this->view->assign('speciesCategories', $this->categoryRepository->findSubFamiliesOfExtendedFamilies($this->settings['parentCategoryUid']));
