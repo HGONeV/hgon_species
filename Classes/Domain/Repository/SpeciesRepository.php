@@ -33,6 +33,26 @@ class SpeciesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         $query->setOrderings(
             [
+                'name' => QueryInterface::ORDER_ASCENDING
+            ]
+        );
+
+        return $query->execute();
+    }
+
+
+    /**
+     * Returns all objects of this repository.
+     *
+     * @return QueryResultInterface|array
+     * @api
+     */
+    public function findAllOrderByNameScience()
+    {
+        $query = $this->createQuery();
+
+        $query->setOrderings(
+            [
                 'family.parent.title' => QueryInterface::ORDER_ASCENDING,
                 'nameScience' => QueryInterface::ORDER_ASCENDING
             ]
