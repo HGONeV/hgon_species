@@ -256,7 +256,7 @@ class CsvImportService
         );
 
         /** @var \TYPO3\CMS\Core\Html\HtmlParser $parseObj */
-        $parseObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Html\\HtmlParser');
+        $parseObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Html\HtmlParser::class);
         $string = $parseObj->HTMLcleaner(trim($string), $tagCfg, 0, 0, $additionalConfig);
         $string = str_replace('\n', "", trim($string));
         $string = str_replace('<p><p>', '<p>', trim($string));
@@ -264,7 +264,6 @@ class CsvImportService
         $string = str_replace('&shy;', '', trim($string));
 
         return trim($string);
-        //===
     }
 
 
