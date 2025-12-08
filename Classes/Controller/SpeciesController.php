@@ -21,20 +21,28 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     /**
-     * speciesRepository
-     *
      * @var \HGON\HgonSpecies\Domain\Repository\SpeciesRepository
-     * @inject
      */
-    protected $speciesRepository = null;
+    protected $speciesRepository;
 
     /**
-     * categoryRepository
-     *
-     * @var \HGON\HgonSpecies\Domain\Repository\CategoryRepository
-     * @inject
+     * @param \HGON\HgonSpecies\Domain\Repository\SpeciesRepository $speciesRepository
      */
-    protected $categoryRepository = null;
+    public function injectSpeciesRepository(\HGON\HgonSpecies\Domain\Repository\SpeciesRepository $speciesRepository): void {
+        $this->speciesRepository = $speciesRepository;
+    }
+
+    /**
+     * @var \HGON\HgonSpecies\Domain\Repository\CategoryRepository
+     */
+    protected $categoryRepository;
+
+    /**
+     * @param \HGON\HgonSpecies\Domain\Repository\CategoryRepository $categoryRepository
+     */
+    public function injectCategoryRepository(\HGON\HgonSpecies\Domain\Repository\CategoryRepository $categoryRepository): void {
+        $this->categoryRepository = $categoryRepository;
+    }
 
     /**
      * action list
@@ -85,7 +93,7 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * action show
      *
      * @param \HGON\HgonSpecies\Domain\Model\Species $species
-     * @ignorevalidation $species
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("species")
      * @return void
      * @throws InvalidQueryException
      */

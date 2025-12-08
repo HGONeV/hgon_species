@@ -21,14 +21,21 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
-
     /**
      * backendUserRepository
      *
      * @var \RKW\RkwEvents\Domain\Repository\BackendUserRepository
-     * @inject
      */
-    protected $backendUserRepository = null;
+    protected $backendUserRepository;
+
+
+    /**
+     * @param \RKW\RkwEvents\Domain\Repository\BackendUserRepository $backendUserRepository
+     */
+    public function injectBackendUserRepository(BackendUserRepository $backendUserRepository)
+    {
+        $this->backendUserRepository = $backendUserRepository;
+    }
 
 
     /**

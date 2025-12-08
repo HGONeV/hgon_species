@@ -31,7 +31,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * name
      *
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
     protected $name = '';
 
@@ -53,7 +53,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * subtitle
      *
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
     protected $subtitle = '';
 
@@ -117,7 +117,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $redListComment = '';
-    
+
     /**
      * redListHessia
      *
@@ -201,7 +201,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * image
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $image = null;
 
@@ -209,7 +209,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * disseminationImg
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $disseminationImg = null;
 
@@ -217,7 +217,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * sidebarImg
      *
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $sidebarImg = null;
 
@@ -225,7 +225,7 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * files
      *
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $files = null;
 
