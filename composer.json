@@ -13,16 +13,16 @@
     },
     "autoload": {
         "psr-4": {
-            "HGON\\HgonSpecies\\": "Classes"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "HGON\\HgonSpecies\\Tests\\": "Tests"
+            "HGON\\HgonSpecies\\": "Classes/"
         }
     },
     "replace": {
         "hgon_species": "self.version",
         "typo3-ter/hgon-species": "self.version"
-    }
+    },
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "hgon_species"
+		}
+	}
 }
