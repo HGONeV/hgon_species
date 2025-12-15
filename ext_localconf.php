@@ -63,13 +63,13 @@ call_user_func(
            }'
         );
 		$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-		
+
 			$iconRegistry->registerIcon(
 				'hgon_species-plugin-list',
 				\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
 				['source' => 'EXT:hgon_species/Resources/Public/Icons/user_plugin_list.svg']
 			);
-		
+
     },
-    $_EXTKEY
+    'hgon_species'
 );

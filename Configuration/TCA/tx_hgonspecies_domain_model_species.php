@@ -24,9 +24,6 @@ return [
         'searchFields' => 'name,name_science,name_discoverer,year,remark,characteristic,habitat,dissemination,grid_frequency,last_updated_date,red_list_comment,red_list_hessia,red_list_germany,phenology,mtb64,proof,image,dissemination_img,sidebar_img,files,family,subtitle,did_you_know,state_of_preservation_hessia,eu_vsrl,population_in_hessia,population_development,custom_link,import_id',
         'iconfile' => 'EXT:hgon_species/Resources/Public/Icons/tx_hgonspecies_domain_model_species.gif'
     ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, name_science, name_discoverer, year, remark, characteristic, habitat, dissemination, grid_frequency, last_updated_date, red_list_comment, red_list_hessia, red_list_germany, phenology, mtb64, proof, image, dissemination_img, sidebar_img, files, family, subtitle, did_you_know, state_of_preservation_hessia, eu_vsrl, population_in_hessia, population_development, custom_link, import_id',
-    ],
     'types' => [
         '0' => [
             'showitem' => '
@@ -47,7 +44,7 @@ return [
                 image, dissemination_img, sidebar_img, files,
 
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
-                sys_language_uid, l10n_parent, l10n_diffsource,
+                sys_language_uid, l10n_diffsource,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
                 hidden
 
@@ -67,7 +64,7 @@ return [
                 image, dissemination_img, sidebar_img, files,
 
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
-                sys_language_uid, l10n_parent, l10n_diffsource,
+                sys_language_uid, l10n_diffsource,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
                 hidden
 
@@ -90,7 +87,7 @@ return [
                 image, dissemination_img, sidebar_img,
 
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
-                sys_language_uid, l10n_parent, l10n_diffsource,
+                sys_language_uid, l10n_diffsource,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
                 hidden
 
@@ -133,7 +130,6 @@ return [
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',

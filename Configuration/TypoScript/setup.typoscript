@@ -1,3 +1,4 @@
+/*
 config.tx_extbase.persistence.classes {
     HGON\HgonSpecies\Domain\Model\Species {
         subclasses {
@@ -43,10 +44,8 @@ config.tx_extbase.persistence.classes {
 
         }
     }
-
-
 }
-
+*/
 
 
 plugin.tx_hgonspecies {
