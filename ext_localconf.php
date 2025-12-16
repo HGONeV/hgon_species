@@ -9,11 +9,11 @@ call_user_func(
             'HGON.HgonSpecies',
             'List',
             [
-                'Species' => 'list'
+                \HGON\HgonSpecies\Controller\SpeciesController::class => 'list'
             ],
             // non-cacheable actions
             [
-                'Species' => 'list'
+                \HGON\HgonSpecies\Controller\SpeciesController::class => 'list'
             ]
         );
 
@@ -22,11 +22,11 @@ call_user_func(
             'HGON.HgonSpecies',
             'ListByCategory',
             [
-                'Species' => 'listByCategory'
+                \HGON\HgonSpecies\Controller\SpeciesController::class => 'listByCategory'
             ],
             // non-cacheable actions
             [
-                'Species' => 'listByCategory'
+                \HGON\HgonSpecies\Controller\SpeciesController::class => 'listByCategory'
             ]
         );
         */
@@ -35,11 +35,11 @@ call_user_func(
             'HGON.HgonSpecies',
             'Show',
             [
-                'Species' => 'show'
+                \HGON\HgonSpecies\Controller\SpeciesController::class => 'show'
             ],
             // non-cacheable actions
             [
-                'Species' => 'show'
+                \HGON\HgonSpecies\Controller\SpeciesController::class => 'show'
             ]
         );
 
