@@ -1,12 +1,12 @@
 <?php
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3') or die("Access denied.");
 
 call_user_func(
     function($extKey)
     {
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'HGON.HgonSpecies',
+            $extKey,
             'List',
             [
                 \HGON\HgonSpecies\Controller\SpeciesController::class => 'list'
@@ -19,7 +19,7 @@ call_user_func(
 
         /*
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'HGON.HgonSpecies',
+            $extKey,
             'ListByCategory',
             [
                 \HGON\HgonSpecies\Controller\SpeciesController::class => 'listByCategory'
@@ -32,7 +32,7 @@ call_user_func(
         */
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'HGON.HgonSpecies',
+            $extKey,
             'Show',
             [
                 \HGON\HgonSpecies\Controller\SpeciesController::class => 'show'

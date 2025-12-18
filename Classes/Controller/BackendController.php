@@ -4,6 +4,7 @@ namespace HGON\HgonSpecies\Controller;
 
 use Doctrine\Common\Util\Debug;
 use HGON\HgonSpecies\Service\CsvImportService;
+use TYPO3\CMS\Beuser\Domain\Repository\BackendUserRepository;
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -24,13 +25,13 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     /**
      * backendUserRepository
      *
-     * @var \RKW\RkwEvents\Domain\Repository\BackendUserRepository
+     * @var \TYPO3\CMS\Beuser\Domain\Repository\BackendUserRepository
      */
     protected $backendUserRepository;
 
 
     /**
-     * @param \RKW\RkwEvents\Domain\Repository\BackendUserRepository $backendUserRepository
+     * @param \TYPO3\CMS\Beuser\Domain\Repository\BackendUserRepository $backendUserRepository
      */
     public function injectBackendUserRepository(BackendUserRepository $backendUserRepository)
     {

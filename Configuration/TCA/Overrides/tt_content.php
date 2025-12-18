@@ -1,26 +1,26 @@
 <?php
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die("Access denied.");
 
 
 call_user_func(
     function($extKey)
     {
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-            'HGON.HgonSpecies',
+            $extKey,
             'List',
             'HGON Species: Artenliste'
         );
 
         /*
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-            'HGON.HgonSpecies',
+            $extKey,
             'ListByCategory',
             'HGON Species: Artenliste nach Kategorie'
         );
         */
-        
+
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-            'HGON.HgonSpecies',
+            $extKey,
             'Show',
             'HGON Species: Arten Detail'
         );
