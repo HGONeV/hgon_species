@@ -7,6 +7,7 @@ use HGON\HgonSpecies\Service\CsvImportService;
 use TYPO3\CMS\Beuser\Domain\Repository\BackendUserRepository;
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /***
@@ -27,20 +28,21 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @var \TYPO3\CMS\Beuser\Domain\Repository\BackendUserRepository
      */
-    protected $backendUserRepository;
+    protected BackendUserRepository $backendUserRepository;
 
+    public function __construct(?BackendUserRepository $backendUserRepository = null)
+    {
+        $this->backendUserRepository = $backendUserRepository ?? GeneralUtility::makeInstance(BackendUserRepository::class);
+    }
 
-    /**
-     * @param \TYPO3\CMS\Beuser\Domain\Repository\BackendUserRepository $backendUserRepository
-     */
-    public function injectBackendUserRepository(BackendUserRepository $backendUserRepository)
+    public function injectBackendUserRepository(BackendUserRepository $backendUserRepository): void
     {
         $this->backendUserRepository = $backendUserRepository;
     }
 
 
     /**
-     * @return void
+     * @return \Psr\Http\Message\ResponseInterface
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
      */
     public function indexAction()
@@ -48,12 +50,13 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
         // show import form
 
+        return $this->htmlResponse();
     }
 
 
 
     /**
-     * @return void
+     * @return ForwardResponse
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
      */
     public function importAction()
@@ -76,7 +79,10 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             }
         }
 
-        $this->forward('index', 'Backend');
+        return new ForwardResponse(
+            'index',
+            'Backend'
+        );
     }
 
 

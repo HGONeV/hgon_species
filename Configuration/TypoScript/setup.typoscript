@@ -81,6 +81,12 @@ plugin.tx_hgonspecies {
 
 }
 
+# Legacy list_type fallback (pre-migration)
+tt_content.list.20 {
+    hgonspecies_list < tt_content.hgonspecies_list
+    hgonspecies_show < tt_content.hgonspecies_show
+}
+
 plugin.tx_hgonspecies_list < plugin.tx_hgonspecies
 plugin.tx_hgonspecies_show < plugin.tx_hgonspecies
 
@@ -89,4 +95,3 @@ plugin.tx_hgonspecies_show < plugin.tx_hgonspecies
 #module.tx_hgonspecies.settings < plugin.tx_hgonspecies.settings
 #module.tx_hgonspecies.persistence.storagePid < plugin.tx_hgonspecies.persistence.storagePid
 #module.tx_hgonspecies.view < plugin.tx_hgonspecies.view
-

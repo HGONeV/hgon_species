@@ -1,6 +1,7 @@
 <?php
 namespace HGON\HgonSpecies\Controller;
 
+use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
@@ -20,27 +21,25 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  */
 class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
-    /**
-     * @var \HGON\HgonSpecies\Domain\Repository\SpeciesRepository
-     */
-    protected $speciesRepository;
+    protected \HGON\HgonSpecies\Domain\Repository\SpeciesRepository $speciesRepository;
 
-    /**
-     * @param \HGON\HgonSpecies\Domain\Repository\SpeciesRepository $speciesRepository
-     */
-    public function injectSpeciesRepository(\HGON\HgonSpecies\Domain\Repository\SpeciesRepository $speciesRepository): void {
+    protected \HGON\HgonSpecies\Domain\Repository\CategoryRepository $categoryRepository;
+
+    public function __construct(
+        ?\HGON\HgonSpecies\Domain\Repository\SpeciesRepository $speciesRepository = null,
+        ?\HGON\HgonSpecies\Domain\Repository\CategoryRepository $categoryRepository = null
+    ) {
+        $this->speciesRepository = $speciesRepository ?? \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\HGON\HgonSpecies\Domain\Repository\SpeciesRepository::class);
+        $this->categoryRepository = $categoryRepository ?? \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\HGON\HgonSpecies\Domain\Repository\CategoryRepository::class);
+    }
+
+    public function injectSpeciesRepository(\HGON\HgonSpecies\Domain\Repository\SpeciesRepository $speciesRepository): void
+    {
         $this->speciesRepository = $speciesRepository;
     }
 
-    /**
-     * @var \HGON\HgonSpecies\Domain\Repository\CategoryRepository
-     */
-    protected $categoryRepository;
-
-    /**
-     * @param \HGON\HgonSpecies\Domain\Repository\CategoryRepository $categoryRepository
-     */
-    public function injectCategoryRepository(\HGON\HgonSpecies\Domain\Repository\CategoryRepository $categoryRepository): void {
+    public function injectCategoryRepository(\HGON\HgonSpecies\Domain\Repository\CategoryRepository $categoryRepository): void
+    {
         $this->categoryRepository = $categoryRepository;
     }
 
@@ -49,7 +48,7 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * "Artenliste"
      *
-     * @return void
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function listAction()
     {
@@ -70,6 +69,8 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         $this->view->assign('speciesList', $speciesList);
         //$this->view->assign('speciesCategories', $this->categoryRepository->findSubFamiliesOfExtendedFamilies($this->settings['parentCategoryUid']));
         $this->view->assign('speciesCategories', $this->categoryRepository->findExtendedFamilies($this->settings['parentCategoryUid']));
+
+        return $this->htmlResponse();
     }
 
     /**
@@ -79,7 +80,7 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @deprecated Solved by tabs in listAction
      *
-     * @return void
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function listByCategoryAction()
     {
@@ -87,17 +88,19 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
         $this->view->assign('speciesList', $speciesList);
         $this->view->assign('speciesCategories', $this->categoryRepository->findSubFamiliesOfExtendedFamilies($this->settings['parentCategoryUid']));
+
+        return $this->htmlResponse();
     }
 
     /**
      * action show
      *
      * @param \HGON\HgonSpecies\Domain\Model\Species $species
-     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("species")
-     * @return void
+     * @return \Psr\Http\Message\ResponseInterface
      * @throws InvalidQueryException
      */
-    public function showAction(\Hgon\HgonSpecies\Domain\Model\Species $species)
+    #[IgnoreValidation(['argumentName' => 'species'])]
+    public function showAction(\HGON\HgonSpecies\Domain\Model\Species $species)
     {
 
         $this->view->assign('species', $species);
@@ -105,6 +108,8 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         // sidebar
         $this->view->assign('speciesList', $this->speciesRepository->findAllOrderByName());
         $this->view->assign('speciesCategories', $this->categoryRepository->findExtendedFamilies(intval($this->settings['parentCategoryUid'])));
+
+        return $this->htmlResponse();
     }
 
 }

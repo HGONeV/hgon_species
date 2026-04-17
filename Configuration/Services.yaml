@@ -6,4 +6,3 @@ services:
 
   HGON\HgonSpecies\:
     resource: '../Classes/*'
-

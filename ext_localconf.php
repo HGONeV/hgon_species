@@ -14,7 +14,8 @@ call_user_func(
             // non-cacheable actions
             [
                 \HGON\HgonSpecies\Controller\SpeciesController::class => 'list'
-            ]
+            ],
+            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
         );
 
         /*
@@ -27,7 +28,8 @@ call_user_func(
             // non-cacheable actions
             [
                 \HGON\HgonSpecies\Controller\SpeciesController::class => 'listByCategory'
-            ]
+            ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
         );
         */
 
@@ -40,35 +42,9 @@ call_user_func(
             // non-cacheable actions
             [
                 \HGON\HgonSpecies\Controller\SpeciesController::class => 'show'
-            ]
+            ],
+            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
         );
-
-        // wizards
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-            'mod {
-                wizards.newContentElement.wizardItems.plugins {
-                    elements {
-                        list {
-                            iconIdentifier = hgon_species-plugin-list
-                            title = LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgon_species_list.name
-                            description = LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgon_species_list.description
-                            tt_content_defValues {
-                                CType = list
-                                list_type = hgonspecies_list
-                            }
-                        }
-                    }
-                    show = *
-                }
-           }'
-        );
-		$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-
-			$iconRegistry->registerIcon(
-				'hgon_species-plugin-list',
-				\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-				['source' => 'EXT:hgon_species/Resources/Public/Icons/user_plugin_list.svg']
-			);
 
     },
     'hgon_species'

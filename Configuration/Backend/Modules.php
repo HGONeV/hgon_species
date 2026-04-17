@@ -6,7 +6,7 @@ return [
         'parent' => 'web',
         'position' => [],
         'access' => 'user,group',
-        'icon' => 'EXT:hgon_species/Resources/Public/Icons/ext_icon_be.svg',
+        'iconIdentifier' => 'hgon-species-module',
         'labels' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_be.xlf',
         'extensionName' => 'HgonSpecies',
         'controllerActions' => [
