@@ -53,7 +53,7 @@ class SpeciesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         $query->setOrderings(
             [
-                'family.parent.title' => QueryInterface::ORDER_ASCENDING,
+                'family.parent.sorting' => QueryInterface::ORDER_ASCENDING,
                 'nameScience' => QueryInterface::ORDER_ASCENDING
             ]
         );
