@@ -8,6 +8,7 @@ CREATE TABLE tx_hgonspecies_domain_model_species (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
+	slug varchar(2048) DEFAULT '' NOT NULL,
 	name_science varchar(255) DEFAULT '' NOT NULL,
 	name_discoverer varchar(255) DEFAULT '' NOT NULL,
     subtitle varchar(255) DEFAULT '' NOT NULL,

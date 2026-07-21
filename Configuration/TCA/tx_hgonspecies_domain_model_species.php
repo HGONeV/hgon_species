@@ -32,7 +32,7 @@ return [
         'default' => [
             'showitem' => '
 
-                record_type, import_id, name, name_science, name_discoverer, year, first_spotted, last_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
+                record_type, import_id, name, slug, name_science, name_discoverer, year, first_spotted, last_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
 
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
                 characteristic, habitat, dissemination, phenology, remark,
@@ -52,7 +52,7 @@ return [
         'dragonfly' => [
             'showitem' => '
 
-                record_type, import_id, name, name_science, first_spotted, last_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
+                record_type, import_id, name, slug, name_science, first_spotted, last_spotted, grid_frequency, last_updated_date, red_list_hessia, red_list_germany, mtb64, proof,
 
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
                 characteristic, habitat, dissemination, phenology, remark,
@@ -72,7 +72,7 @@ return [
         'bird' => [
             'showitem' => '
 
-                record_type, import_id, name, name_science, subtitle, red_list_comment, red_list_hessia, red_list_germany, eu_vsrl, state_of_preservation_hessia, custom_link,
+                record_type, import_id, name, slug, name_science, subtitle, red_list_comment, red_list_hessia, red_list_germany, eu_vsrl, state_of_preservation_hessia, custom_link,
 
                 --div--;LLL:EXT:hgon_species/Resources/Private/Language/locallang_db.xlf:tx_hgonspecies_domain_model_species.tab_text,
                 characteristic, population_in_hessia, habitat, population_development, dissemination, phenology, remark,
@@ -217,6 +217,24 @@ return [
                 'size' => 30,
                 'eval' => 'trim',
                 'required' => true
+            ],
+        ],
+        'slug' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:pages.slug',
+            'displayCond' => 'VERSION:IS:false',
+            'config' => [
+                'type' => 'slug',
+                'size' => 50,
+                'generatorOptions' => [
+                    'fields' => ['name'],
+                    'replacements' => [
+                        '/' => '-',
+                    ],
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInPid',
+                'default' => '',
             ],
         ],
         'name_science' => [

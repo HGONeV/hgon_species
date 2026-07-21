@@ -39,6 +39,11 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $name = '';
 
     /**
+     * URL segment used by the species detail route.
+     */
+    protected string $slug = '';
+
+    /**
      * nameScience
      *
      * @var string
@@ -333,6 +338,16 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
     }
 
     /**
