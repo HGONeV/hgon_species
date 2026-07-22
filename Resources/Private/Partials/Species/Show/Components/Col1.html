@@ -1,11 +1,11 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
+    <f:if condition="{species.image}">
     <div class="species--slider mb-1">
         <div id="sliderSpecies" class="teaserslider-container nav-inline margin-below-sm product-slider">
             <div class="slider-stage js__fix-button-trigger">
                 <div class="slider-items">
-                    <f:if condition="{species.image}">
-                        <f:for each="{species.image}" as="image" iteration="i">
+                    <f:for each="{species.image}" as="image" iteration="i">
                             <div class="slider-item col-12">
                                 <section class="js-lightbox">
                                     <div class="gallery">
@@ -32,7 +32,7 @@
                                             <div class="bar__icons bar__icons--left">
                                                 <div class="bar__text align-center">
                                                                 <span class="js-lightbox-counter">
-                                                                <span class="current__img">1</span> / <span class="max__img">2</span>
+                                                <span class="current__img">1</span> / <span class="max__img">1</span>
                                                                 </span>
                                                 </div>
                                             </div>
@@ -40,32 +40,34 @@
                                     </div>
                                 </section>
                             </div>
-                        </f:for>
-                    </f:if>
+                    </f:for>
                 </div>
             </div>
-            <div class="nav-container display-lg-block">
-                <ul class="slider-navigation teaser-navigation">
-                    <f:if condition="{species.image}">
+            <f:if condition="{species.image -> f:count()} > 1">
+                <div class="nav-container display-lg-block">
+                    <ul class="slider-navigation teaser-navigation">
                         <f:for each="{species.image}" as="image" iteration="i">
                             <li>
                                 <f:image image="{image}" additionalAttributes="{data-index: i.index}" width="100"/>
                             </li>
                         </f:for>
-                    </f:if>
-                </ul>
-            </div>
+                    </ul>
+                </div>
+            </f:if>
         </div>
-        <script>document.addEventListener('readystatechange', function () {
-            if (event.target.readyState == 'complete') {
-                let sliderSpecies = new HGONSlider('#sliderSpecies');
-            }
-        });</script>
+        <f:if condition="{species.image -> f:count()} > 1">
+            <script>document.addEventListener('readystatechange', function (event) {
+                if (event.target.readyState === 'complete') {
+                    new HGONSlider('#sliderSpecies');
+                }
+            });</script>
+        </f:if>
     </div>
-    <div class="grid no-padding grid__padding_between">
+    </f:if>
+    <f:if condition="{species.disseminationImg}">
+    <div class="grid no-padding grid__padding_between species-detail__distribution-image">
         <h5>Verbreitung in Hessen</h5>
-        <f:if condition="{species.disseminationImg}">
-            <section class="js-lightbox">
+        <section class="js-lightbox">
                 <div class="gallery">
                     <f:for each="{species.disseminationImg}" as="image" iteration="i">
                         <div class="gallery__image">
@@ -109,8 +111,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
-        </f:if>
+        </section>
     </div>
+    </f:if>
 
 </html>
