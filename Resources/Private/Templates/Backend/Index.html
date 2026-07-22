@@ -1,215 +1,116 @@
 <f:layout name="Backend" />
 
 <f:section name="content">
+    <div>
+        <h1>Arten-Daten pflegen</h1>
 
-    <div class="module-body t3js-module-body typo3-docbody">
-        <h1>CSV-Import</h1>
+        <div class="species-tabs">
+            <input
+                class="species-tabs__toggle"
+                type="radio"
+                name="species-maintenance-tab"
+                id="species-export-toggle"
+                checked
+            >
+            <input
+                class="species-tabs__toggle"
+                type="radio"
+                name="species-maintenance-tab"
+                id="species-import-toggle"
+            >
 
-        <f:render partial="FlashMessages" arguments="{_all}" />
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <label class="nav-link" for="species-export-toggle">Bestand herunterladen</label>
+                </li>
+                <li class="nav-item">
+                    <label class="nav-link" for="species-import-toggle">Datei importieren</label>
+                </li>
+            </ul>
 
-        <f:form action="import" name="importData" method="post" enctype="multipart/form-data">
-
-            <div class="form-group">
-                <label for="targetPid">Ziel-Seiten-ID (targetPid - der Ordner, in dem die Datensätze liegen sollen)</label>
-                <f:form.textfield
-                    id="targetPid"
-                    name="targetPid"
-                    class="form-control"
-                    type="number"
-                    placeholder="z.B. 475"
-                    additionalAttributes="{required: 'required'}"
-                />
-            </div>
-            <br/>
-            <f:form.select
-                name="speciesType"
-                options="{
-                    'bird': 'Vogel',
-                    'dragonfly': 'Libelle'
-                }"
-                optionValueField="key"
-                optionLabelField="value"
-                prependOptionValue=""
-                prependOptionLabel="Typ auswählen"
-                additionalAttributes="{required: 'required'}"
-            />
-            <br/>
-            <f:form.upload property="csvFile" additionalAttributes="{required: 'required', accept: '.csv'}" />
-            <f:comment>
-                <f:form.upload property="csvFile" additionalAttributes="{required: 'required', accept: '.csv, .xls, .xlsx'}" />
-            </f:comment>
-            <br/>
-            <f:form.submit value="Import starten" />
-        </f:form>
-
-        <f:if condition="{result}">
-            <p>{result}</p>
-        </f:if>
-
-        <hr>
-
-
-        <h2>📥 Anleitung: Arten-Daten per CSV oder Excel importieren</h2>
-
-        <p>Mit diesem Modul kannst du Arten-Datensätze inklusive Detailinformationen automatisiert in die Datenbank importieren.</p>
-
-        <h3>❌ Was nicht via CSV importiert werden kann</h3>
-        <ul>
-            <li><strong>Bilder</strong></li>
-            <li><strong>Dateien</strong></li>
-            <li><strong>Familie der Art als Name übergeben</strong> (die TYPO3 ID muss vorher bekannt sein und existieren!)</li>
-        </ul>
-
-        <h3>✅ Unterstützte Dateiformate</h3>
-        <ul>
-            <li><strong>CSV-Dateien</strong> (<code>.csv</code>) – mit <strong>Semikolon (;)</strong> als Spaltentrenner</li>
-            <f:comment>
-                <li><strong>Excel-Dateien</strong> (<code>.xls</code>, <code>.xlsx</code>) – nur <em>erstes Tabellenblatt</em> wird gelesen</li>
-            </f:comment>
-        </ul>
-
-        <p><strong>Pflichtfelder:</strong></p>
-        <ul>
-            <li><code>name</code></li>
-            <li><code>import_id</code> (Ohne import_id wird ein Datensatz aus Sicherheitsgründen weder angelegt, noch aktualisiert)</li>
-            <li><code>family</code> (Die ID der TYPO3-Kategorie)</li>
-        </ul>
-
-        <h3>🔁 Welche Daten werden importiert?</h3>
-        <ul>
-            <li><strong>Arten-Informationen:</strong> Name, <code>Familie (ID)</code>, Habitat usw.</li>
-            <li><strong>Zusatzinfos:</strong> Nestgröße, Verbreitung, Status</li>
-            <li><strong>Attribute:</strong>
-                <ul>
-                    <li>Länge, Flügelspannweite, Gewicht</li>
-                    <li>Maximales Alter, Nahrung</li>
-                    <li>Brutzeit, Zugverhalten, Winterquartier</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3>🧷 Hinweise zum Format</h3>
-        <ul>
-            <li><strong>Datum:</strong> <code>YYYY-MM-DD</code> (z.B. <code>2024-06-01</code>)</li>
-            <li><strong>Links:</strong> <code>custom_link</code> als vollständige URL oder Typolink-Angabe</li>
-        </ul>
-
-        <h3>📤 Datei importieren</h3>
-        <ol>
-            <li>Wechsle im TYPO3-Backend zu <strong>Modul: „Arten-Import“</strong></li>
-            <li>Wähle deine Datei aus (<code>.csv</code>, <code>.xls</code>, <code>.xlsx</code>)</li>
-            <li>Klicke auf <strong>„Import starten“</strong></li>
-            <li>Warte auf Rückmeldung – importierte Datensätze werden gezählt</li>
-        </ol>
-
-        <h3>⚠️ Fehler vermeiden</h3>
-        <ul>
-            <li>Alle Spaltennamen müssen <strong>exakt</strong> den Feldnamen entsprechen</li>
-            <li>Verwende UTF-8-codierte Dateien</li>
-            <li>Bei Excel-Dateien wird nur das erste Tabellenblatt gelesen</li>
-        </ul>
-
-        <h3>❓ Hilfe</h3>
-        <p>Bei Fragen oder Problemen wende dich bitte an das Projektteam oder den TYPO3-Administrator.</p>
-
-        <h3>🧾 Erwarteter Aufbau der Datei</h3>
-        <p>Die Datei muss eine <strong>Kopfzeile mit Feldnamen</strong> enthalten. Jede Zeile darunter entspricht einem Datensatz.</p>
-
-        <p><strong>Beispiel-Kopfzeile:</strong></p>
-        <pre><code>import_id;name;name_science;name_discoverer;year;remark;characteristic;habitat;dissemination;grid_frequency;last_updated_date;red_list_comment;red_list_hessia;red_list_germany;phenology;mtb64;proof;image;dissemination_img;sidebar_img;files;family;subtitle;did_you_know;state_of_preservation_hessia;eu_vsrl;population_in_hessia;population_development;custom_link;length;wingspan;weight;age_limit;food;nest_size;breeding_season;migratory_behavior;winter_district</code></pre>
-
-
-        <h3>❗ Import-Anleitung für CSV-Dateien</h3>
-
-        <div class="tabs">
-            <!-- Tabs definieren -->
-            <input type="radio" id="tab1" name="tabset" checked>
-            <input type="radio" id="tab2" name="tabset">
-
-            <!-- Registerkarten-Titel -->
-            <div class="tab-labels">
-                <label for="tab1">Vögel</label>
-                <label for="tab2">Libelle</label>
-            </div>
-
-            <!-- Inhalte -->
-            <div class="contents">
-                <div class="tab-content" id="content1">
-                    <h2>Vögel</h2>
+            <div class="tab-content">
+                <section class="tab-pane" id="species-export">
+                    <h2>Aktuellen Bestand herunterladen</h2>
                     <p>
-                        <a class="download-link" href="{f:uri.resource(path: 'Files/csv_beispiel_voegel.csv')}"><strong>CSV-Import Beispiel für Vögel</strong></a>
+                        Der Export enthält den aktuellen Datenbestand in genau dem Format, das anschließend wieder importiert werden kann.
+                        Die CSV-Datei lässt sich mit Excel oder LibreOffice bearbeiten.
                     </p>
-                    <table>
-                        <thead>
-                            <tr><th>CSV-Feldname (❗ Pflichtfelder)</th><th>Deutschsprachige Beschreibung</th></tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><code>❗ import_id</code></td><td>❗ Entscheidender Eintrag für zukünftige Datenpflege zur Wiederkennung des Datensatzes ❗ Wird vom importierenden selbst bestimmt und sollte nicht zu generisch sein, sondern z.B. "vogel-123" oder "libelle-456" sein. Die ID muss für <strong>jeden</strong> Eintrag unterschiedlich sein. Es dürfen keine doppelten IDs vergeben werden!</td></tr>
-                            <tr><td><code>❗ name</code></td><td>Deutscher Name der Art</td></tr>
-                            <tr><td><code>❗ name_science</code></td><td>Wissenschaftlicher Name</td></tr>
-                            <tr><td><code>❗ family</code></td><td>Taxonomische Familie <code>(TYPO3 Kategorie-ID)</code></td></tr>
-                            <tr><td><code>subtitle</code></td><td>Untertitel (der Detailseite)</td></tr>
-                            <tr><td><code>red_list_comment</code></td><td>Kommentar zur Einstufung auf der Roten Liste</td></tr>
-                            <tr><td><code>red_list_hessia</code></td><td>Rote Liste Hessen</td></tr>
-                            <tr><td><code>red_list_germany</code></td><td>Rote Liste Deutschland</td></tr>
-                            <tr><td><code>eu_vsrl</code></td><td>EU-Vogelschutzrichtlinie</td></tr>
-                            <tr><td><code>state_of_preservation_hessia</code></td><td>Bestand in Hessen <code>("g" => günstig; "u" => ungünstig, "s" => schlecht)</code></td></tr>
-                            <tr><td><code>custom_link</code></td><td>Externer Link zur Art <code>("Gesang und Rufe")</code></td></tr>
-                            <tr><td><code>characteristic</code></td><td>Merkmale</td></tr>
-                            <tr><td><code>population_in_hessia</code></td><td>Bestand in Hessen</td></tr>
-                            <tr><td><code>habitat</code></td><td>Lebensraum</td></tr>
-                            <tr><td><code>population_development</code></td><td>Bestandsentwicklung</td></tr>
-                            <tr><td><code>dissemination</code></td><td>Verbreitungsgebiet in Hessen</td></tr>
-                            <tr><td><code>phenology</code></td><td>Phänologie in Hessen</td></tr>
-                            <tr><td><code>remark</code></td><td>Schon gewusst?</td></tr>
-                            <tr><td><code>length</code></td><td>Körperlänge <code>(ohne cm Angabe!)</code></td></tr>
-                            <tr><td><code>wingspan</code></td><td>Flügelspannweite <code>(ohne cm Angabe!)</code></td></tr>
-                            <tr><td><code>weight</code></td><td>Gewicht <code>(ohne g Angabe!)</code></td></tr>
-                            <tr><td><code>age_limit</code></td><td>Maximales Lebensalter</td></tr>
-                            <tr><td><code>food</code></td><td>Nahrung / Beutespektrum</td></tr>
-                            <tr><td><code>nest_size</code></td><td>Gelegegröße (Anzahl Eier, falls bekannt)</td></tr>
-                            <tr><td><code>breeding_season</code></td><td>Fortpflanzungszeit / Eiablagezeitraum</td></tr>
-                            <tr><td><code>migratory_behavior</code></td><td>Zugverhalten (z. B. Kurzstreckenzieher)</td></tr>
-                            <tr><td><code>winter_district</code></td><td>Winterquartier / Überwinterungsregion</td></tr>
-                        </tbody>
-                    </table>
-                </div>
 
-                <div class="tab-content" id="content2">
-                    <h2>Libelle</h2>
-                    <p>
-                        <a class="download-link" href="{f:uri.resource(path: 'Files/csv_beispiel_libelle.csv')}"><strong>CSV-Import Beispiel für Libellen</strong></a>
-                    </p>
-                    <table>
-                        <thead>
-                            <tr><th>CSV-Feldname (❗ Pflichtfelder)</th><th>Deutschsprachige Beschreibung</th></tr>
-                        </thead>
-                        <tbody>
-                        <td><code>❗ import_id</code></td><td>❗ Entscheidender Eintrag für zukünftige Datenpflege zur Wiederkennung des Datensatzes ❗ Wird vom importierenden selbst bestimmt und sollte nicht zu generisch sein, sondern z.B. "vogel-123" oder "libelle-456" sein. Die ID muss für <strong>jeden</strong> Eintrag unterschiedlich sein. Es dürfen keine doppelten IDs vergeben werden!</td></tr>
-                            <tr><td><code>❗ name</code></td><td>Deutscher Name der Art</td></tr>
-                            <tr><td><code>❗ name_science</code></td><td>Wissenschaftlicher Name</td></tr>
-                            <tr><td><code>❗ family</code></td><td>Taxonomische Familie <code>(TYPO3 Kategorie-ID)</code></td></tr>
-                            <tr><td><code>first_spotted</code></td><td>Frühester Nachweis im Jahr</td></tr>
-                            <tr><td><code>last_spotted</code></td><td>Spätester Nachweis im Jahr</td></tr>
-                            <tr><td><code>grid_frequency</code></td><td>Rasterfrequenz</td></tr>
-                            <tr><td><code>last_updated_date</code></td><td>Letztes Aktualisierungsdatum (Format: YYYY-MM-DD)</td></tr>
-                            <tr><td><code>red_list_hessia</code></td><td>Rote Liste Status in Hessen</td></tr>
-                            <tr><td><code>red_list_germany</code></td><td>Rote Liste Status in Deutschland</td></tr>
-                            <tr><td><code>mtb64</code></td><td>MTB64-Kennzahl</td></tr>
-                            <tr><td><code>proof</code></td><td>Nachweisart</td></tr>
-                            <tr><td><code>characteristic</code></td><td>Besondere Merkmale / Erkennungszeichen</td></tr>
-                            <tr><td><code>habitat</code></td><td>Typischer Lebensraum</td></tr>
-                            <tr><td><code>dissemination</code></td><td>Verbreitungsgebiet oder Areal</td></tr>
-                            <tr><td><code>phenology</code></td><td>Flugzeit / Aktivitätszeitraum im Jahr</td></tr>
-                            <tr><td><code>remark</code></td><td>Weitere Bemerkungen zur Art</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <f:form action="export" method="post" class="species-maintenance__form">
+                        <div class="mb-3">
+                            <label class="form-label" for="exportStorageSelection">Datenbestand</label>
+                            <f:form.select
+                                id="exportStorageSelection"
+                                name="storageSelection"
+                                class="form-select"
+                                options="{storageOptions}"
+                                prependOptionValue=""
+                                prependOptionLabel="Datenbestand auswählen"
+                                additionalAttributes="{required: 'required'}"
+                            />
+                        </div>
+
+                        <f:form.submit class="btn btn-primary" value="CSV herunterladen" />
+                    </f:form>
+                </section>
+
+                <section class="tab-pane" id="species-import">
+                    <h2>Bearbeitete Datei importieren</h2>
+
+                    <f:form
+                        action="import"
+                        name="importData"
+                        method="post"
+                        enctype="multipart/form-data"
+                        class="species-maintenance__form"
+                    >
+                        <div class="mb-3">
+                            <label class="form-label" for="importStorageSelection">Datenbestand</label>
+                            <f:form.select
+                                id="importStorageSelection"
+                                name="storageSelection"
+                                class="form-select"
+                                options="{storageOptions}"
+                                prependOptionValue=""
+                                prependOptionLabel="Datenbestand auswählen"
+                                additionalAttributes="{required: 'required'}"
+                            />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="csvFile">Bearbeitete CSV-Datei</label>
+                            <f:form.upload
+                                id="csvFile"
+                                property="csvFile"
+                                class="form-control"
+                                additionalAttributes="{required: 'required', accept: '.csv,text/csv'}"
+                            />
+                        </div>
+
+                        <f:form.submit class="btn btn-primary" value="Import starten" />
+                    </f:form>
+                </section>
             </div>
         </div>
 
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="card-title">Kurzanleitung</h2>
+                <ol>
+                    <li>Passenden Datenbestand auswählen und herunterladen.</li>
+                    <li>CSV-Datei in Excel oder LibreOffice bearbeiten. Spaltenüberschriften und <code>import_id</code> nicht verändern.</li>
+                    <li>Datei als CSV speichern, denselben Datenbestand auswählen und wieder importieren.</li>
+                </ol>
+
+                <h3>Bitte beachten</h3>
+                <ul class="mb-0">
+                    <li><strong>Eine leere Zelle löscht den bisherigen Inhalt dieses Feldes.</strong></li>
+                    <li>Eine aus der Datei entfernte Zeile löscht keine Art aus TYPO3.</li>
+                    <li>Für eine neue Art eine neue Zeile mit eindeutiger <code>import_id</code>, <code>name</code>, <code>name_science</code> und <code>family</code> ergänzen.</li>
+                    <li><code>family</code> enthält die TYPO3-Kategorie-ID, nicht den Namen der Familie.</li>
+                    <li>Bilder und Dateien werden weder exportiert noch importiert.</li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-
 </f:section>

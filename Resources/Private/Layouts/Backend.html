@@ -1,158 +1,64 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<!DOCTYPE html>
+<html
+    lang="de"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arten-Daten pflegen</title>
+    <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:backend/Resources/Public/Css/backend.css')}" />
+    <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:backend/Resources/Public/Css/webfonts.css')}" />
+
     <style>
-        form {
-            max-width: 600px;
-            padding: 1.5rem;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            font-family: sans-serif;
-        }
-
-        form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        form input[type="text"],
-        form input[type="email"],
-        form input[type="file"],
-        form input[type="date"],
-        form input[type="number"],
-        form select,
-        form textarea {
-            width: 100%;
-            padding: 0.6rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 1rem;
-        }
-
-        form input[type="submit"],
-        form button {
-            background-color: #007acc;
-            color: #fff;
-            padding: 0.7rem 1.5rem;
-            border: 0;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        form input[type="submit"]:hover,
-        form button:hover {
-            background-color: #005fa3;
-        }
-
-        form .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .tabs {
-            max-width: 1000px;
-        }
-
-        .tabs input[type="radio"] {
-            display: none;
-        }
-
-        .tab-labels {
-            display: flex;
-            margin-bottom: -1px;
-        }
-
-        .tab-labels label {
-            padding: 12px 24px;
-            background: #e0e0e0;
-            border: 1px solid #ccc;
-            border-bottom: none;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            margin-right: 5px;
-            cursor: pointer;
-        }
-
-        .tab-labels label:hover {
-            background: #d5d5d5;
-        }
-
-        .tabs input[type="radio"]:checked + label {
-            background: #fff;
-            border-bottom: 1px solid #fff;
-            font-weight: bold;
-        }
-
-        .tab-content {
-            display: none;
-            border: 1px solid #ccc;
-            border-radius: 0 10px 10px 10px;
-            background-color: #fff;
-            padding: 20px;
-        }
-
-        #tab1:checked ~ .contents #content1,
-        #tab2:checked ~ .contents #content2 {
-            display: block;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1em;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f0f0f0;
-        }
-
-        tr:nth-child(even) {
-            background-color: #fafafa;
-        }
-
-        code {
-            background-color: #f1f1f1;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: Consolas, monospace;
-        }
-
-        a.download-link {
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: bold;
-            position: relative;
-            padding-right: 20px;
-            cursor: pointer;
-        }
-
-        a.download-link::after {
-            content: "↓";
+        .species-tabs > .species-tabs__toggle {
             position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 16px;
-            color: #004080;
+            inline-size: 1px;
+            block-size: 1px;
+            opacity: 0;
+            pointer-events: none;
         }
 
-        a.download-link:hover {
-            color: #004080;
-            text-decoration: underline;
+        .species-tabs .nav-link {
+            cursor: pointer;
+        }
+
+        .species-tabs .tab-content {
+            border: 1px solid var(--bs-border-color);
+            border-top: 0;
+            color: var(--typo3-text-color-base);
+            background: var(--typo3-surface-container-low);
+        }
+
+        .species-tabs .tab-pane {
+            display: none;
+            padding: 1.5rem;
+        }
+
+        #species-export-toggle:checked ~ .nav-tabs label[for="species-export-toggle"],
+        #species-import-toggle:checked ~ .nav-tabs label[for="species-import-toggle"] {
+            color: var(--bs-nav-tabs-link-active-color);
+            background-color: var(--bs-nav-tabs-link-active-bg);
+            border-color: var(--bs-nav-tabs-link-active-border-color);
+        }
+
+        #species-export-toggle:checked ~ .tab-content #species-export,
+        #species-import-toggle:checked ~ .tab-content #species-import {
+            display: block;
+        }
+
+        .species-maintenance__form {
+            max-width: 640px;
         }
     </style>
-
-    <div class="module-body t3js-module-body">
-        <f:render partial="FlashMessages" arguments="{_all}" />
-        <f:render section="content" />
-    </div>
+</head>
+<body class="t3js-body">
+    <main class="module-body">
+        <div class="container-small">
+            <f:render partial="FlashMessages" arguments="{_all}" />
+            <f:render section="content" />
+        </div>
+    </main>
+</body>
 </html>

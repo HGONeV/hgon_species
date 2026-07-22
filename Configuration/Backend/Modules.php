@@ -13,6 +13,7 @@ return [
             \HGON\HgonSpecies\Controller\BackendController::class => [
                 'index',
                 'import',
+                'export',
             ],
         ],
     ],
