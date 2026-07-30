@@ -18,7 +18,7 @@
                                         <picture class="card__image">
                                             <f:for each="{speciesItem.image}" as="image" iteration="iter">
                                                 <f:if condition="{iter.isFirst}">
-                                                    <f:image image="{image}" />
+                                                    <f:image image="{image}" cropVariant="4to3" width="600c" height="450c" />
                                                 </f:if>
                                             </f:for>
                                         </picture>
