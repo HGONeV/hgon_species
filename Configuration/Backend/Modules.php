@@ -5,7 +5,7 @@ return [
     'web_hgonspecies_speciesImport' => [
         'parent' => 'web',
         'position' => [],
-        'access' => 'user,group',
+        'access' => 'user',
         'iconIdentifier' => 'hgon-species-module',
         'labels' => 'LLL:EXT:hgon_species/Resources/Private/Language/locallang_be.xlf',
         'extensionName' => 'HgonSpecies',
