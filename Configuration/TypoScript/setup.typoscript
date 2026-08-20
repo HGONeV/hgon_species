@@ -81,6 +81,13 @@ plugin.tx_hgonspecies {
 
 }
 
+config.pageTitleProviders {
+    hgonSpecies {
+        provider = HGON\HgonSpecies\PageTitle\SpeciesTitleProvider
+        before = record,seo
+    }
+}
+
 # Legacy list_type fallback (pre-migration)
 tt_content.list.20 {
     hgonspecies_list < tt_content.hgonspecies_list

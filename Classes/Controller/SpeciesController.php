@@ -1,6 +1,8 @@
 <?php
 namespace HGON\HgonSpecies\Controller;
 
+use HGON\HgonSpecies\PageTitle\SpeciesTitleProvider;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -102,6 +104,16 @@ class SpeciesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     #[IgnoreValidation(['argumentName' => 'species'])]
     public function showAction(\HGON\HgonSpecies\Domain\Model\Species $species)
     {
+        $name = trim((string)$species->getName());
+        $scientificName = trim((string)$species->getNameScience());
+        $pageTitleParts = $species->getRecordType() === 'bird'
+            ? [$name, $scientificName]
+            : [$scientificName, $name];
+        $pageTitle = implode(' – ', array_filter($pageTitleParts));
+
+        if ($pageTitle !== '') {
+            GeneralUtility::makeInstance(SpeciesTitleProvider::class)->setTitle($pageTitle);
+        }
 
         $this->view->assign('species', $species);
 
