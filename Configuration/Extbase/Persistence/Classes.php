@@ -8,6 +8,11 @@ return [
             1 => \HGON\HgonSpecies\Domain\Model\SpeciesDragonfly::class,
             2 => \HGON\HgonSpecies\Domain\Model\SpeciesBird::class,
         ],
+        'properties' => [
+            'donationProject' => [
+                'fieldName' => 'tx_hgondonation_project',
+            ],
+        ],
     ],
 
     \HGON\HgonSpecies\Domain\Model\SpeciesDefault::class => [
@@ -38,5 +43,4 @@ return [
         ],
     ],
 ];
-
 

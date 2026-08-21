@@ -1,15 +1,22 @@
 
-    <f:link.action action="list" controller="Species" pluginName="List" pageUid="{settings.listPid}">
-        Zurück zur Liste
-    </f:link.action>
-    <br>
+    <div class="species-detail__back-row">
+        <f:link.action action="list" controller="Species" pluginName="List" pageUid="{settings.listPid}">
+            Zurück zur Liste
+        </f:link.action>
+    </div>
 
-    <h1 class="headline mb-0">
-        <f:comment>{species.nameScience} ({species.nameDiscoverer}, {species.year}) – {species.name}</f:comment>
-        {species.nameScience} – {species.name}
-    </h1>
+    <div class="species-detail__heading-row">
+        <div class="species-detail__heading-copy">
+            <h1 class="headline mb-0">
+                <f:comment>{species.nameScience} ({species.nameDiscoverer}, {species.year}) – {species.name}</f:comment>
+                {species.nameScience} – {species.name}
+            </h1>
 
-    <p class="mb-0">
-        <f:comment>Gattung "{species.family.title}"<br></f:comment>
-        Familie {species.family.parent.title}
-    </p>
+            <p class="mb-0">
+                <f:comment>Gattung "{species.family.title}"<br></f:comment>
+                Familie {species.family.parent.title}
+            </p>
+        </div>
+
+        <f:render partial="Species/Show/Components/DonationButton" arguments="{_all}" />
+    </div>

@@ -1,6 +1,7 @@
 <?php
 namespace HGON\HgonSpecies\Domain\Model;
 
+use HGON\HgonDonation\Domain\Model\Project;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 
@@ -257,6 +258,8 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var \HGON\HgonSpecies\Domain\Model\Attributes
      */
     protected $attributes = null;
+
+    protected ?Project $donationProject = null;
 
     /**
      * __construct
@@ -1007,5 +1010,15 @@ class Species extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setAttributes(\HGON\HgonSpecies\Domain\Model\Attributes $attributes)
     {
         $this->attributes = $attributes;
+    }
+
+    public function getDonationProject(): ?Project
+    {
+        return $this->donationProject;
+    }
+
+    public function setDonationProject(?Project $donationProject): void
+    {
+        $this->donationProject = $donationProject;
     }
 }

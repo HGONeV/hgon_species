@@ -9,6 +9,7 @@
         }
     ],
     "require": {
+        "hgon/hgon-donation": "dev-master",
         "typo3/cms-core": "^9.5 || ^10.4 || ^11.5 || ^12.4 || ^13.4"
     },
     "autoload": {

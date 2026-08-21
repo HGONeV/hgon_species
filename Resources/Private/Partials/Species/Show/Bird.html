@@ -8,14 +8,20 @@
             </f:link.action>
         </div>
 
-        <h1 class="headline species-detail__title">
-            <strong>{species.name}</strong>
-            <span class="species-detail__scientific-name">– {species.nameScience}</span>
-        </h1>
+        <div class="species-detail__heading-row">
+            <div class="species-detail__heading-copy">
+                <h1 class="headline species-detail__title">
+                    <strong>{species.name}</strong>
+                    <span class="species-detail__scientific-name">– {species.nameScience}</span>
+                </h1>
 
-        <f:if condition="{species.subtitle}">
-            <p class="species-detail__subtitle">{species.subtitle}</p>
-        </f:if>
+                <f:if condition="{species.subtitle}">
+                    <p class="species-detail__subtitle">{species.subtitle}</p>
+                </f:if>
+            </div>
+
+            <f:render partial="Species/Show/Components/DonationButton" arguments="{_all}" />
+        </div>
     </header>
 
     <div class="flex-container space-between gutter species-detail__columns">
