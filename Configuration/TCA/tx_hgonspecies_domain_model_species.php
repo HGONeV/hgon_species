@@ -545,7 +545,7 @@ return [
             'config' => [
                 'type' => 'file',
                 'allowed' => (string)($GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'] ?? 'jpg,jpeg,png,gif'),
-                'maxitems' => 1,
+                'maxitems' => 99,
                 'appearance' => [
                     'createNewRelationLinkTitle' =>
                         'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
@@ -593,7 +593,7 @@ return [
             'config' => [
                 'type' => 'file',
                 'allowed' => (string)($GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'] ?? 'jpg,jpeg,png,gif'),
-                'maxitems' => 1,
+                'maxitems' => 99,
                 'appearance' => [
                     'createNewRelationLinkTitle' =>
                         'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
