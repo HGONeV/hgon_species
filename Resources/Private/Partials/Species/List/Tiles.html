@@ -8,10 +8,10 @@
 
             <h3 id="anchor-category-{category.uid}">{category.title}</h3>
 
-            <div class="flex-container gutter valign-stretch no-padding">
+            <div class="flex-container gutter valign-stretch no-padding" data-species-search-group>
                 <f:for each="{speciesList}" as="speciesItem">
                     <f:if condition="{speciesItem.family.parent.uid} == {category.uid}">
-                        <div class="flex-item c-4">
+                        <div class="flex-item c-4" data-species-search-id="{speciesItem.uid}">
                             <div class="frame frame-default frame-type-textpic frame-layout-14">
                                 <article class="card card--shadow">
                                     <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : speciesItem}">
@@ -25,16 +25,17 @@
                                     </f:link.action>
                                     <div class="card__inner">
                                         <div class="card__content">
-                                            <p>
+                                            <p data-species-search-tile-name>
                                                 <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : speciesItem}">
                                                     <strong>{speciesItem.name}</strong>
                                                 </f:link.action>
                                             </p>
-                                            <p>
+                                            <p data-species-search-tile-name>
                                                 <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : speciesItem}">
                                                     {speciesItem.nameScience}
                                                 </f:link.action>
                                             </p>
+                                            <div data-species-search-tile-context hidden></div>
                                         </div>
                                     </div>
                                 </article>

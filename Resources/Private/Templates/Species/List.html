@@ -1,30 +1,45 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
 <div id="tx-hgonspecies">
+    <f:if condition="{speciesList} && ({speciesRecordType} == 'bird' || {speciesRecordType} == 'dragonfly')">
+        <f:asset.script identifier="hgon-species-search" src="EXT:hgon_species/Resources/Public/JavaScript/species-search.js" defer="1" />
+        <f:asset.css identifier="hgon-species-search" href="EXT:hgon_species/Resources/Public/Css/species-search.css" />
+    </f:if>
 
     <section class="section / js-tabs-container" id="species-tabs">
         <div class="section__content / no-padding-top">
-            <nav class="nav nav--tab js-tab-nav / align-right">
-                <ul>
-                    <li class="active">
-                        <a class="js-tab-link" href="#tab-01" data-index="0">
-                            Übersicht
-                        </a>
-                    </li>
-                    <li class="">
-                        <a class="js-tab-link" href="#tab-02" data-index="1">
-                            Liste
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="species-search__toolbar">
+                <f:if condition="{speciesList} && ({speciesRecordType} == 'bird' || {speciesRecordType} == 'dragonfly')">
+                    <input class="species-search__input" type="search" aria-label="Arten suchen" placeholder="Arten suchen" data-species-search-input hidden />
+                </f:if>
+                <nav class="nav nav--tab js-tab-nav / align-right">
+                    <ul>
+                        <li class="active">
+                            <a class="js-tab-link" href="#tab-01" data-index="0">
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="js-tab-link" href="#tab-02" data-index="1">
+                                Liste
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
             <div class="tabs js-tabs">
                 <div class="tab__item js-tab-item">
                     <f:render partial="Species/List/Tiles" arguments="{_all}" />
+                    <f:if condition="{speciesList} && ({speciesRecordType} == 'bird' || {speciesRecordType} == 'dragonfly')">
+                        <p data-species-search-empty role="status" hidden>Keine Arten gefunden.</p>
+                    </f:if>
                 </div>
                 <div class="tab__item js-tab-item">
                     <f:render partial="Species/List/Rows" arguments="{_all}" />
+                    <f:if condition="{speciesList} && ({speciesRecordType} == 'bird' || {speciesRecordType} == 'dragonfly')">
+                        <p data-species-search-empty role="status" hidden>Keine Arten gefunden.</p>
+                    </f:if>
                 </div>
             </div>
         </div>

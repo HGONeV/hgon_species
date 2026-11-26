@@ -1,0 +1,71 @@
+.species-search .species-search__toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, 24rem) minmax(0, 1fr);
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.species-search .species-search__input {
+    grid-column: 2;
+    grid-row: 1;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 2.5rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid #767676;
+    border-radius: 2rem;
+    font: inherit;
+}
+
+.species-search .species-search__toolbar > nav {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.species-search [data-species-search-id][hidden],
+.species-search [data-species-search-group][hidden] {
+    display: none !important;
+}
+
+.species-search__scientific-name:not([hidden]) {
+    display: block;
+}
+
+.species-search__match {
+    background-color: #ffec91;
+    color: #292500;
+}
+
+.species-search__excerpt {
+    margin: 0.5rem 0 0;
+    font-size: 0.875em;
+}
+
+/* Size the container from the selected tab while the panel classes animate. */
+.species-search .js-tabs {
+    height: auto !important;
+}
+
+.species-search:has(.js-tab-nav li:nth-child(1).active) .js-tab-item:nth-child(1),
+.species-search:has(.js-tab-nav li:nth-child(2).active) .js-tab-item:nth-child(2) {
+    position: relative;
+}
+
+@media (max-width: 62rem) {
+    .species-search .species-search__toolbar {
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+        row-gap: 0.5rem;
+    }
+
+    .species-search .species-search__input {
+        grid-column: 1;
+        max-width: 24rem;
+    }
+
+    .species-search .species-search__toolbar > nav {
+        grid-column: 1;
+        grid-row: 2;
+        justify-self: end;
+    }
+}

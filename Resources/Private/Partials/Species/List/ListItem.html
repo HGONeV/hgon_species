@@ -2,7 +2,7 @@
 
 
     <f:if condition="{speciesRecordType} == 'dragonfly'">
-        <tr>
+        <tr data-species-search-id="{species.uid}">
             <td>
                 <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : species}">
                     {species.nameScience}
@@ -55,11 +55,14 @@
 
 
     <f:if condition="{speciesRecordType} == 'bird'">
-        <tr>
+        <tr data-species-search-id="{species.uid}">
             <td>
                 <f:link.action action="show" controller="Species" pluginName="show" pageUid="{settings.showPid}" arguments="{species : species}">
                     {species.name}
                 </f:link.action>
+                <f:if condition="{species.nameScience}">
+                    <small class="species-search__scientific-name" data-species-search-scientific hidden>{species.nameScience}</small>
+                </f:if>
             </td>
             <td>
                 <f:if condition="{species.remark}">
