@@ -144,8 +144,8 @@
                 <target>Bestandsentwicklung</target>
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.custom_link">
-                <source>Custom Link</source>
-                <target>Weiterführender Link</target>
+                <source>Xeno-canto recording link</source>
+                <target>Xeno-Canto-Aufnahmelink</target>
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.dda_link">
                 <source>DDA species portrait URL</source>
