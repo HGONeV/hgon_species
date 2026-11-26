@@ -29,16 +29,29 @@
             <f:render partial="Species/Show/Components/Col1" arguments="{_all}" />
 
             <f:if condition="{species.customLink}">
+                <f:variable name="recordingId" value="{species.xenoCantoRecordingId}" />
+                <f:variable name="recordingLink" value="{species.customLink}" />
                 <section class="species-detail__panel species-detail__audio">
                     <h2 class="species-detail__section-title">Gesang und Rufe</h2>
-                    <a href="{species.customLink}" target="_blank" rel="noopener noreferrer">
+                    <f:if condition="{recordingId}">
+                        <f:variable name="recordingLink">https://xeno-canto.org/{recordingId}</f:variable>
+                        <iframe
+                            src="https://xeno-canto.org/{recordingId}/embed?simple=1"
+                            title="Xeno-Canto-Aufnahme: {species.name}"
+                            width="340"
+                            height="115"
+                            loading="lazy"
+                            style="display: block; max-width: 100%; border: 0;"
+                        ></iframe>
+                    </f:if>
+                    <f:link.typolink parameter="{recordingLink}" target="_blank" additionalAttributes="{rel: 'noopener noreferrer'}">
                         Audioaufnahme öffnen
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                             <polyline points="15 3 21 3 21 9"/>
                             <line x1="10" y1="14" x2="21" y2="3"/>
                         </svg>
-                    </a>
+                    </f:link.typolink>
                 </section>
             </f:if>
         </div>
