@@ -99,6 +99,9 @@
             <trans-unit id="tx_hgonspecies_domain_model_species.custom_link">
                 <source>Custom Link</source>
             </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.dda_link">
+                <source>DDA species portrait URL</source>
+            </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.import_id">
                 <source>Import ID</source>
             </trans-unit>
@@ -161,6 +164,9 @@
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.tab_family">
                 <source>Family</source>
+            </trans-unit>
+            <trans-unit id="tx_hgonspecies_domain_model_species.tab_attributes">
+                <source>Attributes</source>
             </trans-unit>
             <trans-unit id="tx_hgonspecies_domain_model_species.attributes">
                 <source>Attributes</source>

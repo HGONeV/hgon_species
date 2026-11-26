@@ -32,6 +32,7 @@ CREATE TABLE tx_hgonspecies_domain_model_species (
     population_in_hessia text,
     population_development text,
     custom_link varchar(255) DEFAULT '' NOT NULL,
+    dda_link varchar(255) DEFAULT '' NOT NULL,
     import_id varchar(255) DEFAULT '' NOT NULL,
 
 	image int(11) unsigned DEFAULT '0' NOT NULL,

@@ -17,6 +17,21 @@ namespace HGON\HgonSpecies\Domain\Model;
  */
 class SpeciesBird extends Species
 {
+    protected string $ddaLink = '';
 
+    public function getDdaLink(): string
+    {
+        return self::isDdaPortraitUrl($this->ddaLink) ? $this->ddaLink : '';
+    }
 
+    public function setDdaLink(string $ddaLink): void
+    {
+        $this->ddaLink = trim($ddaLink);
+    }
+
+    public static function isDdaPortraitUrl(string $url): bool
+    {
+        return strlen($url) <= 255
+            && preg_match('~^https://(?:www\.)?dda-web\.de/voegel/voegel-in-deutschland/[^\s/\\\\?#]+$~uD', $url) === 1;
+    }
 }

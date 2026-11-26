@@ -190,6 +190,15 @@
                 </f:if>
             </section>
 
+            <f:if condition="{species.ddaLink}">
+                <section class="species-detail__panel">
+                    <h2 class="species-detail__section-title">Status und Verbreitung in Deutschland</h2>
+                    <a href="{species.ddaLink}" target="_blank" rel="noopener noreferrer">
+                        Artporträt beim DDA öffnen <span aria-hidden="true">↗</span>
+                    </a>
+                </section>
+            </f:if>
+
             <f:if condition="{species.phenology}">
                 <section class="species-detail__panel">
                     <h2 class="species-detail__section-title">Phänologie in Hessen</h2>

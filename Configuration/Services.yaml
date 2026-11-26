@@ -6,3 +6,10 @@ services:
 
   HGON\HgonSpecies\:
     resource: '../Classes/*'
+
+  HGON\HgonSpecies\Command\SeedDdaLinksCommand:
+    tags:
+      - name: 'console.command'
+        command: 'hgon:species:seed-dda-links'
+        description: 'Check or populate the initial DDA portrait links for HGON birds.'
+        schedulable: false
